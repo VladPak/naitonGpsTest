@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NaitonGps.Views.LoginCompanySelectScreen"
+             xmlns:local="clr-namespace:NaitonGps.Controls"
+             xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             NavigationPage.HasNavigationBar="False"
+             iOS:Page.UseSafeArea="true"
+             iOS:Page.PrefersStatusBarHidden="Default"
+             iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
+             >
+    <ContentPage.Content>
+        <Grid Margin="20, 0, 20, 0"  RowSpacing="0" ColumnSpacing="0" VerticalOptions="Center" HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" Source="nonLogo.png"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="StartAndExpand" Text="Company name" Style="{DynamicResource adaptiveTextColor}" FontAttributes="Bold" FontSize="18" Margin="0,10,0,0"></Label>
+            <local:BorderedEntry Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="entCompany" Placeholder="e.g. naitonmain" Margin="0,40,0,0" TextTransform="Lowercase"/>
+
+            <Frame VerticalOptions="Center" Grid.Row="2" Grid.Column="2" BackgroundColor="#66a103" CornerRadius="5" BorderColor="{AppThemeBinding Light={StaticResource colorGreen}, Dark={StaticResource colorGreen}}" HasShadow="False" WidthRequest="100">
+                <Label Text="Next" FontSize="15" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TabCompanySelect" Tapped="TabCompanySelect_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NaitonGps.Views.MainNavigationPage"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             iOS:Page.UseSafeArea="true"
+             iOS:Page.PrefersStatusBarHidden="Default"
+             iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
+             BackgroundColor="{AppThemeBinding Light={DynamicResource colorWhite}, Dark={DynamicResource colorGrey}}"
+             >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--#region Bottom Navigation Menu -->
+        <Image Grid.Row="0" Grid.Column="0" Source="{AppThemeBinding Light=leftarrow.png, Dark=leftarrowWhite.png}" WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" VerticalOptions="End">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_PreviousRole" ></TapGestureRecognizer>
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Grid.Row="0" Grid.Column="2" Source="{AppThemeBinding Light=rightarrow.png, Dark=rightarrowWhite.png}" WidthRequest="30" HeightRequest="30" HorizontalOptions="End" VerticalOptions="End">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_NextRole" ></TapGestureRecognizer>
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Grid x:Name="bottomNavMenu" Grid.Row="0" Grid.Column="1" ColumnSpacing="25" HorizontalOptions="Center" VerticalOptions="End">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Image x:Name="navItem1" Grid.Row="0" Grid.Column="0" Source="" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center">
+            </Image>
+            <Label x:Name="txtItem1" Text="Home" Grid.Row="0" Grid.Column="0" Margin="0,50,0,0" FontSize="10" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+
+            <Image x:Name="navItem2" Grid.Row="0" Grid.Column="1" Source="{AppThemeBinding Light=chat.png, Dark=chatWhite.png}" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+            </Image>
+            <Label x:Name="txtItem2" Text="Chat" Grid.Row="0" Grid.Column="1" Margin="0,50,0,0" FontSize="10" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+
+            <Image x:Name="navItem3" Grid.Row="0" Grid.Column="2" Source="{AppThemeBinding Light=vehicle.png, Dark=vehicleWhite.png}" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+            </Image>
+            <Label x:Name="txtItem3" Text="Vehicles" Grid.Row="0" Grid.Column="2" Margin="0,50,0,0" FontSize="10" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+
+            <Image x:Name="navItem4" Grid.Row="0" Grid.Column="3" Source="{AppThemeBinding Light=compass.png, Dark=compassWhite.png}" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+            </Image>
+            <Label x:Name="txtItem4" Text="Navi" Grid.Row="0" Grid.Column="3" Margin="0,50,0,0" FontSize="10" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+
+            <Image x:Name="navItem5" Grid.Row="0" Grid.Column="4" Source="{AppThemeBinding Light=package.png, Dark=packageWhite.png}" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+            </Image>
+            <Label x:Name="txtItem5" Text="Delivery" Grid.Row="0" Grid.Column="4" Margin="0,50,0,0" FontSize="10" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+
+            <Grid.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped_PreviousRole"></SwipeGestureRecognizer>
+                <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped_NextRole"></SwipeGestureRecognizer>
+            </Grid.GestureRecognizers>
+        </Grid>
+        <!--#endregion-->
+    </Grid>
+</ContentPage>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NaitonGps.Views.MainPage"
+             xmlns:local="clr-namespace:NaitonGps.Views"
+             xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             Shell.NavBarIsVisible="False"
+             Shell.TitleColor="Green"
+             Shell.TabBarUnselectedColor="{AppThemeBinding Light={DynamicResource colorBlack}, Dark={DynamicResource colorBlack}}"
+             NavigationPage.HasNavigationBar="False"
+             iOS:Page.UseSafeArea="true"
+             iOS:Page.PrefersStatusBarHidden="Default"
+             iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
+       >
+    <TabBar>
+        <Tab Title="Dashboard" Icon="home.png">
+            <ShellContent>
+                <local:DashboardPage/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Chat" Icon="chat.png">
+            <ShellContent>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Vehicles" Icon="shipped.png">
+            <ShellContent>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Navi" Icon="compass.png">
+            <ShellContent>
+            </ShellContent>
+        </Tab>
+        <Tab Title="More" Icon="more.png">
+            <ShellContent>
+            </ShellContent>
+        </Tab>
+    </TabBar>
+</Shell>
