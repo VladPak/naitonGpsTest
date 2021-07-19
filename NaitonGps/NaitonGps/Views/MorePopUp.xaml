@@ -33,7 +33,7 @@
 
                 <Label Grid.Column="0" Grid.Row="0" HorizontalOptions="Center" Text="This is title test label" TextColor="{AppThemeBinding Light={StaticResource colorBlack}, Dark={StaticResource colorWhite}}"></Label>
                 <Label Grid.Column="0" Grid.Row="1" HorizontalOptions="Start" Text="This is just a text for the filling the space of this PopUp window. And by the way, this is gonna be Naiton GPS app fully built on Xamarin." TextColor="{AppThemeBinding Light={StaticResource colorBlack}, Dark={StaticResource colorWhite}}"></Label>
-                <Frame Grid.Column="0" Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="100" HeightRequest="32" CornerRadius="25" BackgroundColor="#66a103" BorderColor="{AppThemeBinding Light={StaticResource colorGreen}, Dark={StaticResource colorGreen}}" HasShadow="False" >
+                <Frame Grid.Column="0" Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="100" HeightRequest="40" CornerRadius="25" BackgroundColor="#66a103" BorderColor="{AppThemeBinding Light={StaticResource colorGreen}, Dark={StaticResource colorGreen}}" HasShadow="False" >
                     <Label Text="Close" TextColor="{AppThemeBinding Light={StaticResource colorWhite}, Dark={StaticResource colorWhite}}" HorizontalOptions="Center" VerticalOptions="Center">
                     </Label>
                     <Frame.GestureRecognizers>

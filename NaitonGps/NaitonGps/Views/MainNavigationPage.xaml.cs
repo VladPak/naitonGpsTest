@@ -19,6 +19,7 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainNavigationPage : ContentPage
     {
+
         public ObservableCollection<UserViewModel> allRecords { get; set; } = new ObservableCollection<UserViewModel>();
         public int maxIndex = 2;
         public int minIndex = 0;
@@ -92,7 +93,6 @@ namespace NaitonGps.Views
             bodyContentAnimated();
             PreviousContent();
             moveMenu();
-            NavigationSystem();
             NavMenuIconsChange();
         }
 
@@ -102,7 +102,6 @@ namespace NaitonGps.Views
             bodyContentAnimated();
             NextContent();
             moveMenu();
-            NavigationSystem();
             NavMenuIconsChange();
         }
 
@@ -269,6 +268,8 @@ namespace NaitonGps.Views
             navItem5.GestureRecognizers.Add(tapGestureRecognizer5);
         }
 
+
+        //detecting Light/Dark mode for icon change
         OSAppTheme currentTheme = Application.Current.RequestedTheme;
 
         public void NavMenuIconsChange()
@@ -281,7 +282,7 @@ namespace NaitonGps.Views
                     navItem2.Source = "chat.png";
                     navItem3.Source = "vehicle.png";
                     navItem4.Source = "compass.png";
-                    navItem5.Source = "package.png";
+                    navItem5.Source = "delivery.png";
                 }
                 else if (currentTheme == OSAppTheme.Dark)
                 {
@@ -289,7 +290,7 @@ namespace NaitonGps.Views
                     navItem2.Source = "chatWhite.png";
                     navItem3.Source = "vehicleWhite.png";
                     navItem4.Source = "compassWhite.png";
-                    navItem5.Source = "packageWhite.png";
+                    navItem5.Source = "deliveryWhite.png";
                 }
 
                 txtItem1.Text = "Home";
@@ -325,6 +326,86 @@ namespace NaitonGps.Views
                 txtItem3.Text = "SPage3";
                 txtItem4.Text = "SPage4";
                 txtItem5.Text = "SPage5";
+            }
+        }
+
+        private void NavigatingFirstMenu(object sender, EventArgs e)
+        {
+            if (selectedIndex == 0)
+            {
+                ControlTemplate = template1;
+            }
+            else if (selectedIndex == 1)
+            {
+                ControlTemplate = template2;
+            }
+            else if (selectedIndex == 2)
+            {
+                ControlTemplate = template3;
+            }
+        }
+
+        private void NavigatingSecondMenu(object sender, EventArgs e)
+        {
+            if (selectedIndex == 0)
+            {
+                ControlTemplate = template11;
+            }
+            else if (selectedIndex == 1)
+            {
+                ControlTemplate = template21;
+            }
+            else if (selectedIndex == 2)
+            {
+                ControlTemplate = template31;
+            }
+        }
+
+        private void NavigatingThirdMenu(object sender, EventArgs e)
+        {
+            if (selectedIndex == 0)
+            {
+                ControlTemplate = template12;
+            }
+            else if (selectedIndex == 1)
+            {
+                ControlTemplate = template22;
+            }
+            else if (selectedIndex == 2)
+            {
+                ControlTemplate = template32;
+            }
+        }
+
+        private void NavigatingFourthMenu(object sender, EventArgs e)
+        {
+            if (selectedIndex == 0)
+            {
+                ControlTemplate = template13;
+            }
+            else if (selectedIndex == 1)
+            {
+                ControlTemplate = template23;
+            }
+            else if (selectedIndex == 2)
+            {
+                ControlTemplate = template33;
+            }
+        }
+
+        private void NavigatingFifthMenu(object sender, EventArgs e)
+        {
+            if (selectedIndex == 0)
+            {
+                ControlTemplate = template14;
+            }
+            else if (selectedIndex == 1)
+            {
+                ControlTemplate = template24;
+            }
+            else if (selectedIndex == 2)
+            {
+                ControlTemplate = template34;
             }
         }
     }

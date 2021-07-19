@@ -310,10 +310,10 @@
     <BundleResource Include="Resources\rightarrowWhite.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\packageWhite.png" />
+    <BundleResource Include="Resources\deliveryWhite.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\package.png" />
+    <BundleResource Include="Resources\delivery.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vehicleWhite.png" />
