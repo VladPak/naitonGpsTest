@@ -9,3 +9,10 @@
     <Color x:Key="colorTransparent">#00000000</Color>
     <Color x:Key="colorRed">#ff0000</Color>
 </ResourceDictionary>
+
+
+<!--
+                            <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="Start" VerticalOptions="Center" HasShadow="False" BackgroundColor="#69b870" CornerRadius="5">
+                <Label x:Name="lblCompanyName" Text="..." TextColor="White"></Label>
+            </Frame>
+            -->

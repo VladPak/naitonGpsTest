@@ -29,13 +29,14 @@ namespace NaitonGps.Views
                 //Call Web service
                 if (response)
                 {
-                    await DisplayAlert("", "Company exists. You may log in", "Ok");
                     //Redirect to the page
                     await Navigation.PushModalAsync(new LoginEmailScreen());
+                    entCompany.Text = string.Empty;
                 }
                 else
                 {
                     await DisplayAlert("", "Company does not exist. Please enter valid company name", "Ok");
+                    entCompany.Text = string.Empty;
                 }
             }
             else

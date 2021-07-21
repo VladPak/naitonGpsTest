@@ -13,36 +13,32 @@ using Xamarin.Forms.Xaml;
 namespace NaitonGps.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginEmailScreen : ContentPage
+    public partial class LoginPasswordScreen : ContentPage
     {
-        public LoginEmailScreen()
+        public LoginPasswordScreen()
         {
             InitializeComponent();
-            //lblCompanyName.Text = $"Web Service: {Preferences.Get("webservicelink", string.Empty)}";
-
-            //entEmail.ReturnCommand = new Command(() => entEmail.Focus());
-            
         }
 
-        private void TapBackToCompanySelect_Tapped(object sender, EventArgs e)
+        private async void tapBackToEmailScreen_Tapped(object sender, EventArgs e)
         {
-            Navigation.PopModalAsync();
-            entEmail.Text = string.Empty;
+            await Navigation.PopModalAsync();
+            entPassword.Text = string.Empty;
         }
 
-        private async void TapEmailSelect_Tapped(object sender, EventArgs e)
+        private async void tapLogin_Tapped(object sender, EventArgs e)
         {
-            Preferences.Set("loginEmail", entEmail.Text);
-            var userEmail = entEmail.Text;
+            var userEmail = Preferences.Get("loginEmail", string.Empty);
             var emailPattern = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
             var providerPattern = @"\b(naitongps)\b";
             var webServiceName = Preferences.Get("loginCompany", string.Empty);
+            var userPassword = entPassword.Text;
 
             if (CrossConnectivity.Current.IsConnected)
-            {                    
-                if (string.IsNullOrEmpty(userEmail))
+            {
+                if (string.IsNullOrEmpty(userPassword) || userPassword != "Gromit12")
                 {
-                    await DisplayAlert("", "Invalid email", "Ok");
+                    await DisplayAlert("", "Invalid password", "Ok");
                 }
                 else
                 {
@@ -50,15 +46,28 @@ namespace NaitonGps.Views
                     {
                         if (Regex.IsMatch(webServiceName, providerPattern))
                         {
-                            //await Task.Delay(150);
-                            await Navigation.PushModalAsync(new LoginPasswordScreen());
-                            entEmail.Text = string.Empty;
-                            //Application.Current.MainPage = new MainNavigationPage();
+                            var checkAccess = Preferences.Get("loginCompany", string.Empty);
+                            var response = await ApiService.Login(userEmail, entPassword.Text);
+
+                            if (response)
+                            {
+                                //await Task.Delay(150);
+                                //Application.Current.MainPage = new MainPage();
+                                Application.Current.MainPage = new MainNavigationPage();
+                            }
+                            else
+                            {
+                                await DisplayAlert("", "You have problems with Web Service. Please contact the support center", "Ok");
+                            }
                         }
                         else
                         {
                             await DisplayAlert("", "Only naitongps users allowed", "Ok");
                         }
+                    }
+                    else if (string.IsNullOrWhiteSpace(userPassword))
+                    {
+                        await DisplayAlert("", "Password field is empty", "Ok");
                     }
                     else if (!Regex.IsMatch(userEmail, emailPattern))
                     {
@@ -66,7 +75,7 @@ namespace NaitonGps.Views
                     }
                     else
                     {
-                        await DisplayAlert("", "Email input error.", "Ok");
+                        await DisplayAlert("", "Email or password input error.", "Ok");
                     }
                 }
             }
