@@ -14,6 +14,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+//Here
 namespace NaitonGps.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -278,16 +279,12 @@ namespace NaitonGps.Views
             {
                 if (currentTheme == OSAppTheme.Light)
                 {
-                    navItem1.Source = "home.png";
-                    navItem2.Source = "chat.png";
                     navItem3.Source = "vehicle.png";
                     navItem4.Source = "compass.png";
                     navItem5.Source = "delivery.png";
                 }
                 else if (currentTheme == OSAppTheme.Dark)
                 {
-                    navItem1.Source = "homeWhite.png";
-                    navItem2.Source = "chatWhite.png";
                     navItem3.Source = "vehicleWhite.png";
                     navItem4.Source = "compassWhite.png";
                     navItem5.Source = "deliveryWhite.png";
@@ -301,8 +298,6 @@ namespace NaitonGps.Views
             }
             else if (selectedIndex == 1)
             {
-                navItem1.Source = "home.png";
-                navItem2.Source = "chat.png";
                 navItem3.Source = "notFound.png";
                 navItem4.Source = "notFound.png";
                 navItem5.Source = "notFound.png";
@@ -315,8 +310,6 @@ namespace NaitonGps.Views
             }
             else if (selectedIndex == 2)
             {
-                navItem1.Source = "home.png";
-                navItem2.Source = "chat.png";
                 navItem3.Source = "notFound.png";
                 navItem4.Source = "notFound.png";
                 navItem5.Source = "notFound.png";

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NaitonGps.Views.MainNavigationPage"
              xmlns:localTriggers="clr-namespace:NaitonGps.Triggers" 
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              NavigationPage.HasNavigationBar="False"
              xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              iOS:Page.UseSafeArea="true"
@@ -21,12 +22,12 @@
         </Grid.ColumnDefinitions>
 
         <!--#region Bottom Navigation Menu -->
-        <Image Grid.Row="0" Grid.Column="0" Source="{AppThemeBinding Light=leftarrow.png, Dark=leftarrowWhite.png}" WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" VerticalOptions="End">
+        <Image Grid.Row="0" Grid.Column="0" Source="{AppThemeBinding Light=leftarrow.png, Dark=leftarrowWhite.png}" xct:IconTintColorEffect.TintColor="{AppThemeBinding Light=Black, Dark=White}" WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" VerticalOptions="End">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_PreviousRole" ></TapGestureRecognizer>
             </Image.GestureRecognizers>
         </Image>
-        <Image Grid.Row="0" Grid.Column="2" Source="{AppThemeBinding Light=rightarrow.png, Dark=rightarrowWhite.png}" WidthRequest="30" HeightRequest="30" HorizontalOptions="End" VerticalOptions="End">
+        <Image Grid.Row="0" Grid.Column="2" Source="{AppThemeBinding Light=rightarrow.png, Dark=rightarrowWhite.png}" xct:IconTintColorEffect.TintColor="{AppThemeBinding Light=Black, Dark=White}"  WidthRequest="30" HeightRequest="30" HorizontalOptions="End" VerticalOptions="End">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_NextRole" ></TapGestureRecognizer>
             </Image.GestureRecognizers>
@@ -44,16 +45,12 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-
-            <Image x:Name="navItem1" Grid.Row="0" Grid.Column="0" Source="" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center">
+            <Image x:Name="navItem1" Grid.Row="0" Grid.Column="0" Source="home.png" xct:IconTintColorEffect.TintColor="{AppThemeBinding Light=Black, Dark=White}" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingFirstMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
-            <Label x:Name="txtItem1" Text="Home" Grid.Row="0" Grid.Column="0" Margin="0,50,0,0" FontSize="10" VerticalOptions="Center" HorizontalOptions="Center">
-            </Label>
-            
-
+            <Label x:Name="txtItem1" Text="Home"  Margin="0,50,0,0" FontSize="10" VerticalOptions="Center" HorizontalOptions="Center"></Label>
 
             <Image x:Name="navItem2" Grid.Row="0" Grid.Column="1" Source="{AppThemeBinding Light=chat.png, Dark=chatWhite.png}" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
                 <Image.GestureRecognizers>

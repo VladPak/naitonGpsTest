@@ -51,7 +51,6 @@ namespace NaitonGps.Views
 
                             if (response)
                             {
-                                //await Task.Delay(150);
                                 //Application.Current.MainPage = new MainPage();
                                 Application.Current.MainPage = new MainNavigationPage();
                             }
