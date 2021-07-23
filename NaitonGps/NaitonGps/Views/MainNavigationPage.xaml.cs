@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.CommunityToolkit.Markup;
 
 //Here
 namespace NaitonGps.Views
@@ -49,16 +50,10 @@ namespace NaitonGps.Views
         {
             InitializeComponent();
             ControlTemplate = template1;
+            HighLightEffect();
             templateIndex = 0;
             selectedIndex = 0;
             BindingContext = new UserViewModel();
-
-            Application.Current.RequestedThemeChanged += (_, args) =>
-            {
-                navItem1.Source = args.RequestedTheme.ToString();
-            };
-
-            navItem1.SetOnAppTheme(Image.SourceProperty, "home.png", "homeWhite.png");
         }
 
         //PopUp call
@@ -74,7 +69,6 @@ namespace NaitonGps.Views
             PreviousContent();
             moveMenu();
             bodyContentAnimated();
-            NavigationSystem();
             NavMenuIconsChange();
         }
 
@@ -84,7 +78,6 @@ namespace NaitonGps.Views
             NextContent();
             moveMenu();
             bodyContentAnimated();
-            NavigationSystem();
             NavMenuIconsChange();
         }
 
@@ -181,95 +174,6 @@ namespace NaitonGps.Views
             //await UserList.TranslateTo(0, 0, 250);
         }
 
-        public void NavigationSystem()
-        {
-            var tapGestureRecognizer1 = new TapGestureRecognizer();
-            tapGestureRecognizer1.Tapped += (s, e) => {
-                if (selectedIndex == 0)
-                {
-                    ControlTemplate = template1;
-                }
-                else if (selectedIndex == 1)
-                {
-                    ControlTemplate = template2;
-                }
-                else if (selectedIndex == 2)
-                {
-                    ControlTemplate = template3;
-                }
-            };
-            navItem1.GestureRecognizers.Add(tapGestureRecognizer1);
-
-            var tapGestureRecognizer2 = new TapGestureRecognizer();
-            tapGestureRecognizer2.Tapped += (s, e) => {
-                if (selectedIndex == 0)
-                {
-                    ControlTemplate = template11;
-                }
-                else if (selectedIndex == 1)
-                {
-                    ControlTemplate = template21;
-                }
-                else if (selectedIndex == 2)
-                {
-                    ControlTemplate = template31;
-                }
-            };
-            navItem2.GestureRecognizers.Add(tapGestureRecognizer2);
-
-            var tapGestureRecognizer3 = new TapGestureRecognizer();
-            tapGestureRecognizer3.Tapped += (s, e) => {
-                if (selectedIndex == 0)
-                {
-                    ControlTemplate = template12;
-                }
-                else if (selectedIndex == 1)
-                {
-                    ControlTemplate = template22;
-                }
-                else if (selectedIndex == 2)
-                {
-                    ControlTemplate = template32;
-                }
-            };
-            navItem3.GestureRecognizers.Add(tapGestureRecognizer3);
-
-            var tapGestureRecognizer4 = new TapGestureRecognizer();
-            tapGestureRecognizer4.Tapped += (s, e) => {
-                if (selectedIndex == 0)
-                {
-                    ControlTemplate = template13;
-                }
-                else if (selectedIndex == 1)
-                {
-                    ControlTemplate = template23;
-                }
-                else if (selectedIndex == 2)
-                {
-                    ControlTemplate = template33;
-                }
-            };
-            navItem4.GestureRecognizers.Add(tapGestureRecognizer4);
-
-            var tapGestureRecognizer5 = new TapGestureRecognizer();
-            tapGestureRecognizer5.Tapped += (s, e) => {
-                if (selectedIndex == 0)
-                {
-                    ControlTemplate = template14;
-                }
-                else if (selectedIndex == 1)
-                {
-                    ControlTemplate = template24;
-                }
-                else if (selectedIndex == 2)
-                {
-                    ControlTemplate = template34;
-                }
-            };
-            navItem5.GestureRecognizers.Add(tapGestureRecognizer5);
-        }
-
-
         //detecting Light/Dark mode for icon change
         OSAppTheme currentTheme = Application.Current.RequestedTheme;
 
@@ -277,18 +181,9 @@ namespace NaitonGps.Views
         {
             if (selectedIndex == 0)
             {
-                if (currentTheme == OSAppTheme.Light)
-                {
-                    navItem3.Source = "vehicle.png";
-                    navItem4.Source = "compass.png";
-                    navItem5.Source = "delivery.png";
-                }
-                else if (currentTheme == OSAppTheme.Dark)
-                {
-                    navItem3.Source = "vehicleWhite.png";
-                    navItem4.Source = "compassWhite.png";
-                    navItem5.Source = "deliveryWhite.png";
-                }
+                navItem3.Source = "vehicle.png";
+                navItem4.Source = "compass.png";
+                navItem5.Source = "delivery.png";
 
                 txtItem1.Text = "Home";
                 txtItem2.Text = "Chat";
@@ -327,14 +222,20 @@ namespace NaitonGps.Views
             if (selectedIndex == 0)
             {
                 ControlTemplate = template1;
+                HighLightEffect();
+
             }
             else if (selectedIndex == 1)
             {
                 ControlTemplate = template2;
+                HighLightEffect();
+
             }
             else if (selectedIndex == 2)
             {
                 ControlTemplate = template3;
+                HighLightEffect();
+
             }
         }
 
@@ -343,14 +244,20 @@ namespace NaitonGps.Views
             if (selectedIndex == 0)
             {
                 ControlTemplate = template11;
+                HighLightEffect();
+
             }
             else if (selectedIndex == 1)
             {
                 ControlTemplate = template21;
+                HighLightEffect();
+
             }
             else if (selectedIndex == 2)
             {
                 ControlTemplate = template31;
+                HighLightEffect();
+
             }
         }
 
@@ -400,6 +307,12 @@ namespace NaitonGps.Views
             {
                 ControlTemplate = template34;
             }
+        }
+
+        public void HighLightEffect()
+        {
+            //navItem1.BackgroundColor = Color.Red;
+            //txtItem1.TextColor = Color.Red;
         }
     }
 }

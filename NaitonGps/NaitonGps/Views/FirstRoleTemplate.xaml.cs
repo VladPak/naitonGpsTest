@@ -20,6 +20,8 @@ namespace NaitonGps.Views
         {
             InitializeComponent();
             lblUserEmail.Text = Preferences.Get("loginEmail", string.Empty);
+
+            move();
         }
 
         private async void PopUpSample(object sender, EventArgs e)
@@ -29,10 +31,12 @@ namespace NaitonGps.Views
 
         public async void move()
         {
-            await mainGrid.Children[0].TranslateTo(0, 200, 200, Easing.Linear);
-            await mainGrid.Children[0].TranslateTo(0, 0);
-            await mainGrid.Children[1].TranslateTo(0, 200, 200, Easing.Linear);
-            await mainGrid.Children[1].TranslateTo(0, 0);
+            await Content.TranslateTo(0, -300, 30, Easing.Linear);
+            await Header.TranslateTo(0, -300, 30, Easing.Linear);
+            Header.IsVisible = true;
+            Content.IsVisible = true;
+            await Header.TranslateTo(0, 0, 500);
+            await Content.TranslateTo(0, 0, 300);
         }
 
     }

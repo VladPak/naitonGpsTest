@@ -21,7 +21,7 @@
     </Grid.ColumnDefinitions>
 
     <!--#region Header and Body content -->
-    <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+    <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="Header" IsVisible="false">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -62,6 +62,6 @@
     </Grid>
     <!--#endregion-->
 
-    <Label  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="Large" Text="Role: Driver"/>
+    <Label IsVisible="false" x:Name="Content" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="Large" Text="Role: Driver"/>
     <ContentPresenter Grid.Row="2" Grid.ColumnSpan="3" />
 </Grid>
