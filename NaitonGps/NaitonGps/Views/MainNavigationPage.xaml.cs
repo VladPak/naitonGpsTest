@@ -70,6 +70,8 @@ namespace NaitonGps.Views
             moveMenu();
             bodyContentAnimated();
             NavMenuIconsChange();
+            HighLightEffect();
+
         }
 
         //Next Role
@@ -79,6 +81,8 @@ namespace NaitonGps.Views
             moveMenu();
             bodyContentAnimated();
             NavMenuIconsChange();
+            HighLightEffect();
+
         }
 
         //Previous Role
@@ -88,6 +92,8 @@ namespace NaitonGps.Views
             PreviousContent();
             moveMenu();
             NavMenuIconsChange();
+            HighLightEffect();
+
         }
 
         //Next Role
@@ -97,6 +103,7 @@ namespace NaitonGps.Views
             NextContent();
             moveMenu();
             NavMenuIconsChange();
+            HighLightEffect();
         }
 
         public void NextContent()
@@ -309,10 +316,52 @@ namespace NaitonGps.Views
             }
         }
 
+
         public void HighLightEffect()
         {
-            //navItem1.BackgroundColor = Color.Red;
-            //txtItem1.TextColor = Color.Red;
+            //Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
+
+            if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3)
+            {
+                txtItem1.TextColor = Color.Black;
+                txtItem2.TextColor = Color.Black;
+                txtItem3.TextColor = Color.Black;
+                txtItem4.TextColor = Color.Black;
+                txtItem5.TextColor = Color.Black;
+            }
+            //else if (ControlTemplate == template11 || ControlTemplate == template21 || ControlTemplate == template31)
+            //{
+            //    txtItem1.TextColor = Color.Black;
+            //    txtItem2.TextColor = Color.Red;
+            //    txtItem3.TextColor = Color.Black;
+            //    txtItem4.TextColor = Color.Black;
+            //    txtItem5.TextColor = Color.Black;
+            //}               
+            else if (ControlTemplate == template12 || ControlTemplate == template22 || ControlTemplate == template32)
+            {
+                txtItem1.TextColor = Color.Black;
+                txtItem2.TextColor = Color.Black;
+                txtItem3.TextColor = Color.Red;
+                txtItem4.TextColor = Color.Black;
+                txtItem5.TextColor = Color.Black;
+            }              
+            else if (ControlTemplate == template13 || ControlTemplate == template23 || ControlTemplate == template33)
+            {
+                txtItem1.TextColor = Color.Black;
+                txtItem2.TextColor = Color.Black;
+                txtItem3.TextColor = Color.Black;
+                txtItem4.TextColor = Color.Red;
+                txtItem5.TextColor = Color.Black;
+            }              
+            else if (ControlTemplate == template14 || ControlTemplate == template24 || ControlTemplate == template34)
+            {
+                txtItem1.TextColor = Color.Black;
+                txtItem2.TextColor = Color.Black;
+                txtItem3.TextColor = Color.Black;
+                txtItem4.TextColor = Color.Black;
+                txtItem5.TextColor = Color.Red;
+            }            
+
         }
     }
 }
