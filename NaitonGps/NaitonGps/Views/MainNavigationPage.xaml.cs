@@ -50,10 +50,14 @@ namespace NaitonGps.Views
         {
             InitializeComponent();
             ControlTemplate = template1;
-            HighLightEffect();
             templateIndex = 0;
             selectedIndex = 0;
             BindingContext = new UserViewModel();
+
+            if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3)
+            {
+                txtItem1.TextColor = Color.Green;
+            }
         }
 
         //PopUp call
@@ -68,10 +72,7 @@ namespace NaitonGps.Views
         {
             PreviousContent();
             moveMenu();
-            bodyContentAnimated();
             NavMenuIconsChange();
-            HighLightEffect();
-
         }
 
         //Next Role
@@ -79,37 +80,31 @@ namespace NaitonGps.Views
         {
             NextContent();
             moveMenu();
-            bodyContentAnimated();
             NavMenuIconsChange();
-            HighLightEffect();
-
         }
 
         //Previous Role
         private void TapGestureRecognizer_Tapped_PreviousRole(object sender, EventArgs e)
         {
-            bodyContentAnimated();
             PreviousContent();
             moveMenu();
             NavMenuIconsChange();
-            HighLightEffect();
-
         }
 
         //Next Role
         private void TapGestureRecognizer_Tapped_NextRole(object sender, EventArgs e)
         {
-            bodyContentAnimated();
             NextContent();
             moveMenu();
             NavMenuIconsChange();
-            HighLightEffect();
         }
 
         public void NextContent()
         {
             //await DisplayAlert("", "Swipe right", "Ok");
             selectedIndex = selectedIndex + 1;
+            Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
+
 
             int indexCheck = templateIndex;
             if (indexCheck != selectedIndex && selectedIndex < maxIndex + 1)
@@ -118,12 +113,42 @@ namespace NaitonGps.Views
                 {
                     case 0:
                         ControlTemplate = template1;
+
+                        foreach (var item in labels)
+                        {
+                            if (item.TextColor == Color.Green)
+                            {
+                                item.TextColor = Color.Black;
+                            }
+                        }
+
+                        txtItem1.TextColor = Color.Green;
                         break;
                     case 1:
                         ControlTemplate = template2;
+
+                        foreach (var item in labels)
+                        {
+                            if (item.TextColor == Color.Green)
+                            {
+                                item.TextColor = Color.Black;
+                            }
+                        }
+
+                        txtItem1.TextColor = Color.Green;
                         break;
                     case 2:
                         ControlTemplate = template3;
+
+                        foreach (var item in labels)
+                        {
+                            if (item.TextColor == Color.Green)
+                            {
+                                item.TextColor = Color.Black;
+                            }
+                        }
+
+                        txtItem1.TextColor = Color.Green;
                         break;
                 }
             }
@@ -131,6 +156,15 @@ namespace NaitonGps.Views
             {
                 selectedIndex = 0;
                 ControlTemplate = template1;
+
+                foreach (var item in labels)
+                {
+                    if (item.TextColor == Color.Green)
+                    {
+                        item.TextColor = Color.Black;
+                    }
+                }
+                txtItem1.TextColor = Color.Green;
             }
         }
 
@@ -138,6 +172,7 @@ namespace NaitonGps.Views
         {
             //await DisplayAlert("", "Swipe left", "Ok");
             selectedIndex = selectedIndex - 1;
+            Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
 
             int indexCheck = templateIndex;
             if ((indexCheck != selectedIndex && (selectedIndex > indexCheck || selectedIndex != -1)) || indexCheck == selectedIndex)
@@ -146,12 +181,42 @@ namespace NaitonGps.Views
                 {
                     case 0:
                         ControlTemplate = template1;
+
+                        foreach (var item in labels)
+                        {
+                            if (item.TextColor == Color.Green)
+                            {
+                                item.TextColor = Color.Black;
+                            }
+                        }
+
+                        txtItem1.TextColor = Color.Green;
                         break;
                     case 1:
                         ControlTemplate = template2;
+
+                        foreach (var item in labels)
+                        {
+                            if (item.TextColor == Color.Green)
+                            {
+                                item.TextColor = Color.Black;
+                            }
+                        }
+
+                        txtItem1.TextColor = Color.Green;
                         break;
                     case 2:
                         ControlTemplate = template3;
+
+                        foreach (var item in labels)
+                        {
+                            if (item.TextColor == Color.Green)
+                            {
+                                item.TextColor = Color.Black;
+                            }
+                        }
+
+                        txtItem1.TextColor = Color.Green;
                         break;
                 }
             }
@@ -159,6 +224,16 @@ namespace NaitonGps.Views
             {
                 selectedIndex = 2;
                 ControlTemplate = template3;
+
+                foreach (var item in labels)
+                {
+                    if (item.TextColor == Color.Green)
+                    {
+                        item.TextColor = Color.Black;
+                    }
+                }
+
+                txtItem1.TextColor = Color.Green;
             }
         }
 
@@ -171,14 +246,6 @@ namespace NaitonGps.Views
         {
             await bottomNavMenu.TranslateTo(0, 200, 200, Easing.Linear);
             await bottomNavMenu.TranslateTo(0, 0);
-        }
-
-        public void bodyContentAnimated()
-        {
-            //await template1.FadeTo(0, 0, Easing.Linear);
-            //await UserList.TranslateTo(0, -300, 100, Easing.Linear);
-            //await UserList.FadeTo(1, 252, Easing.Linear);
-            //await UserList.TranslateTo(0, 0, 250);
         }
 
         //detecting Light/Dark mode for icon change
@@ -226,122 +293,394 @@ namespace NaitonGps.Views
 
         private void NavigatingFirstMenu(object sender, EventArgs e)
         {
+            Image imgClick = sender as Image;
+            int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);
+            Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
+
+            if (selectedIndex == 0 || selectedIndex == 1 || selectedIndex == 2)
+            {
+                if (currentGridRowClicked == 0 || currentGridRowClicked == 1 || currentGridRowClicked == 2 || currentGridRowClicked == 3 || currentGridRowClicked == 4)
+                {
+                    foreach (var item in labels)
+                    {
+                        if (item.TextColor == Color.Green)
+                        {
+                            item.TextColor = Color.Black;
+                        }
+                    }
+                    labels[currentGridRowClicked].TextColor = Color.Green;
+                }
+                //switch (currentGridRowClicked)
+                //{
+                //    case 0:
+                //        foreach (var item in labels.Skip(currentGridRowClicked))
+                //        {
+                //            item.TextColor = Color.Black;
+                //        }
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 1:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 2:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 3:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 4:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    default:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //}
+                //DisplayAlert("", "Current clicked lbl: " + labels[currentGridRowClicked].ToString(), "Ok");
+            }
+
             if (selectedIndex == 0)
             {
                 ControlTemplate = template1;
-                HighLightEffect();
 
             }
             else if (selectedIndex == 1)
             {
                 ControlTemplate = template2;
-                HighLightEffect();
 
             }
             else if (selectedIndex == 2)
             {
                 ControlTemplate = template3;
-                HighLightEffect();
 
             }
         }
 
         private void NavigatingSecondMenu(object sender, EventArgs e)
         {
+            Image imgClick = sender as Image;
+            int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);
+            Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
+
+            if (selectedIndex == 0 || selectedIndex == 1 || selectedIndex == 2)
+            {
+                if (currentGridRowClicked == 0 || currentGridRowClicked == 1 || currentGridRowClicked == 2 || currentGridRowClicked == 3 || currentGridRowClicked == 4)
+                {
+                    foreach (var item in labels)
+                    {
+                        if (item.TextColor == Color.Green)
+                        {
+                            item.TextColor = Color.Black;
+                        }
+                    }
+                    labels[currentGridRowClicked].TextColor = Color.Green;
+                }
+                //switch (currentGridRowClicked)
+                //{
+                //    case 0:
+                //        foreach (var item in labels.Skip(currentGridRowClicked))
+                //        {
+                //            item.TextColor = Color.Black;
+                //        }
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 1:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 2:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 3:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 4:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    default:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //}
+                //DisplayAlert("", "Current clicked lbl: " + labels[currentGridRowClicked].ToString(), "Ok");
+            }
+
             if (selectedIndex == 0)
             {
                 ControlTemplate = template11;
-                HighLightEffect();
 
             }
             else if (selectedIndex == 1)
             {
                 ControlTemplate = template21;
-                HighLightEffect();
 
             }
             else if (selectedIndex == 2)
             {
                 ControlTemplate = template31;
-                HighLightEffect();
 
             }
         }
 
         private void NavigatingThirdMenu(object sender, EventArgs e)
         {
+            Image imgClick = sender as Image;
+            int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);
+            Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
+
+            if (selectedIndex == 0 || selectedIndex == 1 || selectedIndex == 2)
+            {
+                if (currentGridRowClicked == 0 || currentGridRowClicked == 1 || currentGridRowClicked == 2 || currentGridRowClicked == 3 || currentGridRowClicked == 4)
+                {
+                    foreach (var item in labels)
+                    {
+                        if (item.TextColor == Color.Green)
+                        {
+                            item.TextColor = Color.Black;
+                        }
+                    }
+                    labels[currentGridRowClicked].TextColor = Color.Green;
+                }
+                //switch (currentGridRowClicked)
+                //{
+                //    case 0:
+                //        foreach (var item in labels.Skip(currentGridRowClicked))
+                //        {
+                //            item.TextColor = Color.Black;
+                //        }
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 1:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 2:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 3:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 4:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    default:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //}
+                //DisplayAlert("", "Current clicked lbl: " + labels[currentGridRowClicked].ToString(), "Ok");
+            }
+
             if (selectedIndex == 0)
             {
                 ControlTemplate = template12;
+
             }
             else if (selectedIndex == 1)
             {
                 ControlTemplate = template22;
+
             }
             else if (selectedIndex == 2)
             {
                 ControlTemplate = template32;
+
             }
         }
 
         private void NavigatingFourthMenu(object sender, EventArgs e)
         {
+            Image imgClick = sender as Image;
+            int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);
+            Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
+
+            if (selectedIndex == 0 || selectedIndex == 1 || selectedIndex == 2)
+            {
+                if (currentGridRowClicked == 0 || currentGridRowClicked == 1 || currentGridRowClicked == 2 || currentGridRowClicked == 3 || currentGridRowClicked == 4)
+                {
+                    foreach (var item in labels)
+                    {
+                        if (item.TextColor == Color.Green)
+                        {
+                            item.TextColor = Color.Black;
+                        }
+                    }
+                    labels[currentGridRowClicked].TextColor = Color.Green;
+                }
+                //switch (currentGridRowClicked)
+                //{
+                //    case 0:
+                //        foreach (var item in labels.Skip(currentGridRowClicked))
+                //        {
+                //            item.TextColor = Color.Black;
+                //        }
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 1:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 2:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 3:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 4:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    default:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //}
+                //DisplayAlert("", "Current clicked lbl: " + labels[currentGridRowClicked].ToString(), "Ok");
+            }
+
             if (selectedIndex == 0)
             {
                 ControlTemplate = template13;
+
             }
             else if (selectedIndex == 1)
             {
                 ControlTemplate = template23;
+
             }
             else if (selectedIndex == 2)
             {
                 ControlTemplate = template33;
+
             }
         }
 
         private void NavigatingFifthMenu(object sender, EventArgs e)
         {
+            Image imgClick = sender as Image;
+            int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);
+            Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
+
+            if (selectedIndex == 0 || selectedIndex == 1 || selectedIndex == 2)
+            {
+                if (currentGridRowClicked == 0 || currentGridRowClicked == 1 || currentGridRowClicked == 2 || currentGridRowClicked == 3 || currentGridRowClicked == 4)
+                {
+                    //foreach (var item in labels.Skip(currentGridRowClicked))
+                    //{
+                    //    if (item.TextColor == Color.Green)
+                    //    {
+                    //        item.TextColor = Color.Black;
+                    //    }
+                    //}
+
+                    foreach (var item in labels)
+                    {
+                        if (item.TextColor == Color.Green)
+                        {
+                            item.TextColor = Color.Black;
+                        }
+                    }
+                    labels[currentGridRowClicked].TextColor = Color.Green;
+                }
+                //switch (currentGridRowClicked)
+                //{
+                //    case 0:
+                //        foreach (var item in labels.Skip(currentGridRowClicked))
+                //        {
+                //            item.TextColor = Color.Black;
+                //        }
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 1:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 2:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 3:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    case 4:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //    default:
+                //        labels[currentGridRowClicked].TextColor = Color.Green;
+                //        break;
+                //}
+                //DisplayAlert("", "Current clicked lbl: " + labels[currentGridRowClicked].ToString(), "Ok");
+            }
+
             if (selectedIndex == 0)
             {
                 ControlTemplate = template14;
+
             }
             else if (selectedIndex == 1)
             {
                 ControlTemplate = template24;
+
             }
             else if (selectedIndex == 2)
             {
                 ControlTemplate = template34;
+
             }
         }
 
 
-        public void HighLightEffect()
+        public void HighLightEffect(object sender, EventArgs e)
         {
-            //Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
+            Image imgClick = sender as Image;
+            int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);
 
+            Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
+
+            if (selectedIndex == 0)
+            {
+                switch (currentGridRowClicked)
+                {
+                    case 0:
+                        labels[currentGridRowClicked].TextColor = Color.Green;
+                        break;                    
+                    case 1:
+                        labels[currentGridRowClicked].TextColor = Color.Green;
+                        break;                    
+                    case 2:
+                        labels[currentGridRowClicked].TextColor = Color.Green;
+                        break;                    
+                    case 3:
+                        labels[currentGridRowClicked].TextColor = Color.Green;
+                        break;                    
+                    case 4:
+                        labels[currentGridRowClicked].TextColor = Color.Green;
+                        break;  
+                    default:
+                        labels[currentGridRowClicked].TextColor = Color.Green;
+                        break;
+                }
+            }
+            else if (selectedIndex == 1)
+            {
+
+            }
+            else if (selectedIndex == 2)
+            {
+
+            }
+            
             if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3)
             {
-                txtItem1.TextColor = Color.Black;
+                txtItem1.TextColor = Color.Green;
                 txtItem2.TextColor = Color.Black;
                 txtItem3.TextColor = Color.Black;
                 txtItem4.TextColor = Color.Black;
                 txtItem5.TextColor = Color.Black;
             }
-            //else if (ControlTemplate == template11 || ControlTemplate == template21 || ControlTemplate == template31)
-            //{
-            //    txtItem1.TextColor = Color.Black;
-            //    txtItem2.TextColor = Color.Red;
-            //    txtItem3.TextColor = Color.Black;
-            //    txtItem4.TextColor = Color.Black;
-            //    txtItem5.TextColor = Color.Black;
-            //}               
+            else if (ControlTemplate == template11 || ControlTemplate == template21 || ControlTemplate == template31)
+            {
+                txtItem1.TextColor = Color.Black;
+                txtItem2.TextColor = Color.Green;
+                txtItem3.TextColor = Color.Black;
+                txtItem4.TextColor = Color.Black;
+                txtItem5.TextColor = Color.Black;
+            }
             else if (ControlTemplate == template12 || ControlTemplate == template22 || ControlTemplate == template32)
             {
                 txtItem1.TextColor = Color.Black;
                 txtItem2.TextColor = Color.Black;
-                txtItem3.TextColor = Color.Red;
+                txtItem3.TextColor = Color.Green;
                 txtItem4.TextColor = Color.Black;
                 txtItem5.TextColor = Color.Black;
             }              
@@ -350,7 +689,7 @@ namespace NaitonGps.Views
                 txtItem1.TextColor = Color.Black;
                 txtItem2.TextColor = Color.Black;
                 txtItem3.TextColor = Color.Black;
-                txtItem4.TextColor = Color.Red;
+                txtItem4.TextColor = Color.Green;
                 txtItem5.TextColor = Color.Black;
             }              
             else if (ControlTemplate == template14 || ControlTemplate == template24 || ControlTemplate == template34)
@@ -359,8 +698,16 @@ namespace NaitonGps.Views
                 txtItem2.TextColor = Color.Black;
                 txtItem3.TextColor = Color.Black;
                 txtItem4.TextColor = Color.Black;
-                txtItem5.TextColor = Color.Red;
-            }            
+                txtItem5.TextColor = Color.Green;
+            }
+            else
+            {
+                txtItem1.TextColor = Color.Green;
+                txtItem2.TextColor = Color.Green;
+                txtItem3.TextColor = Color.Green;
+                txtItem4.TextColor = Color.Green;
+                txtItem5.TextColor = Color.Green;
+            }
 
         }
     }
