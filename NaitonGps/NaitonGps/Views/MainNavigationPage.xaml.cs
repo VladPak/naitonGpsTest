@@ -15,13 +15,11 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.CommunityToolkit.Markup;
 
-//Here
 namespace NaitonGps.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainNavigationPage : ContentPage
     {
-
         public ObservableCollection<UserViewModel> allRecords { get; set; } = new ObservableCollection<UserViewModel>();
         public int maxIndex = 2;
         public int minIndex = 0;
@@ -29,10 +27,11 @@ namespace NaitonGps.Views
         private int templateIndex;
         private int selectedIndex;
 
+        //Main pages for each role
         ControlTemplate template1 = new ControlTemplate(typeof(FirstRoleTemplate));
         ControlTemplate template2 = new ControlTemplate(typeof(SecondRoleTemplate));
         ControlTemplate template3 = new ControlTemplate(typeof(ThirdRoleTemplate));
-        //Roles' pages
+        //Roles' pages 
         ControlTemplate template11 = new ControlTemplate(typeof(ManagerSecondPage));
         ControlTemplate template12 = new ControlTemplate(typeof(ManagerThirdPage));
         ControlTemplate template13 = new ControlTemplate(typeof(ManagerFourthPage));
@@ -57,8 +56,30 @@ namespace NaitonGps.Views
             if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3)
             {
                 txtItem1.TextColor = Color.Green;
+                navItem1.Source = "homeGreen.png";
             }
+
+            Application.Current.RequestedThemeChanged += (s, a) =>
+            {
+                switch (a.RequestedTheme)
+                {
+                    case OSAppTheme.Light:
+                        AdjustNavigationMenuImage();
+                        AdjustTextColor();
+                        break;
+                    case OSAppTheme.Dark:
+                        AdjustNavigationMenuImage();
+                        AdjustTextColor();
+                        break;
+                    default:
+                        AdjustNavigationMenuImage();
+                        AdjustTextColor();
+                        break;
+                }
+            };
         }
+
+
 
         //PopUp call
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -105,7 +126,6 @@ namespace NaitonGps.Views
             selectedIndex = selectedIndex + 1;
             Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
 
-
             int indexCheck = templateIndex;
             if (indexCheck != selectedIndex && selectedIndex < maxIndex + 1)
             {
@@ -123,6 +143,11 @@ namespace NaitonGps.Views
                         }
 
                         txtItem1.TextColor = Color.Green;
+                        navItem1.Source = "homeGreen";
+                        navItem2.Source = "chat.png";
+                        navItem3.Source = "vehicle.png";
+                        navItem4.Source = "compass.png";
+                        navItem5.Source = "package.png";
                         break;
                     case 1:
                         ControlTemplate = template2;
@@ -136,6 +161,11 @@ namespace NaitonGps.Views
                         }
 
                         txtItem1.TextColor = Color.Green;
+                        navItem1.Source = "homeGreen.png";
+                        navItem2.Source = "chat.png";
+                        navItem3.Source = "notFound.png";
+                        navItem4.Source = "notFound.png";
+                        navItem5.Source = "notFound.png";
                         break;
                     case 2:
                         ControlTemplate = template3;
@@ -149,6 +179,11 @@ namespace NaitonGps.Views
                         }
 
                         txtItem1.TextColor = Color.Green;
+                        navItem1.Source = "homeGreen.png";
+                        navItem2.Source = "chat.png";
+                        navItem3.Source = "notFound.png";
+                        navItem4.Source = "notFound.png";
+                        navItem5.Source = "notFound.png";
                         break;
                 }
             }
@@ -165,6 +200,11 @@ namespace NaitonGps.Views
                     }
                 }
                 txtItem1.TextColor = Color.Green;
+                navItem1.Source = "homeGreen.png";
+                navItem2.Source = "chat.png";
+                navItem3.Source = "vehicle.png";
+                navItem4.Source = "compass.png";
+                navItem5.Source = "package.png";
             }
         }
 
@@ -191,6 +231,11 @@ namespace NaitonGps.Views
                         }
 
                         txtItem1.TextColor = Color.Green;
+                        navItem1.Source = "homeGreen";
+                        navItem2.Source = "chat.png";
+                        navItem3.Source = "vehicle.png";
+                        navItem4.Source = "compass.png";
+                        navItem5.Source = "package.png";
                         break;
                     case 1:
                         ControlTemplate = template2;
@@ -204,6 +249,11 @@ namespace NaitonGps.Views
                         }
 
                         txtItem1.TextColor = Color.Green;
+                        navItem1.Source = "homeGreen";
+                        navItem2.Source = "chat.png";
+                        navItem3.Source = "notFound.png";
+                        navItem4.Source = "notFound.png";
+                        navItem5.Source = "notFound.png";
                         break;
                     case 2:
                         ControlTemplate = template3;
@@ -217,6 +267,11 @@ namespace NaitonGps.Views
                         }
 
                         txtItem1.TextColor = Color.Green;
+                        navItem1.Source = "homeGreen";
+                        navItem2.Source = "chat.png";
+                        navItem3.Source = "notFound.png";
+                        navItem4.Source = "notFound.png";
+                        navItem5.Source = "notFound.png";
                         break;
                 }
             }
@@ -234,22 +289,19 @@ namespace NaitonGps.Views
                 }
 
                 txtItem1.TextColor = Color.Green;
+                navItem1.Source = "homeGreen";
+                navItem2.Source = "chat.png";
+                navItem3.Source = "vehicle.png";
+                navItem4.Source = "compass.png";
+                navItem5.Source = "package.png";
             }
         }
 
-        public async void ChangeMenuCalls(object sender, EventArgs e)
-        {
-             await DisplayAlert("", "Home is clicked", "Ok");
-        }
-
-        async void moveMenu()
+        public async void moveMenu()
         {
             await bottomNavMenu.TranslateTo(0, 200, 200, Easing.Linear);
             await bottomNavMenu.TranslateTo(0, 0);
         }
-
-        //detecting Light/Dark mode for icon change
-        OSAppTheme currentTheme = Application.Current.RequestedTheme;
 
         public void NavMenuIconsChange()
         {
@@ -305,410 +357,203 @@ namespace NaitonGps.Views
                     {
                         if (item.TextColor == Color.Green)
                         {
+                            //for l/d modes = black/white text colors
                             item.TextColor = Color.Black;
                         }
                     }
                     labels[currentGridRowClicked].TextColor = Color.Green;
                 }
-                //switch (currentGridRowClicked)
-                //{
-                //    case 0:
-                //        foreach (var item in labels.Skip(currentGridRowClicked))
-                //        {
-                //            item.TextColor = Color.Black;
-                //        }
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 1:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 2:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 3:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 4:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    default:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //}
-                //DisplayAlert("", "Current clicked lbl: " + labels[currentGridRowClicked].ToString(), "Ok");
             }
 
             if (selectedIndex == 0)
             {
-                ControlTemplate = template1;
-
-            }
-            else if (selectedIndex == 1)
-            {
-                ControlTemplate = template2;
-
-            }
-            else if (selectedIndex == 2)
-            {
-                ControlTemplate = template3;
-
-            }
-        }
-
-        private void NavigatingSecondMenu(object sender, EventArgs e)
-        {
-            Image imgClick = sender as Image;
-            int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);
-            Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
-
-            if (selectedIndex == 0 || selectedIndex == 1 || selectedIndex == 2)
-            {
-                if (currentGridRowClicked == 0 || currentGridRowClicked == 1 || currentGridRowClicked == 2 || currentGridRowClicked == 3 || currentGridRowClicked == 4)
+                if (currentGridRowClicked == 0)
                 {
-                    foreach (var item in labels)
-                    {
-                        if (item.TextColor == Color.Green)
-                        {
-                            item.TextColor = Color.Black;
-                        }
-                    }
-                    labels[currentGridRowClicked].TextColor = Color.Green;
+                    ControlTemplate = template1;
+                    navItem1.Source = "homeGreen.png";
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "vehicle.png";
+                    navItem4.Source = "compass.png";
+                    navItem5.Source = "delivery.png";
                 }
-                //switch (currentGridRowClicked)
-                //{
-                //    case 0:
-                //        foreach (var item in labels.Skip(currentGridRowClicked))
-                //        {
-                //            item.TextColor = Color.Black;
-                //        }
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 1:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 2:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 3:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 4:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    default:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //}
-                //DisplayAlert("", "Current clicked lbl: " + labels[currentGridRowClicked].ToString(), "Ok");
-            }
-
-            if (selectedIndex == 0)
-            {
-                ControlTemplate = template11;
-
-            }
-            else if (selectedIndex == 1)
-            {
-                ControlTemplate = template21;
-
-            }
-            else if (selectedIndex == 2)
-            {
-                ControlTemplate = template31;
-
-            }
-        }
-
-        private void NavigatingThirdMenu(object sender, EventArgs e)
-        {
-            Image imgClick = sender as Image;
-            int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);
-            Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
-
-            if (selectedIndex == 0 || selectedIndex == 1 || selectedIndex == 2)
-            {
-                if (currentGridRowClicked == 0 || currentGridRowClicked == 1 || currentGridRowClicked == 2 || currentGridRowClicked == 3 || currentGridRowClicked == 4)
+                else if (currentGridRowClicked == 1)
                 {
-                    foreach (var item in labels)
-                    {
-                        if (item.TextColor == Color.Green)
-                        {
-                            item.TextColor = Color.Black;
-                        }
-                    }
-                    labels[currentGridRowClicked].TextColor = Color.Green;
+                    ControlTemplate = template11;
+                    navItem1.Source = "home.png";
+                    navItem2.Source = "chatGreen.png";
+                    navItem3.Source = "vehicle.png";
+                    navItem4.Source = "compass.png";
+                    navItem5.Source = "delivery.png";
                 }
-                //switch (currentGridRowClicked)
-                //{
-                //    case 0:
-                //        foreach (var item in labels.Skip(currentGridRowClicked))
-                //        {
-                //            item.TextColor = Color.Black;
-                //        }
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 1:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 2:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 3:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 4:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    default:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //}
-                //DisplayAlert("", "Current clicked lbl: " + labels[currentGridRowClicked].ToString(), "Ok");
-            }
-
-            if (selectedIndex == 0)
-            {
-                ControlTemplate = template12;
-
-            }
-            else if (selectedIndex == 1)
-            {
-                ControlTemplate = template22;
-
-            }
-            else if (selectedIndex == 2)
-            {
-                ControlTemplate = template32;
-
-            }
-        }
-
-        private void NavigatingFourthMenu(object sender, EventArgs e)
-        {
-            Image imgClick = sender as Image;
-            int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);
-            Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
-
-            if (selectedIndex == 0 || selectedIndex == 1 || selectedIndex == 2)
-            {
-                if (currentGridRowClicked == 0 || currentGridRowClicked == 1 || currentGridRowClicked == 2 || currentGridRowClicked == 3 || currentGridRowClicked == 4)
+                else if (currentGridRowClicked == 2)
                 {
-                    foreach (var item in labels)
-                    {
-                        if (item.TextColor == Color.Green)
-                        {
-                            item.TextColor = Color.Black;
-                        }
-                    }
-                    labels[currentGridRowClicked].TextColor = Color.Green;
-                }
-                //switch (currentGridRowClicked)
-                //{
-                //    case 0:
-                //        foreach (var item in labels.Skip(currentGridRowClicked))
-                //        {
-                //            item.TextColor = Color.Black;
-                //        }
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 1:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 2:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 3:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 4:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    default:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //}
-                //DisplayAlert("", "Current clicked lbl: " + labels[currentGridRowClicked].ToString(), "Ok");
-            }
-
-            if (selectedIndex == 0)
-            {
-                ControlTemplate = template13;
-
-            }
-            else if (selectedIndex == 1)
-            {
-                ControlTemplate = template23;
-
-            }
-            else if (selectedIndex == 2)
-            {
-                ControlTemplate = template33;
-
-            }
-        }
-
-        private void NavigatingFifthMenu(object sender, EventArgs e)
-        {
-            Image imgClick = sender as Image;
-            int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);
-            Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
-
-            if (selectedIndex == 0 || selectedIndex == 1 || selectedIndex == 2)
-            {
-                if (currentGridRowClicked == 0 || currentGridRowClicked == 1 || currentGridRowClicked == 2 || currentGridRowClicked == 3 || currentGridRowClicked == 4)
+                    ControlTemplate = template12;
+                    navItem1.Source = "home.png";
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "vehicleGreen.png";
+                    navItem4.Source = "compass.png";
+                    navItem5.Source = "delivery.png";
+                }                
+                else if (currentGridRowClicked == 3)
                 {
-                    //foreach (var item in labels.Skip(currentGridRowClicked))
-                    //{
-                    //    if (item.TextColor == Color.Green)
-                    //    {
-                    //        item.TextColor = Color.Black;
-                    //    }
-                    //}
-
-                    foreach (var item in labels)
-                    {
-                        if (item.TextColor == Color.Green)
-                        {
-                            item.TextColor = Color.Black;
-                        }
-                    }
-                    labels[currentGridRowClicked].TextColor = Color.Green;
-                }
-                //switch (currentGridRowClicked)
-                //{
-                //    case 0:
-                //        foreach (var item in labels.Skip(currentGridRowClicked))
-                //        {
-                //            item.TextColor = Color.Black;
-                //        }
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 1:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 2:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 3:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    case 4:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //    default:
-                //        labels[currentGridRowClicked].TextColor = Color.Green;
-                //        break;
-                //}
-                //DisplayAlert("", "Current clicked lbl: " + labels[currentGridRowClicked].ToString(), "Ok");
-            }
-
-            if (selectedIndex == 0)
-            {
-                ControlTemplate = template14;
-
-            }
-            else if (selectedIndex == 1)
-            {
-                ControlTemplate = template24;
-
-            }
-            else if (selectedIndex == 2)
-            {
-                ControlTemplate = template34;
-
-            }
-        }
-
-
-        public void HighLightEffect(object sender, EventArgs e)
-        {
-            Image imgClick = sender as Image;
-            int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);
-
-            Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
-
-            if (selectedIndex == 0)
-            {
-                switch (currentGridRowClicked)
+                    ControlTemplate = template13;
+                    navItem1.Source = "home.png";
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "vehicle.png";
+                    navItem4.Source = "compassGreen.png";
+                    navItem5.Source = "delivery.png";
+                }                
+                else if (currentGridRowClicked == 4)
                 {
-                    case 0:
-                        labels[currentGridRowClicked].TextColor = Color.Green;
-                        break;                    
-                    case 1:
-                        labels[currentGridRowClicked].TextColor = Color.Green;
-                        break;                    
-                    case 2:
-                        labels[currentGridRowClicked].TextColor = Color.Green;
-                        break;                    
-                    case 3:
-                        labels[currentGridRowClicked].TextColor = Color.Green;
-                        break;                    
-                    case 4:
-                        labels[currentGridRowClicked].TextColor = Color.Green;
-                        break;  
-                    default:
-                        labels[currentGridRowClicked].TextColor = Color.Green;
-                        break;
+                    ControlTemplate = template14;
+                    navItem1.Source = "home.png";
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "vehicle.png";
+                    navItem4.Source = "compass.png";
+                    navItem5.Source = "packageGreen.png";
                 }
             }
             else if (selectedIndex == 1)
             {
-
+                if (currentGridRowClicked == 0)
+                {
+                    ControlTemplate = template2;
+                    navItem1.Source = "homeGreen.png";
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "notFound.png";
+                    navItem4.Source = "notFound.png";
+                    navItem5.Source = "notFound.png";
+                }
+                else if (currentGridRowClicked == 1)
+                {
+                    ControlTemplate = template21;
+                    navItem1.Source = "home.png";
+                    navItem2.Source = "chatGreen.png";
+                    navItem3.Source = "notFound.png";
+                    navItem4.Source = "notFound.png";
+                    navItem5.Source = "notFound.png";
+                }
+                else if (currentGridRowClicked == 2)
+                {
+                    ControlTemplate = template22;
+                    navItem1.Source = "home.png";
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "notFoundGreen.png";
+                    navItem4.Source = "notFound.png";
+                    navItem5.Source = "notFound.png";
+                }
+                else if (currentGridRowClicked == 3)
+                {
+                    ControlTemplate = template23;
+                    navItem1.Source = "home.png";
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "notFound.png";
+                    navItem4.Source = "notFoundGreen.png";
+                    navItem5.Source = "notFound.png";
+                }
+                else if (currentGridRowClicked == 4)
+                {
+                    ControlTemplate = template24;
+                    navItem1.Source = "home.png";
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "notFound.png";
+                    navItem4.Source = "notFound.png";
+                    navItem5.Source = "notFoundGreen.png";
+                }
             }
             else if (selectedIndex == 2)
             {
+                if (currentGridRowClicked == 0)
+                {
+                    ControlTemplate = template3;
+                    navItem1.Source = "homeGreen.png";
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "notFound.png";
+                    navItem4.Source = "notFound.png";
+                    navItem5.Source = "notFound.png";
+                }
+                else if (currentGridRowClicked == 1)
+                {
+                    ControlTemplate = template31;
+                    navItem1.Source = "home.png";
+                    navItem2.Source = "chatGreen.png";
+                    navItem3.Source = "notFound.png";
+                    navItem4.Source = "notFound.png";
+                    navItem5.Source = "notFound.png";
+                }
+                else if (currentGridRowClicked == 2)
+                {
+                    ControlTemplate = template32;
+                    navItem1.Source = "home.png";
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "notFoundGreen.png";
+                    navItem4.Source = "notFound.png";
+                    navItem5.Source = "notFound.png";
+                }
+                else if (currentGridRowClicked == 3)
+                {
+                    ControlTemplate = template33;
+                    navItem1.Source = "home.png";
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "notFound.png";
+                    navItem4.Source = "notFoundGreen.png";
+                    navItem5.Source = "notFound.png";
+                }
+                else if (currentGridRowClicked == 4)
+                {
+                    ControlTemplate = template34;
+                    navItem1.Source = "home.png";
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "notFound.png";
+                    navItem4.Source = "notFound.png";
+                    navItem5.Source = "notFoundGreen.png";
+                }
+            }
+        }
 
+
+        public void AdjustTextColor()
+        {
+            OSAppTheme currentTheme = Application.Current.RequestedTheme;
+
+            if (currentTheme == OSAppTheme.Dark)
+            {
+                txtItem1.TextColor = Color.White;
+                txtItem2.TextColor = Color.White;
+                txtItem3.TextColor = Color.White;
+                txtItem4.TextColor = Color.White;
+                txtItem5.TextColor = Color.White;
             }
-            
-            if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3)
-            {
-                txtItem1.TextColor = Color.Green;
-                txtItem2.TextColor = Color.Black;
-                txtItem3.TextColor = Color.Black;
-                txtItem4.TextColor = Color.Black;
-                txtItem5.TextColor = Color.Black;
-            }
-            else if (ControlTemplate == template11 || ControlTemplate == template21 || ControlTemplate == template31)
-            {
-                txtItem1.TextColor = Color.Black;
-                txtItem2.TextColor = Color.Green;
-                txtItem3.TextColor = Color.Black;
-                txtItem4.TextColor = Color.Black;
-                txtItem5.TextColor = Color.Black;
-            }
-            else if (ControlTemplate == template12 || ControlTemplate == template22 || ControlTemplate == template32)
-            {
-                txtItem1.TextColor = Color.Black;
-                txtItem2.TextColor = Color.Black;
-                txtItem3.TextColor = Color.Green;
-                txtItem4.TextColor = Color.Black;
-                txtItem5.TextColor = Color.Black;
-            }              
-            else if (ControlTemplate == template13 || ControlTemplate == template23 || ControlTemplate == template33)
-            {
-                txtItem1.TextColor = Color.Black;
-                txtItem2.TextColor = Color.Black;
-                txtItem3.TextColor = Color.Black;
-                txtItem4.TextColor = Color.Green;
-                txtItem5.TextColor = Color.Black;
-            }              
-            else if (ControlTemplate == template14 || ControlTemplate == template24 || ControlTemplate == template34)
+            else if (currentTheme == OSAppTheme.Light)
             {
                 txtItem1.TextColor = Color.Black;
                 txtItem2.TextColor = Color.Black;
                 txtItem3.TextColor = Color.Black;
                 txtItem4.TextColor = Color.Black;
-                txtItem5.TextColor = Color.Green;
+                txtItem5.TextColor = Color.Black;
             }
-            else
-            {
-                txtItem1.TextColor = Color.Green;
-                txtItem2.TextColor = Color.Green;
-                txtItem3.TextColor = Color.Green;
-                txtItem4.TextColor = Color.Green;
-                txtItem5.TextColor = Color.Green;
-            }
+        }
 
+        public void AdjustNavigationMenuImage()
+        {
+            OSAppTheme currentTheme = Application.Current.RequestedTheme;
+
+            if (currentTheme == OSAppTheme.Dark)
+            {
+                navItem1.Source = "homeWhite.png";
+                navItem2.Source = "chatWhite.png";
+                navItem3.Source = "vehicleWhite.png";
+                navItem4.Source = "compassWhite.png";
+                navItem5.Source = "deliveryWhite.png";
+            }
+            else if (currentTheme == OSAppTheme.Light)
+            {
+                navItem1.Source = "home.png";
+                navItem2.Source = "chat.png";
+                navItem3.Source = "vehicle.png";
+                navItem4.Source = "compass.png";
+                navItem5.Source = "delivery.png";
+            }
         }
     }
 }

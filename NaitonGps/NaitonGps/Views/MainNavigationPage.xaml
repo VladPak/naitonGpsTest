@@ -45,37 +45,37 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Image x:Name="navItem1" Grid.Row="0" Grid.Column="0" Source="home.png" xct:IconTintColorEffect.TintColor="{AppThemeBinding Light=Black, Dark=White}" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center">
+            <Image x:Name="navItem1" Grid.Row="0" Grid.Column="0" Source="home.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingFirstMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
             <Label x:Name="txtItem1" Text="Home" TextColor="{AppThemeBinding Light=Black, Dark=White}" Margin="0,50,0,0" FontSize="10" VerticalOptions="Center" HorizontalOptions="Center"></Label>
 
-            <Image x:Name="navItem2" Grid.Row="0" Grid.Column="1" Source="chat.png" xct:IconTintColorEffect.TintColor="{AppThemeBinding Light=Black, Dark=White}" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+            <Image x:Name="navItem2" Grid.Row="0" Grid.Column="1" Source="chat.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="NavigatingSecondMenu"></TapGestureRecognizer>
+                    <TapGestureRecognizer Tapped="NavigatingFirstMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
             <Label x:Name="txtItem2" Text="Chat" TextColor="{AppThemeBinding Light=Black, Dark=White}" Grid.Row="0" Grid.Column="1" Margin="0,50,0,0" FontSize="10" VerticalOptions="Center" HorizontalOptions="Center"></Label>
 
-            <Image x:Name="navItem3" Grid.Row="0" Grid.Column="2" Source="vehicle.png" xct:IconTintColorEffect.TintColor="{AppThemeBinding Light=Black, Dark=White}" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+            <Image x:Name="navItem3" Grid.Row="0" Grid.Column="2" Source="vehicle.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="NavigatingThirdMenu"></TapGestureRecognizer>
+                    <TapGestureRecognizer Tapped="NavigatingFirstMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
             <Label x:Name="txtItem3" Text="Vehicles" TextColor="{AppThemeBinding Light=Black, Dark=White}" Grid.Row="0" Grid.Column="2" Margin="0,50,0,0" FontSize="10" VerticalOptions="Center" HorizontalOptions="Center"></Label>
 
-            <Image x:Name="navItem4" Grid.Row="0" Grid.Column="3" Source="compass.png" xct:IconTintColorEffect.TintColor="{AppThemeBinding Light=Black, Dark=White}" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+            <Image x:Name="navItem4" Grid.Row="0" Grid.Column="3" Source="compass.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="NavigatingFourthMenu"></TapGestureRecognizer>
+                    <TapGestureRecognizer Tapped="NavigatingFirstMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
             <Label x:Name="txtItem4" Text="Navi" TextColor="{AppThemeBinding Light=Black, Dark=White}" Grid.Row="0" Grid.Column="3" Margin="0,50,0,0" FontSize="10" VerticalOptions="Center" HorizontalOptions="Center"></Label>
 
-            <Image x:Name="navItem5" Grid.Row="0" Grid.Column="4" Source="delivery.png" xct:IconTintColorEffect.TintColor="{AppThemeBinding Light=Black, Dark=White}" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+            <Image x:Name="navItem5" Grid.Row="0" Grid.Column="4" Source="delivery.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="NavigatingFifthMenu"></TapGestureRecognizer>
+                    <TapGestureRecognizer Tapped="NavigatingFirstMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
             <Label x:Name="txtItem5" Text="Delivery" TextColor="{AppThemeBinding Light=Black, Dark=White}" Grid.Row="0" Grid.Column="4" Margin="0,50,0,0" FontSize="10" VerticalOptions="Center" HorizontalOptions="Center"></Label>

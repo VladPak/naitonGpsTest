@@ -342,4 +342,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\homeRed.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vehicleGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\packageGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\notFoundGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\compassGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\homeGreen.png" />
+  </ItemGroup>
 </Project>
