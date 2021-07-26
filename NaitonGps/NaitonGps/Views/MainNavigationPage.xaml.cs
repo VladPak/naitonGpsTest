@@ -106,9 +106,9 @@ namespace NaitonGps.Views
                             item.TextColor = Color.White;
                         }
 
-                        foreach (var item in images)
+                        foreach (var itemI in images)
                         {
-                            item.TintColor = Color.White;
+                            itemI.TintColor = Color.White;
                         }
 
                         if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3)
@@ -144,9 +144,9 @@ namespace NaitonGps.Views
                             item.TextColor = Color.Black;
                         }
 
-                        foreach (var item in images)
+                        foreach (var itemG in images)
                         {
-                            item.TintColor = Color.Black;
+                            itemG.TintColor = Color.Black;
                         }
 
                         if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3)
@@ -202,6 +202,8 @@ namespace NaitonGps.Views
         private void SwipeGestureRecognizer_Swiped_PreviousRole(object sender, SwipedEventArgs e)
         {
             PreviousContent();
+            SwitchMenuImagesAndTxt();
+
             moveMenu();
         }
 
@@ -209,6 +211,8 @@ namespace NaitonGps.Views
         private void SwipeGestureRecognizer_Swiped_NextRole(object sender, SwipedEventArgs e)
         {
             NextContent();
+            SwitchMenuImagesAndTxt();
+
             moveMenu();
         }
 
@@ -216,6 +220,8 @@ namespace NaitonGps.Views
         private void TapGestureRecognizer_Tapped_PreviousRole(object sender, EventArgs e)
         {
             PreviousContent();
+            SwitchMenuImagesAndTxt();
+
             moveMenu();
         }
 
@@ -223,6 +229,8 @@ namespace NaitonGps.Views
         private void TapGestureRecognizer_Tapped_NextRole(object sender, EventArgs e)
         {
             NextContent();
+            SwitchMenuImagesAndTxt();
+
             moveMenu();
         }
 
@@ -231,7 +239,7 @@ namespace NaitonGps.Views
         public void NextContent()
         {
             Label[] labels = new Label[] { txtItem2, txtItem3, txtItem4, txtItem5 };
-            TintedImage[] images = new TintedImage[] { navItem2, navItem3, navItem4, navItem5 };
+            //TintedImage[] images = new TintedImage[] { navItem2, navItem3, navItem4, navItem5 };
 
             foreach (var item in labels)
             {
@@ -244,6 +252,18 @@ namespace NaitonGps.Views
                     item.TextColor = Color.White;
                 }
             }
+
+            //foreach (var itemImg in images)
+            //{
+            //    if (Application.Current.RequestedTheme == OSAppTheme.Light)
+            //    {
+            //        itemImg.TintColor = Color.Black;
+            //    }
+            //    else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+            //    {
+            //        itemImg.TintColor = Color.White;
+            //    }
+            //}
 
             //await DisplayAlert("", "Swipe right", "Ok");
             selectedIndex = selectedIndex + 1;
@@ -255,85 +275,48 @@ namespace NaitonGps.Views
                 {
                     case 0:
                         ControlTemplate = template1;
-                        foreach (var itemImg in images)
-                        {
-                            if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                            {
-                                itemImg.TintColor = Color.Black;
-                            }
-                            else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                            {
-                                itemImg.TintColor = Color.White;
-                            }
-                        }
-                        txtItem1.TextColor = Color.Green;
-                        navItem1.TintColor = Color.Green;
-                        txtItem1.Text = "Home";
-                        txtItem2.Text = "Chat";
-                        txtItem3.Text = "Vehicle";
-                        txtItem4.Text = "Navi";
-                        txtItem5.Text = "Delivery";
-                        navItem2.Source = "chat.png";
-                        navItem3.Source = "vehicle.png";
-                        navItem4.Source = "compass.png";
-                        navItem5.Source = "delivery.png";
 
-
-
+                        //txtItem1.TextColor = Color.Green;
+                        //navItem1.TintColor = Color.Green;
+                        //txtItem1.Text = "Home";
+                        //txtItem2.Text = "Chat";
+                        //txtItem3.Text = "Vehicle";
+                        //txtItem4.Text = "Navi";
+                        //txtItem5.Text = "Delivery";
+                        //navItem2.Source = "chat.png";
+                        //navItem3.Source = "vehicle.png";
+                        //navItem4.Source = "compass.png";
+                        //navItem5.Source = "delivery.png";
                         break;
                     case 1:
                         ControlTemplate = template2;
-                        foreach (var itemImg in images)
-                        {
-                            if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                            {
-                                itemImg.TintColor = Color.Black;
-                            }
-                            else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                            {
-                                itemImg.TintColor = Color.White;
-                            }
-                        }
-                        txtItem1.TextColor = Color.Green;
-                        navItem1.TintColor = Color.Green;
-                        txtItem1.Text = "Home";
-                        txtItem2.Text = "Chat";
-                        txtItem3.Text = "XXX";
-                        txtItem4.Text = "XXX";
-                        txtItem5.Text = "XXX";
-                        navItem2.Source = "chat.png";
-                        navItem3.Source = "notFound.png";
-                        navItem4.Source = "notFound.png";
-                        navItem5.Source = "notFound.png";
 
-
+                        //txtItem1.TextColor = Color.Green;
+                        //navItem1.TintColor = Color.Green;
+                        //txtItem1.Text = "Home";
+                        //txtItem2.Text = "Chat";
+                        //txtItem3.Text = "XXX";
+                        //txtItem4.Text = "XXX";
+                        //txtItem5.Text = "XXX";
+                        //navItem2.Source = "chat.png";
+                        //navItem3.Source = "notFound.png";
+                        //navItem4.Source = "notFound.png";
+                        //navItem5.Source = "notFound.png";
                         break;
                     case 2:
                         ControlTemplate = template3;
-                        foreach (var itemImg in images)
-                        {
-                            if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                            {
-                                itemImg.TintColor = Color.Black;
-                            }
-                            else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                            {
-                                itemImg.TintColor = Color.White;
-                            }
-                        }
-                        txtItem1.TextColor = Color.Green;
-                        navItem1.TintColor = Color.Green; 
-                        txtItem1.Text = "Home";
-                        txtItem2.Text = "Chat";
-                        txtItem3.Text = "XXX";
-                        txtItem4.Text = "XXX";
-                        txtItem5.Text = "XXX";
-                        navItem2.Source = "chat.png";
-                        navItem3.Source = "notFound.png";
-                        navItem4.Source = "notFound.png";
-                        navItem5.Source = "notFound.png";
 
-
+                        //txtItem1.TextColor = Color.Green;
+                        //navItem1.TintColor = Color.Green; 
+                        //txtItem1.Text = "Home";
+                        //txtItem2.Text = "Chat";
+                        //txtItem3.Text = "XXX";
+                        //txtItem4.Text = "XXX";
+                        //txtItem5.Text = "XXX";
+                        //navItem2.Source = "chat.png";
+                        //navItem3.Source = "notFound.png";
+                        //navItem4.Source = "notFound.png";
+                        //navItem5.Source = "notFound.png";
                         break;
                 }
             }
@@ -341,37 +324,25 @@ namespace NaitonGps.Views
             {
                 selectedIndex = 0;
                 ControlTemplate = template1;
-                foreach (var itemImg in images)
-                {
-                    if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                    {
-                        itemImg.TintColor = Color.Black;
-                    }
-                    else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                    {
-                        itemImg.TintColor = Color.White;
-                    }
-                }
-                txtItem1.TextColor = Color.Green;
-                navItem1.TintColor = Color.Green;
-                txtItem1.Text = "Home";
-                txtItem2.Text = "Chat";
-                txtItem3.Text = "Vehicle";
-                txtItem4.Text = "Navi";
-                txtItem5.Text = "Delivery";
-                navItem2.Source = "chat.png";
-                navItem3.Source = "vehicle.png";
-                navItem4.Source = "compass.png";
-                navItem5.Source = "delivery.png";
 
-
+                //txtItem1.TextColor = Color.Green;
+                //navItem1.TintColor = Color.Green;
+                //txtItem1.Text = "Home";
+                //txtItem2.Text = "Chat";
+                //txtItem3.Text = "Vehicle";
+                //txtItem4.Text = "Navi";
+                //txtItem5.Text = "Delivery";
+                //navItem2.Source = "chat.png";
+                //navItem3.Source = "vehicle.png";
+                //navItem4.Source = "compass.png";
+                //navItem5.Source = "delivery.png";
             }
         }
 
         public void PreviousContent()
         {
             Label[] labels = new Label[] { txtItem2, txtItem3, txtItem4, txtItem5 };
-            TintedImage[] images = new TintedImage[] { navItem2, navItem3, navItem4, navItem5 };
+            //TintedImage[] images = new TintedImage[] { navItem2, navItem3, navItem4, navItem5 };
 
             foreach (var item in labels)
             {
@@ -384,6 +355,18 @@ namespace NaitonGps.Views
                     item.TextColor = Color.White;
                 }
             }
+
+            //foreach (var itemImg in images)
+            //{
+            //    if (Application.Current.RequestedTheme == OSAppTheme.Light)
+            //    {
+            //        itemImg.TintColor = Color.Black;
+            //    }
+            //    else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+            //    {
+            //        itemImg.TintColor = Color.White;
+            //    }
+            //}
 
             //await DisplayAlert("", "Swipe left", "Ok");
             selectedIndex = selectedIndex - 1;
@@ -396,83 +379,47 @@ namespace NaitonGps.Views
                     case 0:
                         ControlTemplate = template1;
 
-                        txtItem1.TextColor = Color.Green;
-                        navItem1.TintColor = Color.Green; 
-                        txtItem1.Text = "Home";
-                        txtItem2.Text = "Chat";
-                        txtItem3.Text = "Vehicle";
-                        txtItem4.Text = "Navi";
-                        txtItem5.Text = "Delivery";
-                        navItem2.Source = "chat.png";
-                        navItem3.Source = "vehicle.png";
-                        navItem4.Source = "compass.png";
-                        navItem5.Source = "delivery.png";
-
-                        foreach (var itemImg in images)
-                        {
-                            if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                            {
-                                itemImg.TintColor = Color.Black;
-                            }
-                            else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                            {
-                                itemImg.TintColor = Color.White;
-                            }
-                        }
+                        //txtItem1.TextColor = Color.Green;
+                        //navItem1.TintColor = Color.Green; 
+                        //txtItem1.Text = "Home";
+                        //txtItem2.Text = "Chat";
+                        //txtItem3.Text = "Vehicle";
+                        //txtItem4.Text = "Navi";
+                        //txtItem5.Text = "Delivery";
+                        //navItem2.Source = "chat.png";
+                        //navItem3.Source = "vehicle.png";
+                        //navItem4.Source = "compass.png";
+                        //navItem5.Source = "delivery.png";
                         break;
                     case 1:
                         ControlTemplate = template2;
 
-                        txtItem1.TextColor = Color.Green;
-                        navItem1.TintColor = Color.Green;
-                        txtItem1.Text = "Home";
-                        txtItem2.Text = "Chat";
-                        txtItem3.Text = "XXX";
-                        txtItem4.Text = "XXX";
-                        txtItem5.Text = "XXX";
-                        navItem2.Source = "chat.png";
-                        navItem3.Source = "notFound.png";
-                        navItem4.Source = "notFound.png";
-                        navItem5.Source = "notFound.png";
-
-                        foreach (var itemImg in images)
-                        {
-                            if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                            {
-                                itemImg.TintColor = Color.Black;
-                            }
-                            else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                            {
-                                itemImg.TintColor = Color.White;
-                            }
-                        }
+                        //txtItem1.TextColor = Color.Green;
+                        //navItem1.TintColor = Color.Green;
+                        //txtItem1.Text = "Home";
+                        //txtItem2.Text = "Chat";
+                        //txtItem3.Text = "XXX";
+                        //txtItem4.Text = "XXX";
+                        //txtItem5.Text = "XXX";
+                        //navItem2.Source = "chat.png";
+                        //navItem3.Source = "notFound.png";
+                        //navItem4.Source = "notFound.png";
+                        //navItem5.Source = "notFound.png";
                         break;
                     case 2:
                         ControlTemplate = template3;
 
-                        txtItem1.TextColor = Color.Green;
-                        navItem1.TintColor = Color.Green;
-                        txtItem1.Text = "Home";
-                        txtItem2.Text = "Chat";
-                        txtItem3.Text = "XXX";
-                        txtItem4.Text = "XXX";
-                        txtItem5.Text = "XXX";
-                        navItem2.Source = "chat.png";
-                        navItem3.Source = "notFound.png";
-                        navItem4.Source = "notFound.png";
-                        navItem5.Source = "notFound.png";
-
-                        foreach (var itemImg in images)
-                        {
-                            if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                            {
-                                itemImg.TintColor = Color.Black;
-                            }
-                            else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                            {
-                                itemImg.TintColor = Color.White;
-                            }
-                        }
+                        //txtItem1.TextColor = Color.Green;
+                        //navItem1.TintColor = Color.Green;
+                        //txtItem1.Text = "Home";
+                        //txtItem2.Text = "Chat";
+                        //txtItem3.Text = "XXX";
+                        //txtItem4.Text = "XXX";
+                        //txtItem5.Text = "XXX";
+                        //navItem2.Source = "chat.png";
+                        //navItem3.Source = "notFound.png";
+                        //navItem4.Source = "notFound.png";
+                        //navItem5.Source = "notFound.png";
                         break;
                 }
             }
@@ -481,29 +428,17 @@ namespace NaitonGps.Views
                 selectedIndex = 2;
                 ControlTemplate = template3;
 
-                txtItem1.TextColor = Color.Green;
-                navItem1.TintColor = Color.Green;
-                navItem2.Source = "chat.png";
-                navItem3.Source = "notFound.png";
-                navItem4.Source = "notFound.png";
-                navItem5.Source = "notFound.png";
-                txtItem1.Text = "Home";
-                txtItem2.Text = "Chat";
-                txtItem3.Text = "XXX";
-                txtItem4.Text = "XXX";
-                txtItem5.Text = "XXX";
-
-                foreach (var itemImg in images)
-                {
-                    if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                    {
-                        itemImg.TintColor = Color.Black;
-                    }
-                    else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                    {
-                        itemImg.TintColor = Color.White;
-                    }
-                }
+                //txtItem1.TextColor = Color.Green;
+                //navItem1.TintColor = Color.Green;
+                //navItem2.Source = "chat.png";
+                //navItem3.Source = "notFound.png";
+                //navItem4.Source = "notFound.png";
+                //navItem5.Source = "notFound.png";
+                //txtItem1.Text = "Home";
+                //txtItem2.Text = "Chat";
+                //txtItem3.Text = "XXX";
+                //txtItem4.Text = "XXX";
+                //txtItem5.Text = "XXX";
             }
         }
 
@@ -560,18 +495,18 @@ namespace NaitonGps.Views
                                 otherImg.TintColor = Color.White;
                             }
                         }
-                        else if (otherImg.TintColor != Color.Green)
-                        {
-                            //for l/d modes = black/white image tint colors
-                            if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                            {
-                                otherImg.TintColor = Color.Black;
-                            }
-                            else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                            {
-                                otherImg.TintColor = Color.White;
-                            }
-                        }
+                        //else if (otherImg.TintColor != Color.Green)
+                        //{
+                        //    //for l/d modes = black/white image tint colors
+                        //    if (Application.Current.RequestedTheme == OSAppTheme.Light)
+                        //    {
+                        //        otherImg.TintColor = Color.Black;
+                        //    }
+                        //    else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+                        //    {
+                        //        otherImg.TintColor = Color.White;
+                        //    }
+                        //}
                     }
 
                     //Change color of the selected nav Image & Text 
@@ -652,6 +587,65 @@ namespace NaitonGps.Views
                         DisplayAlert("", "The chosen page is out of range. Please contact manager.", "Ok");
                     }
                 }
+            }
+        }
+
+        public void SwitchMenuImagesAndTxt()
+        {
+            //TintedImage[] images = new TintedImage[] { navItem2, navItem3, navItem4, navItem5 };
+            //foreach (var itemImg in images)
+            //{
+            //    if (itemImg.TintColor == Color.Black)
+            //    {
+            //        itemImg.TintColor = Color.White;
+            //    }
+            //    else if (itemImg.TintColor == Color.White)
+            //    {
+            //        itemImg.TintColor = Color.Black;
+            //    }
+
+            //}
+            if (ControlTemplate == template1)
+            {
+                txtItem1.TextColor = Color.Green;
+                navItem1.TintColor = Color.Green;
+                txtItem1.Text = "Home";
+                txtItem2.Text = "Chat";
+                txtItem3.Text = "Vehicle";
+                txtItem4.Text = "Navi";
+                txtItem5.Text = "Delivery";
+                navItem2.Source = "chat.png";
+                navItem3.Source = "vehicle.png";
+                navItem4.Source = "compass.png";
+                navItem5.Source = "delivery.png";
+            }
+            else if (ControlTemplate == template2)
+            {
+                txtItem1.TextColor = Color.Green;
+                navItem1.TintColor = Color.Green;
+                txtItem1.Text = "Home";
+                txtItem2.Text = "Chat";
+                txtItem3.Text = "XXX";
+                txtItem4.Text = "XXX";
+                txtItem5.Text = "XXX";
+                navItem2.Source = "chat.png";
+                navItem3.Source = "notFound.png";
+                navItem4.Source = "notFound.png";
+                navItem5.Source = "notFound.png";
+            }
+            else if (ControlTemplate == template3)
+            {
+                txtItem1.TextColor = Color.Green;
+                navItem1.TintColor = Color.Green;
+                txtItem1.Text = "Home";
+                txtItem2.Text = "Chat";
+                txtItem3.Text = "XXX";
+                txtItem4.Text = "XXX";
+                txtItem5.Text = "XXX";
+                navItem2.Source = "chat.png";
+                navItem3.Source = "notFound.png";
+                navItem4.Source = "notFound.png";
+                navItem5.Source = "notFound.png";
             }
         }
     }
