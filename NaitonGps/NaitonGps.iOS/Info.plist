@@ -23,7 +23,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Naiton GPS</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.naiton.NaitonGps</string>
+	<string>com.naiton.Naiton</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
