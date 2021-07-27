@@ -208,6 +208,18 @@
         //    }
         //}
 
+                        //else if (otherImg.TintColor != Color.Green)
+                        //{
+                        //    //for l/d modes = black/white image tint colors
+                        //    if (Application.Current.RequestedTheme == OSAppTheme.Light)
+                        //    {
+                        //        otherImg.TintColor = Color.Black;
+                        //    }
+                        //    else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+                        //    {
+                        //        otherImg.TintColor = Color.White;
+                        //    }
+                        //}
     -->
     
     

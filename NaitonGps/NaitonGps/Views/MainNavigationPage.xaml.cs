@@ -24,7 +24,6 @@ namespace NaitonGps.Views
         public ObservableCollection<UserViewModel> allRecords { get; set; } = new ObservableCollection<UserViewModel>();
         public int maxIndex = 2;
         public int minIndex = 0;
-
         private int templateIndex;
         private int selectedIndex;
 
@@ -60,12 +59,10 @@ namespace NaitonGps.Views
                 {
                     txtItem1.TextColor = Color.Green;
                     navItem1.TintColor = Color.Green;
-
                     txtItem2.TextColor = Color.Black;
                     txtItem3.TextColor = Color.Black;
                     txtItem4.TextColor = Color.Black;
                     txtItem5.TextColor = Color.Black;
-
                     navItem2.TintColor = Color.Black;
                     navItem3.TintColor = Color.Black;
                     navItem4.TintColor = Color.Black;
@@ -75,28 +72,21 @@ namespace NaitonGps.Views
                 {
                     txtItem1.TextColor = Color.Green;
                     navItem1.TintColor = Color.Green;
-
                     txtItem2.TextColor = Color.White;
                     txtItem3.TextColor = Color.White;
                     txtItem4.TextColor = Color.White;
                     txtItem5.TextColor = Color.White;
-
                     navItem2.TintColor = Color.White;
                     navItem3.TintColor = Color.White;
                     navItem4.TintColor = Color.White;
                     navItem5.TintColor = Color.White;
                 }
-
             }
 
             Application.Current.RequestedThemeChanged += (s, a) =>
             {
-
-                //Image imgClick = s as Image;
-                //int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);
                 Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
                 TintedImage[] images = new TintedImage[] { navItem1, navItem2, navItem3, navItem4, navItem5 };
-
 
                 switch (a.RequestedTheme)
                 {
@@ -136,7 +126,6 @@ namespace NaitonGps.Views
                             navItem5.TintColor = Color.Green;
                             txtItem5.TextColor = Color.Green;
                         }
-
                         break;
                     case OSAppTheme.Light:
                         foreach (var item in labels)
@@ -174,11 +163,9 @@ namespace NaitonGps.Views
                             navItem5.TintColor = Color.Green;
                             txtItem5.TextColor = Color.Green;
                         }
-
-                        //do something
                         break;
                     case OSAppTheme.Unspecified:
-                        //do something
+                        DisplayAlert("","Unspecified OS Theme", "Ok");
                         break;
                 }
             };
@@ -203,7 +190,6 @@ namespace NaitonGps.Views
         {
             PreviousContent();
             SwitchMenuImagesAndTxt();
-
             moveMenu();
         }
 
@@ -212,7 +198,6 @@ namespace NaitonGps.Views
         {
             NextContent();
             SwitchMenuImagesAndTxt();
-
             moveMenu();
         }
 
@@ -221,7 +206,6 @@ namespace NaitonGps.Views
         {
             PreviousContent();
             SwitchMenuImagesAndTxt();
-
             moveMenu();
         }
 
@@ -230,41 +214,12 @@ namespace NaitonGps.Views
         {
             NextContent();
             SwitchMenuImagesAndTxt();
-
             moveMenu();
         }
-
 
         //Navigation functions
         public void NextContent()
         {
-            Label[] labels = new Label[] { txtItem2, txtItem3, txtItem4, txtItem5 };
-            //TintedImage[] images = new TintedImage[] { navItem2, navItem3, navItem4, navItem5 };
-
-            foreach (var item in labels)
-            {
-                if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                {
-                    item.TextColor = Color.Black;
-                }
-                else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                {
-                    item.TextColor = Color.White;
-                }
-            }
-
-            //foreach (var itemImg in images)
-            //{
-            //    if (Application.Current.RequestedTheme == OSAppTheme.Light)
-            //    {
-            //        itemImg.TintColor = Color.Black;
-            //    }
-            //    else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-            //    {
-            //        itemImg.TintColor = Color.White;
-            //    }
-            //}
-
             //await DisplayAlert("", "Swipe right", "Ok");
             selectedIndex = selectedIndex + 1;
 
@@ -275,48 +230,12 @@ namespace NaitonGps.Views
                 {
                     case 0:
                         ControlTemplate = template1;
-
-                        //txtItem1.TextColor = Color.Green;
-                        //navItem1.TintColor = Color.Green;
-                        //txtItem1.Text = "Home";
-                        //txtItem2.Text = "Chat";
-                        //txtItem3.Text = "Vehicle";
-                        //txtItem4.Text = "Navi";
-                        //txtItem5.Text = "Delivery";
-                        //navItem2.Source = "chat.png";
-                        //navItem3.Source = "vehicle.png";
-                        //navItem4.Source = "compass.png";
-                        //navItem5.Source = "delivery.png";
                         break;
                     case 1:
                         ControlTemplate = template2;
-
-                        //txtItem1.TextColor = Color.Green;
-                        //navItem1.TintColor = Color.Green;
-                        //txtItem1.Text = "Home";
-                        //txtItem2.Text = "Chat";
-                        //txtItem3.Text = "XXX";
-                        //txtItem4.Text = "XXX";
-                        //txtItem5.Text = "XXX";
-                        //navItem2.Source = "chat.png";
-                        //navItem3.Source = "notFound.png";
-                        //navItem4.Source = "notFound.png";
-                        //navItem5.Source = "notFound.png";
                         break;
                     case 2:
                         ControlTemplate = template3;
-
-                        //txtItem1.TextColor = Color.Green;
-                        //navItem1.TintColor = Color.Green; 
-                        //txtItem1.Text = "Home";
-                        //txtItem2.Text = "Chat";
-                        //txtItem3.Text = "XXX";
-                        //txtItem4.Text = "XXX";
-                        //txtItem5.Text = "XXX";
-                        //navItem2.Source = "chat.png";
-                        //navItem3.Source = "notFound.png";
-                        //navItem4.Source = "notFound.png";
-                        //navItem5.Source = "notFound.png";
                         break;
                 }
             }
@@ -324,50 +243,11 @@ namespace NaitonGps.Views
             {
                 selectedIndex = 0;
                 ControlTemplate = template1;
-
-                //txtItem1.TextColor = Color.Green;
-                //navItem1.TintColor = Color.Green;
-                //txtItem1.Text = "Home";
-                //txtItem2.Text = "Chat";
-                //txtItem3.Text = "Vehicle";
-                //txtItem4.Text = "Navi";
-                //txtItem5.Text = "Delivery";
-                //navItem2.Source = "chat.png";
-                //navItem3.Source = "vehicle.png";
-                //navItem4.Source = "compass.png";
-                //navItem5.Source = "delivery.png";
             }
         }
 
         public void PreviousContent()
         {
-            Label[] labels = new Label[] { txtItem2, txtItem3, txtItem4, txtItem5 };
-            //TintedImage[] images = new TintedImage[] { navItem2, navItem3, navItem4, navItem5 };
-
-            foreach (var item in labels)
-            {
-                if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                {
-                    item.TextColor = Color.Black;
-                }
-                else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                {
-                    item.TextColor = Color.White;
-                }
-            }
-
-            //foreach (var itemImg in images)
-            //{
-            //    if (Application.Current.RequestedTheme == OSAppTheme.Light)
-            //    {
-            //        itemImg.TintColor = Color.Black;
-            //    }
-            //    else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-            //    {
-            //        itemImg.TintColor = Color.White;
-            //    }
-            //}
-
             //await DisplayAlert("", "Swipe left", "Ok");
             selectedIndex = selectedIndex - 1;
 
@@ -378,48 +258,12 @@ namespace NaitonGps.Views
                 {
                     case 0:
                         ControlTemplate = template1;
-
-                        //txtItem1.TextColor = Color.Green;
-                        //navItem1.TintColor = Color.Green; 
-                        //txtItem1.Text = "Home";
-                        //txtItem2.Text = "Chat";
-                        //txtItem3.Text = "Vehicle";
-                        //txtItem4.Text = "Navi";
-                        //txtItem5.Text = "Delivery";
-                        //navItem2.Source = "chat.png";
-                        //navItem3.Source = "vehicle.png";
-                        //navItem4.Source = "compass.png";
-                        //navItem5.Source = "delivery.png";
                         break;
                     case 1:
                         ControlTemplate = template2;
-
-                        //txtItem1.TextColor = Color.Green;
-                        //navItem1.TintColor = Color.Green;
-                        //txtItem1.Text = "Home";
-                        //txtItem2.Text = "Chat";
-                        //txtItem3.Text = "XXX";
-                        //txtItem4.Text = "XXX";
-                        //txtItem5.Text = "XXX";
-                        //navItem2.Source = "chat.png";
-                        //navItem3.Source = "notFound.png";
-                        //navItem4.Source = "notFound.png";
-                        //navItem5.Source = "notFound.png";
                         break;
                     case 2:
                         ControlTemplate = template3;
-
-                        //txtItem1.TextColor = Color.Green;
-                        //navItem1.TintColor = Color.Green;
-                        //txtItem1.Text = "Home";
-                        //txtItem2.Text = "Chat";
-                        //txtItem3.Text = "XXX";
-                        //txtItem4.Text = "XXX";
-                        //txtItem5.Text = "XXX";
-                        //navItem2.Source = "chat.png";
-                        //navItem3.Source = "notFound.png";
-                        //navItem4.Source = "notFound.png";
-                        //navItem5.Source = "notFound.png";
                         break;
                 }
             }
@@ -427,18 +271,6 @@ namespace NaitonGps.Views
             {
                 selectedIndex = 2;
                 ControlTemplate = template3;
-
-                //txtItem1.TextColor = Color.Green;
-                //navItem1.TintColor = Color.Green;
-                //navItem2.Source = "chat.png";
-                //navItem3.Source = "notFound.png";
-                //navItem4.Source = "notFound.png";
-                //navItem5.Source = "notFound.png";
-                //txtItem1.Text = "Home";
-                //txtItem2.Text = "Chat";
-                //txtItem3.Text = "XXX";
-                //txtItem4.Text = "XXX";
-                //txtItem5.Text = "XXX";
             }
         }
 
@@ -495,18 +327,6 @@ namespace NaitonGps.Views
                                 otherImg.TintColor = Color.White;
                             }
                         }
-                        //else if (otherImg.TintColor != Color.Green)
-                        //{
-                        //    //for l/d modes = black/white image tint colors
-                        //    if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                        //    {
-                        //        otherImg.TintColor = Color.Black;
-                        //    }
-                        //    else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                        //    {
-                        //        otherImg.TintColor = Color.White;
-                        //    }
-                        //}
                     }
 
                     //Change color of the selected nav Image & Text 
@@ -592,21 +412,23 @@ namespace NaitonGps.Views
 
         public void SwitchMenuImagesAndTxt()
         {
-            //TintedImage[] images = new TintedImage[] { navItem2, navItem3, navItem4, navItem5 };
-            //foreach (var itemImg in images)
-            //{
-            //    if (itemImg.TintColor == Color.Black)
-            //    {
-            //        itemImg.TintColor = Color.White;
-            //    }
-            //    else if (itemImg.TintColor == Color.White)
-            //    {
-            //        itemImg.TintColor = Color.Black;
-            //    }
+            Label[] labels = new Label[] { txtItem2, txtItem3, txtItem4, txtItem5 };
 
-            //}
+            foreach (var item in labels)
+            {
+                if (Application.Current.RequestedTheme == OSAppTheme.Light)
+                {
+                    item.TextColor = Color.Black;
+                }
+                else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+                {
+                    item.TextColor = Color.White;
+                }
+            }
+
             if (ControlTemplate == template1)
             {
+
                 txtItem1.TextColor = Color.Green;
                 navItem1.TintColor = Color.Green;
                 txtItem1.Text = "Home";
@@ -614,10 +436,23 @@ namespace NaitonGps.Views
                 txtItem3.Text = "Vehicle";
                 txtItem4.Text = "Navi";
                 txtItem5.Text = "Delivery";
-                navItem2.Source = "chat.png";
-                navItem3.Source = "vehicle.png";
-                navItem4.Source = "compass.png";
-                navItem5.Source = "delivery.png";
+
+
+                if (Application.Current.RequestedTheme == OSAppTheme.Light)
+                {
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "vehicle.png";
+                    navItem4.Source = "compass.png";
+                    navItem5.Source = "delivery.png";
+
+                }
+                else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+                {
+                    navItem2.Source = "chatWhite.png";
+                    navItem3.Source = "vehicleWhite.png";
+                    navItem4.Source = "compassWhite.png";
+                    navItem5.Source = "deliveryWhite.png";
+                }
             }
             else if (ControlTemplate == template2)
             {
@@ -625,13 +460,25 @@ namespace NaitonGps.Views
                 navItem1.TintColor = Color.Green;
                 txtItem1.Text = "Home";
                 txtItem2.Text = "Chat";
-                txtItem3.Text = "XXX";
-                txtItem4.Text = "XXX";
-                txtItem5.Text = "XXX";
-                navItem2.Source = "chat.png";
-                navItem3.Source = "notFound.png";
-                navItem4.Source = "notFound.png";
-                navItem5.Source = "notFound.png";
+                txtItem3.Text = "NaitonGPS";
+                txtItem4.Text = "NaitonGPS";
+                txtItem5.Text = "NaitonGPS";
+
+                if (Application.Current.RequestedTheme == OSAppTheme.Light)
+                {
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "notFound.png";
+                    navItem4.Source = "notFound.png";
+                    navItem5.Source = "notFound.png";
+
+                }
+                else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+                {
+                    navItem2.Source = "chatWhite.png";
+                    navItem3.Source = "notFoundWhite.png";
+                    navItem4.Source = "notFoundWhite.png";
+                    navItem5.Source = "notFoundWhite.png";
+                }
             }
             else if (ControlTemplate == template3)
             {
@@ -639,13 +486,25 @@ namespace NaitonGps.Views
                 navItem1.TintColor = Color.Green;
                 txtItem1.Text = "Home";
                 txtItem2.Text = "Chat";
-                txtItem3.Text = "XXX";
-                txtItem4.Text = "XXX";
-                txtItem5.Text = "XXX";
-                navItem2.Source = "chat.png";
-                navItem3.Source = "notFound.png";
-                navItem4.Source = "notFound.png";
-                navItem5.Source = "notFound.png";
+                txtItem3.Text = "NaitonGPS";
+                txtItem4.Text = "NaitonGPS";
+                txtItem5.Text = "NaitonGPS";
+
+                if (Application.Current.RequestedTheme == OSAppTheme.Light)
+                {
+                    navItem2.Source = "chat.png";
+                    navItem3.Source = "notFound.png";
+                    navItem4.Source = "notFound.png";
+                    navItem5.Source = "notFound.png";
+
+                }
+                else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+                {
+                    navItem2.Source = "chatWhite.png";
+                    navItem3.Source = "notFoundWhite.png";
+                    navItem4.Source = "notFoundWhite.png";
+                    navItem5.Source = "notFoundWhite.png";
+                }
             }
         }
     }
