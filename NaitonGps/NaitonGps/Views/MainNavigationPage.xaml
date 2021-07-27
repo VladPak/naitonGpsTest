@@ -10,7 +10,6 @@
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
              BackgroundColor="{AppThemeBinding Light={StaticResource colorWhite}, Dark={StaticResource colorGrey}}" 
              >
-
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
