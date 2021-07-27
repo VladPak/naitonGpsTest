@@ -10,10 +10,9 @@
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
              >
     <views:KeyboardView>
-
-        <Grid  Margin="15, 0, 15, 0" RowSpacing="40" ColumnSpacing="0" VerticalOptions="StartAndExpand" HorizontalOptions="Center">
+        <Grid  Margin="25, 0, 25, 0" RowSpacing="0" ColumnSpacing="0" VerticalOptions="Start">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.8*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -22,9 +21,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="120" WidthRequest="120" Source="nonLogo.png"/>
-
-            <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+            <Image Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Source="nonLogo.png"/>
+            <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="Start">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
@@ -34,7 +32,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="StartAndExpand" Text="E-mail" Style="{DynamicResource adaptiveTextColor}" FontAttributes="Bold" FontSize="18" Margin="0,10,0,0"></Label>
-                <views:BorderedEntry Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="entEmail" Placeholder="" Margin="0,40,0,0"/>
+                <views:BorderedEntry Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="entEmail" Margin="0,40,0,0"/>
 
                 <Frame Grid.Column="1" Grid.Row="2" VerticalOptions="Center" WidthRequest="100" BackgroundColor="White" BorderColor="#949494" HorizontalOptions="Start"  HasShadow="False" CornerRadius="5">
                     <Label Text="Back" TextColor="#66a103" HorizontalOptions="Center" VerticalOptions="Center">

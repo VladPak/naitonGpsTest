@@ -413,6 +413,7 @@ namespace NaitonGps.Views
         public void SwitchMenuImagesAndTxt()
         {
             Label[] labels = new Label[] { txtItem2, txtItem3, txtItem4, txtItem5 };
+            TintedImage[] tintImgs = new TintedImage[] { navItem2, navItem3, navItem4, navItem5 };
 
             foreach (var item in labels)
             {
@@ -423,6 +424,18 @@ namespace NaitonGps.Views
                 else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
                 {
                     item.TextColor = Color.White;
+                }
+            }
+
+            foreach (var itemImgs in tintImgs)
+            {
+                if (Application.Current.RequestedTheme == OSAppTheme.Light)
+                {
+                    itemImgs.TintColor = Color.Black;
+                }
+                else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+                {
+                    itemImgs.TintColor = Color.White;
                 }
             }
 
