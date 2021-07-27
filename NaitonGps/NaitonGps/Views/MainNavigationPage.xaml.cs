@@ -21,7 +21,7 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainNavigationPage : ContentPage
     {
-        //essential vars
+        //essential vars and stats
         public ObservableCollection<UserViewModel> allRecords { get; set; } = new ObservableCollection<UserViewModel>();
         public int maxIndex = 2;
         public int minIndex = 0;
