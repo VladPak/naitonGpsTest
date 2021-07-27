@@ -21,6 +21,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         
+         
         <!--#region Bottom Navigation Menu -->
             <Image Grid.Row="0" Grid.Column="0" Source="leftarrow.png" WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" VerticalOptions="End">
                 <Image.GestureRecognizers>
