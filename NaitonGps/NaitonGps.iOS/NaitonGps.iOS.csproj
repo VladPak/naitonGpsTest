@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\ImageTintingRenderer.cs" />
     <Compile Include="Renderers\KeyboardViewRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
