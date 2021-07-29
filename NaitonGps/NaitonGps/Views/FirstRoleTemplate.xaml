@@ -7,13 +7,13 @@
              iOS:Page.UseSafeArea="true"
              iOS:Page.PrefersStatusBarHidden="Default"
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
-       Margin="10,0,10,5"
+       Margin="10,0,10,10"
       x:Name="mainGrid"
       >
     <Grid.RowDefinitions>
         <RowDefinition Height="0.5*"></RowDefinition>
         <RowDefinition Height="3*"></RowDefinition>
-        <RowDefinition Height="*"></RowDefinition>
+        <RowDefinition Height="0.45*"></RowDefinition>
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*"></ColumnDefinition>
@@ -64,5 +64,5 @@
     <!--#endregion-->
 
     <Label IsVisible="false" x:Name="Content" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="Large" Text="Role: Manager"/>
-    <ContentPresenter Grid.Row="2" Grid.ColumnSpan="3" />
+    <ContentPresenter Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="Fill" BackgroundColor="Transparent" />
 </Grid>

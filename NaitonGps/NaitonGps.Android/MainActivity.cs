@@ -22,7 +22,7 @@ namespace NaitonGps.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             Window.SetStatusBarColor(Android.Graphics.Color.Transparent);
-            Window.Attributes.LayoutInDisplayCutoutMode = LayoutInDisplayCutoutMode.ShortEdges;
+            //Window.Attributes.LayoutInDisplayCutoutMode = LayoutInDisplayCutoutMode.ShortEdges;
             Window.AddFlags(WindowManagerFlags.Fullscreen);
             Window.AddFlags(WindowManagerFlags.LayoutInOverscan);
 
