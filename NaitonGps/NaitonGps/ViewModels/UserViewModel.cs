@@ -24,53 +24,53 @@ namespace NaitonGps.ViewModels
             };
 
 
-            roles = new ObservableCollection<Roles>
-            {
-                new Roles
-                {
-                    RoleTitle = "Manager"
-                },
-                new Roles
-                {
-                    RoleTitle = "Driver"
-                },
-                new Roles
-                {
-                    RoleTitle = "Sales exec"
-                }
-            };
+            //roles = new ObservableCollection<Roles>
+            //{
+            //    new Roles
+            //    {
+            //        RoleTitle = "Manager"
+            //    },
+            //    new Roles
+            //    {
+            //        RoleTitle = "Driver"
+            //    },
+            //    new Roles
+            //    {
+            //        RoleTitle = "Sales exec"
+            //    }
+            //};
 
-            orders = new ObservableCollection<Orders>
-            {
-                new Orders
-                {
-                    orderTitle = "Order #1021", orderStatus = "Waiting", orderDate ="06/07/2021"
-                },
-                new Orders
-                {
-                    orderTitle = "Order #2021", orderStatus = "Pending", orderDate ="06/12/2021"
-                },
-                new Orders
-                {
-                    orderTitle = "Order #3021", orderStatus = "Waiting", orderDate ="06/09/2021"
-                },
-                new Orders
-                {
-                    orderTitle = "Order #4021", orderStatus = "Pending", orderDate ="06/12/2021"
-                },
-                new Orders
-                {
-                    orderTitle = "Order #5021", orderStatus = "Pending", orderDate ="06/13/2021"
-                },
-                new Orders
-                {
-                    orderTitle = "Order #6021", orderStatus = "Canceled", orderDate ="04/05/2021"
-                },
-                new Orders
-                {
-                    orderTitle = "Order #7021", orderStatus = "Delivered", orderDate ="03/10/2021"
-                },
-            };
+            //orders = new ObservableCollection<Orders>
+            //{
+            //    new Orders
+            //    {
+            //        orderTitle = "Order #1021", orderStatus = "Waiting", orderDate ="06/07/2021"
+            //    },
+            //    new Orders
+            //    {
+            //        orderTitle = "Order #2021", orderStatus = "Pending", orderDate ="06/12/2021"
+            //    },
+            //    new Orders
+            //    {
+            //        orderTitle = "Order #3021", orderStatus = "Waiting", orderDate ="06/09/2021"
+            //    },
+            //    new Orders
+            //    {
+            //        orderTitle = "Order #4021", orderStatus = "Pending", orderDate ="06/12/2021"
+            //    },
+            //    new Orders
+            //    {
+            //        orderTitle = "Order #5021", orderStatus = "Pending", orderDate ="06/13/2021"
+            //    },
+            //    new Orders
+            //    {
+            //        orderTitle = "Order #6021", orderStatus = "Canceled", orderDate ="04/05/2021"
+            //    },
+            //    new Orders
+            //    {
+            //        orderTitle = "Order #7021", orderStatus = "Delivered", orderDate ="03/10/2021"
+            //    },
+            //};
         }
     }
 }

@@ -166,23 +166,10 @@ namespace NaitonGps.Views
                         }
                         break;
                     case OSAppTheme.Unspecified:
-                        DisplayAlert("","Unspecified OS Theme", "Ok");
+                        DisplayAlert("", "Unspecified OS Theme", "Ok");
                         break;
                 }
             };
-        }
-
-        //PopUp call
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            await Navigation.PushPopupAsync(new MorePopUp());
-        }
-
-        //Navigation menu animation
-        public async void moveMenu()
-        {
-            await bottomNavMenu.TranslateTo(0, 200, 200, Easing.Linear);
-            await bottomNavMenu.TranslateTo(0, 0);
         }
 
         //Navigation controls
@@ -218,6 +205,13 @@ namespace NaitonGps.Views
             moveMenu();
         }
 
+        //Navigation menu animation
+        public async void moveMenu()
+        {
+            await bottomNavMenu.TranslateTo(0, 200, 200, Easing.Linear);
+            await bottomNavMenu.TranslateTo(0, 0);
+        }
+
         //Navigation functions
         public void NextContent()
         {
@@ -249,11 +243,10 @@ namespace NaitonGps.Views
 
         public void PreviousContent()
         {
-            //await DisplayAlert("", "Swipe left", "Ok");
             selectedIndex = selectedIndex - 1;
 
             int indexCheck = templateIndex;
-            if ((indexCheck != selectedIndex && (selectedIndex > indexCheck || selectedIndex != -1)) || indexCheck == selectedIndex)
+            if (indexCheck != selectedIndex && (selectedIndex > indexCheck || selectedIndex != -1) || indexCheck == selectedIndex)
             {
                 switch (selectedIndex)
                 {
@@ -458,7 +451,6 @@ namespace NaitonGps.Views
                     navItem3.Source = "vehicle.png";
                     navItem4.Source = "compass.png";
                     navItem5.Source = "delivery.png";
-
                 }
                 else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
                 {
@@ -510,7 +502,6 @@ namespace NaitonGps.Views
                     navItem3.Source = "notFound.png";
                     navItem4.Source = "notFound.png";
                     navItem5.Source = "notFound.png";
-
                 }
                 else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
                 {
@@ -520,6 +511,11 @@ namespace NaitonGps.Views
                     navItem5.Source = "notFoundWhite.png";
                 }
             }
+        }
+
+        private void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
+        {
+            DisplayAlert("", "Use arrow buttons only", "Ok");
         }
     }
 }

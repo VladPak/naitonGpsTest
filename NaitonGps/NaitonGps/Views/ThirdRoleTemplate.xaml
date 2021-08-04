@@ -42,16 +42,16 @@ Margin="10,0,10,10"
             </Grid.ColumnDefinitions>
 
             <StackLayout VerticalOptions="Center" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Orientation="Vertical" HorizontalOptions="Start">
-                <Label Grid.Column="0" Grid.Row="0" Text="Welcome" FontSize="28" FontAttributes="Bold" Style="{DynamicResource adaptiveTextColor}"/>
-                <Label x:Name="lblUserEmail" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="User Email" FontSize="15" FontAttributes="Bold" Style="{DynamicResource adaptiveTextColor}"></Label>
+                <Label Grid.Column="0" Grid.Row="0" Text="Welcome" FontSize="20" FontAttributes="Bold" Style="{DynamicResource adaptiveTextColor}"/>
+                <Label x:Name="lblUserEmail" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="User Email" FontSize="14" FontAttributes="Bold" Style="{DynamicResource adaptiveTextColor}"></Label>
             </StackLayout>
             <StackLayout VerticalOptions="Center" Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalOptions="End">
-                <Image Grid.Column="1" Grid.Row="0" Margin="0,0,25,0" Source="{AppThemeBinding Light=notification.png, Dark=notificationWhite.png}"  WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" >
+                <Image Grid.Column="1" Grid.Row="0" Margin="0,0,15,0" Source="{AppThemeBinding Light=notification.png, Dark=notificationWhite.png}"  WidthRequest="25" HeightRequest="25" HorizontalOptions="Start" >
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="PopUpSample"></TapGestureRecognizer>
                     </Image.GestureRecognizers>
                 </Image>
-                <Image Grid.Column="1" Grid.Row="0" Source="{AppThemeBinding Light=settings.png, Dark=settingsWhite.png }" HeightRequest="30" WidthRequest="30" HorizontalOptions="End">
+                <Image Grid.Column="1" Grid.Row="0" Source="{AppThemeBinding Light=settings.png, Dark=settingsWhite.png }" HeightRequest="25" WidthRequest="25" HorizontalOptions="End">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="PopUpSample"></TapGestureRecognizer>
                     </Image.GestureRecognizers>
@@ -62,7 +62,7 @@ Margin="10,0,10,10"
     </Grid>
     <!--#endregion-->
 
-    <Label IsVisible="false" x:Name="Content" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="Large" Text="Role: Sales Executive"/>
+    <Label IsVisible="false" x:Name="Content" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="18" Text="Role: Sales Executive"/>
     <ContentPresenter Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="Fill" BackgroundColor="Transparent" />
 </Grid>
 

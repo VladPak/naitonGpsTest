@@ -14,7 +14,7 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FirstRoleTemplate : Grid
     {
-        public UserViewModel allUsers;
+        //public UserViewModel allUsers;
 
         public FirstRoleTemplate()
         {
