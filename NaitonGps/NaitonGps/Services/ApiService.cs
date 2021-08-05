@@ -1,7 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using NaitonGps.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -64,7 +66,7 @@ namespace NaitonGps.Services
             var content = JsonConvert.DeserializeObject<WebServiceSuccessResponse<InitializeSessionResponseContent>>(responseContent);
             var tokenItself = content.Success.Token;
             //var rsToString = responseContent.ToString();
-            Preferences.Set("acessToken", tokenItself);
+            Preferences.Set("accessToken", tokenItself);
 
             if (!response.IsSuccessStatusCode)
             {
@@ -74,6 +76,14 @@ namespace NaitonGps.Services
             {
                 return true;
             }
+        }
+
+        public static async Task<List<Roles>> GetAllUserRoles()
+        {
+            //var httpClient = new HttpClient();
+            //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
+            //var response = await httpClient.GetStringAsync("");
+            //return JsonConvert.DeserializeObject<Roles>(response);
         }
     }
 }
