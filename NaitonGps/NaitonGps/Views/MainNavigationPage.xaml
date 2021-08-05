@@ -80,31 +80,10 @@
             <Label x:Name="txtItem5" Text="Delivery" HorizontalTextAlignment="Center" TextColor="{AppThemeBinding Light=Black, Dark=White}" Grid.Row="0" Grid.Column="4" Margin="0,45,0,0" FontSize="9" VerticalOptions="Center" HorizontalOptions="Center"></Label>
 
             <Grid.GestureRecognizers>
-                <OnPlatform x:TypeArguments="GestureRecognizer">
-                    <OnPlatform.Platforms>
-                        <On Platform="Android">
-                            <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped"/>
-                        </On>
-                        <On Platform="iOS">
-                            <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped_PreviousRole"/>
-                        </On>
-                        <On Platform="Android">
-                            <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped"/>
-                        </On>
-                        <On Platform="iOS">
-                            <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped_NextRole"/>
-                        </On>
-                    </OnPlatform.Platforms>
-                </OnPlatform>
-            </Grid.GestureRecognizers>
-            
-        </Grid>
-        <!--#endregion
-            <Grid.GestureRecognizers>
                 <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped_PreviousRole"></SwipeGestureRecognizer>
                 <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped_NextRole"></SwipeGestureRecognizer>
             </Grid.GestureRecognizers>
-        
-        -->
+        </Grid>
+        <!--#endregion-->
     </Grid>
 </ContentPage>

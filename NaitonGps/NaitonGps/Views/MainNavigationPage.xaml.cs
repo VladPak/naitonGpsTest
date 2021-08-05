@@ -176,17 +176,32 @@ namespace NaitonGps.Views
         //Previous Role (Swipe)
         private void SwipeGestureRecognizer_Swiped_PreviousRole(object sender, SwipedEventArgs e)
         {
-            PreviousContent();
-            SwitchMenuImagesAndTxt();
-            moveMenu();
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                DisplayAlert("", "Swipe navigation currently unavailable. Use arrow buttons please.", "Ok");
+            }
+            else if (Device.RuntimePlatform == Device.iOS)
+            {
+                PreviousContent();
+                SwitchMenuImagesAndTxt();
+                moveMenu();
+            }
+
         }
 
         //Next Role (Swipe)
         private void SwipeGestureRecognizer_Swiped_NextRole(object sender, SwipedEventArgs e)
         {
-            NextContent();
-            SwitchMenuImagesAndTxt();
-            moveMenu();
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                DisplayAlert("", "Swipe navigation currently unavailable. Use arrow buttons please.", "Ok");
+            }
+            else if (Device.RuntimePlatform == Device.iOS)
+            {
+                NextContent();
+                SwitchMenuImagesAndTxt();
+                moveMenu();
+            }
         }
 
         //Previous Role (Arrow button)
@@ -511,11 +526,6 @@ namespace NaitonGps.Views
                     navItem5.Source = "notFoundWhite.png";
                 }
             }
-        }
-
-        private void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
-        {
-            DisplayAlert("", "Use arrow buttons only", "Ok");
         }
     }
 }
