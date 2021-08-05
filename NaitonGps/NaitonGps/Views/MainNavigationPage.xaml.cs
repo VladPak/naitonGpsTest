@@ -21,7 +21,6 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainNavigationPage : ContentPage
     {
-        //essential vars and stats sdfadsf
         public ObservableCollection<UserViewModel> allRecords { get; set; } = new ObservableCollection<UserViewModel>();
         public int maxIndex = 2;
         public int minIndex = 0;
@@ -46,6 +45,10 @@ namespace NaitonGps.Views
         ControlTemplate template33 = new ControlTemplate(typeof(SalesExFourthPage));
         ControlTemplate template34 = new ControlTemplate(typeof(SalesExFifthPage));
 
+        public static double screenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
+        public static bool isSmallScreen { get; } = screenWidth <= 360;
+        public static bool isBigScreen { get; } = screenWidth >= 360;
+
         public MainNavigationPage()
         {
             InitializeComponent();
@@ -53,6 +56,17 @@ namespace NaitonGps.Views
             templateIndex = 0;
             selectedIndex = 0;
             BindingContext = new UserViewModel();
+
+            //detect screen size and set margin between nav icons
+            if (isSmallScreen)
+            {
+                bottomNavMenu.ColumnSpacing = 20;
+            }
+            else if (isBigScreen)
+            {
+                bottomNavMenu.ColumnSpacing = 30;
+            }
+
 
             if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3)
             {
@@ -230,7 +244,6 @@ namespace NaitonGps.Views
         //Navigation functions
         public void NextContent()
         {
-            //await DisplayAlert("", "Swipe right", "Ok");
             selectedIndex = selectedIndex + 1;
 
             int indexCheck = templateIndex;
@@ -259,7 +272,6 @@ namespace NaitonGps.Views
         public void PreviousContent()
         {
             selectedIndex = selectedIndex - 1;
-
             int indexCheck = templateIndex;
             if (indexCheck != selectedIndex && (selectedIndex > indexCheck || selectedIndex != -1) || indexCheck == selectedIndex)
             {
@@ -289,133 +301,40 @@ namespace NaitonGps.Views
             int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);
             Label[] labels = new Label[] { txtItem1, txtItem2, txtItem3, txtItem4, txtItem5 };
             TintedImage[] images = new TintedImage[] { navItem1, navItem2, navItem3, navItem4, navItem5 };
+            ControlTemplate[] firstRoleTemps = new ControlTemplate[] { template1, template11, template12, template13, template14 };
+            ControlTemplate[] secondRoleTemps = new ControlTemplate[] { template2, template21, template22, template23, template24 };
+            ControlTemplate[] thirdRoleTemps = new ControlTemplate[] { template3, template31, template32, template33, template34 };
 
-            if (selectedIndex == 0 || selectedIndex == 1 || selectedIndex == 2)
+            foreach (var labelToDefaultColor in labels)
             {
-                if (currentGridRowClicked == 0 || currentGridRowClicked == 1 || currentGridRowClicked == 2 || currentGridRowClicked == 3 || currentGridRowClicked == 4)
-                {
-                    foreach (var item in labels)
-                    {
-                        if (item.TextColor == Color.Green)
-                        {
-                            //for l/d modes = black/white text colors
-                            if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                            {
-                                item.TextColor = Color.Black;
-                            }
-                            else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                            {
-                                item.TextColor = Color.White;
-                            }
-                        }
-                        else if (item.TextColor != Color.Green)
-                        {
-                            //for l/d modes = black/white text colors
-                            if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                            {
-                                item.TextColor = Color.Black;
-                            }
-                            else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                            {
-                                item.TextColor = Color.White;
-                            }
-                        }
-                    }
+                labelToDefaultColor.TextColor = Color.Black;
+            }
 
-                    foreach (var otherImg in images)
-                    {
-                        if (otherImg.TintColor == Color.Green)
-                        {
-                            //for l/d modes = black/white image tint colors
-                            if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                            {
-                                otherImg.TintColor = Color.Black;
-                            }
-                            else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                            {
-                                otherImg.TintColor = Color.White;
-                            }
-                        }
-                    }
+            foreach (var imgToDefaultColor in images)
+            {
+                imgToDefaultColor.TintColor = Color.Black;
+            }
 
-                    //Change color of the selected nav Image & Text 
-                    labels[currentGridRowClicked].TextColor = Color.Green;
-                    images[currentGridRowClicked].TintColor = Color.Green;
+            labels[currentGridRowClicked].TextColor = Color.Green;
+            images[currentGridRowClicked].TintColor = Color.Green;
 
-                    if (selectedIndex == 0)
-                    {
-                        if (currentGridRowClicked == 0)
-                        {
-                            ControlTemplate = template1;
-                        }
-                        else if(currentGridRowClicked == 1)
-                        {
-                            ControlTemplate = template11;
-                        }
-                        else if (currentGridRowClicked == 2)
-                        {
-                            ControlTemplate = template12;
-                        }
-                        else if (currentGridRowClicked == 3)
-                        {
-                            ControlTemplate = template13;
-                        }
-                        else if (currentGridRowClicked == 4)
-                        {
-                            ControlTemplate = template14;
-                        }
-                    }
-                    else if (selectedIndex == 1)
-                    {
-                        if (currentGridRowClicked == 0)
-                        {
-                            ControlTemplate = template2;
-                        }
-                        else if (currentGridRowClicked == 1)
-                        {
-                            ControlTemplate = template21;
-                        }
-                        else if (currentGridRowClicked == 2)
-                        {
-                            ControlTemplate = template22;
-                        }
-                        else if (currentGridRowClicked == 3)
-                        {
-                            ControlTemplate = template23;
-                        }
-                        else if (currentGridRowClicked == 4)
-                        {
-                            ControlTemplate = template24;
-                        }
-                    }
-                    else if (selectedIndex == 2)
-                    {
-                        if (currentGridRowClicked == 0)
-                        {
-                            ControlTemplate = template3;
-                        }
-                        else if (currentGridRowClicked == 1)
-                        {
-                            ControlTemplate = template31;
-                        }
-                        else if (currentGridRowClicked == 2)
-                        {
-                            ControlTemplate = template32;
-                        }
-                        else if (currentGridRowClicked == 3)
-                        {
-                            ControlTemplate = template33;
-                        }
-                        else if (currentGridRowClicked == 4)
-                        {
-                            ControlTemplate = template34;
-                        }
-                    }
-                    else
-                    {
-                        DisplayAlert("", "The chosen page is out of range. Please contact manager.", "Ok");
-                    }
-                }
+
+            if (selectedIndex == 0)
+            {
+                ControlTemplate = firstRoleTemps[currentGridRowClicked];
+            }
+            else if (selectedIndex == 1)
+            {
+                ControlTemplate = secondRoleTemps[currentGridRowClicked];
+            }
+            else if (selectedIndex == 2)
+            {
+                ControlTemplate = thirdRoleTemps[currentGridRowClicked];
+
+            }
+            else
+            {
+                DisplayAlert("", "The chosen page is out of range. Please contact manager.", "Ok");
             }
         }
 
