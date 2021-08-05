@@ -67,7 +67,6 @@ namespace NaitonGps.Views
                 bottomNavMenu.ColumnSpacing = 30;
             }
 
-
             if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3)
             {
                 if (Application.Current.RequestedTheme == OSAppTheme.Light)
@@ -307,34 +306,45 @@ namespace NaitonGps.Views
 
             foreach (var labelToDefaultColor in labels)
             {
-                labelToDefaultColor.TextColor = Color.Black;
+                if (Application.Current.RequestedTheme == OSAppTheme.Light)
+                {
+                    labelToDefaultColor.TextColor = Color.Black;
+                }
+                else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+                {
+                    labelToDefaultColor.TextColor = Color.White;
+                }
             }
 
             foreach (var imgToDefaultColor in images)
             {
-                imgToDefaultColor.TintColor = Color.Black;
+                if (Application.Current.RequestedTheme == OSAppTheme.Light)
+                {
+                    imgToDefaultColor.TintColor = Color.Black;
+                }
+                else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+                {
+                    imgToDefaultColor.TintColor = Color.White;
+                }
             }
 
             labels[currentGridRowClicked].TextColor = Color.Green;
             images[currentGridRowClicked].TintColor = Color.Green;
 
-
-            if (selectedIndex == 0)
+            switch (selectedIndex)
             {
-                ControlTemplate = firstRoleTemps[currentGridRowClicked];
-            }
-            else if (selectedIndex == 1)
-            {
-                ControlTemplate = secondRoleTemps[currentGridRowClicked];
-            }
-            else if (selectedIndex == 2)
-            {
-                ControlTemplate = thirdRoleTemps[currentGridRowClicked];
-
-            }
-            else
-            {
-                DisplayAlert("", "The chosen page is out of range. Please contact manager.", "Ok");
+                case 0:
+                    ControlTemplate = firstRoleTemps[currentGridRowClicked];
+                    break;
+                case 1:
+                    ControlTemplate = secondRoleTemps[currentGridRowClicked];
+                    break;
+                case 2:
+                    ControlTemplate = thirdRoleTemps[currentGridRowClicked];
+                    break;
+                default:
+                    DisplayAlert("", "The chosen page is out of range. Please contact manager.", "Ok");
+                    break;
             }
         }
 
@@ -369,7 +379,6 @@ namespace NaitonGps.Views
 
             if (ControlTemplate == template1)
             {
-
                 txtItem1.TextColor = Color.Green;
                 navItem1.TintColor = Color.Green;
                 txtItem1.Text = "Home";
@@ -377,7 +386,6 @@ namespace NaitonGps.Views
                 txtItem3.Text = "Vehicle";
                 txtItem4.Text = "Navi";
                 txtItem5.Text = "Delivery";
-
 
                 if (Application.Current.RequestedTheme == OSAppTheme.Light)
                 {
