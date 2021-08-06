@@ -163,7 +163,7 @@ namespace NaitonGps.Views
             if (Device.RuntimePlatform == Device.Android)
             {
                 DisplayAlert("", "Swipe navigation currently unavailable. Use arrow buttons please.", "Ok");
-                var duration = TimeSpan.FromMilliseconds(400);
+                var duration = TimeSpan.FromMilliseconds(300);
                 Vibration.Vibrate(duration);
             }
             else if (Device.RuntimePlatform == Device.iOS)
@@ -171,7 +171,7 @@ namespace NaitonGps.Views
                 PreviousContent();
                 SwitchMenuImagesAndTxt();
                 moveMenu();
-                var duration = TimeSpan.FromMilliseconds(400);
+                var duration = TimeSpan.FromMilliseconds(300);
                 Vibration.Vibrate(duration);
             }
 
@@ -183,7 +183,7 @@ namespace NaitonGps.Views
             if (Device.RuntimePlatform == Device.Android)
             {
                 DisplayAlert("", "Swipe navigation currently unavailable. Use arrow buttons please.", "Ok");
-                var duration = TimeSpan.FromMilliseconds(400);
+                var duration = TimeSpan.FromMilliseconds(300);
                 Vibration.Vibrate(duration);
             }
             else if (Device.RuntimePlatform == Device.iOS)
@@ -191,7 +191,7 @@ namespace NaitonGps.Views
                 NextContent();
                 SwitchMenuImagesAndTxt();
                 moveMenu();
-                var duration = TimeSpan.FromMilliseconds(400);
+                var duration = TimeSpan.FromMilliseconds(300);
                 Vibration.Vibrate(duration);
             }
         }
@@ -202,7 +202,7 @@ namespace NaitonGps.Views
             PreviousContent();
             SwitchMenuImagesAndTxt();
             moveMenu();
-            var duration = TimeSpan.FromMilliseconds(400);
+            var duration = TimeSpan.FromMilliseconds(300);
             Vibration.Vibrate(duration);
         }
 
@@ -212,7 +212,7 @@ namespace NaitonGps.Views
             NextContent();
             SwitchMenuImagesAndTxt();
             moveMenu();
-            var duration = TimeSpan.FromMilliseconds(400);
+            var duration = TimeSpan.FromMilliseconds(300);
             Vibration.Vibrate(duration);
         }
 
