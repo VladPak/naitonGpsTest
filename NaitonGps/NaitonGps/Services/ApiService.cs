@@ -1,5 +1,6 @@
 ﻿using NaitonGps.Models;
 using Newtonsoft.Json;
+using SimpleWSA;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -78,12 +79,29 @@ namespace NaitonGps.Services
             }
         }
 
+        //public static async Task<bool> LoginWSA(string email, string password)
+        //{
+        //    //var domain = Preferences.Get("loginCompany", string.Empty);
+        //    //var webserviceLink = Preferences.Get("webservicelink", string.Empty);
+        //    //Session session = new Session(email, password, false, 1, "1", domain, null);
+        //    //await session.CreateByRestServiceAddressAsync(webserviceLink);
+
+        //    //if (!)
+        //    //{
+        //    //    return false;
+        //    //}
+        //    //else
+        //    //{
+        //    //    return true;
+        //    //}
+        //}
+
         //public static async Task<List<Roles>> GetAllUserRoles()
         //{
-        //    //var httpClient = new HttpClient();
-        //    //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
-        //    //var response = await httpClient.GetStringAsync("");
-        //    //return JsonConvert.DeserializeObject<Roles>(response);
+        //    var httpClient = new HttpClient();
+        //    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
+        //    var response = await httpClient.GetStringAsync("");
+        //    return JsonConvert.DeserializeObject<Roles>(response);
         //}
     }
 }

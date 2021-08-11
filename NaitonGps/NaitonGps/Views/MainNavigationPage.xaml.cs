@@ -15,6 +15,10 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.CommunityToolkit.Markup;
 using Plugin.CrossPlatformTintedImage.Abstractions;
+using SimpleWSA;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
 
 namespace NaitonGps.Views
 {
@@ -52,6 +56,18 @@ namespace NaitonGps.Views
         public MainNavigationPage()
         {
             InitializeComponent();
+
+            //SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
+            //command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 1;
+            //command.WriteSchema = WriteSchema.TRUE;
+            //string xmlResult = SimpleWSA.Command.Execute(command,
+            //                                   RoutineType.DataSet,
+            //                                   httpMethod: SimpleWSA.HttpMethod.GET,
+            //                                   responseFormat: ResponseFormat.JSON);
+
+            var res = GetUserRoles();
+
+
             ControlTemplate = template1;
             templateIndex = 0;
             selectedIndex = 0;
@@ -154,6 +170,25 @@ namespace NaitonGps.Views
                         break;
                 }
             };
+        }
+
+        public static async Task<List<Roles>> GetUserRoles()
+        {
+            SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
+            command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 1;
+            command.WriteSchema = WriteSchema.TRUE;
+            string xmlResult = SimpleWSA.Command.Execute(command,
+                                               RoutineType.DataSet,
+                                               httpMethod: SimpleWSA.HttpMethod.GET,
+                                               responseFormat: ResponseFormat.JSON);
+
+            var result = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
+            Preferences.Set("allRoles", result.ToString());
+
+            //var httpClient = new HttpClient();
+            //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
+            //var response = await httpClient.GetStringAsync(xmlResult);
+            //return JsonConvert.DeserializeObject<List<Roles>>(response);
         }
 
         //Navigation controls

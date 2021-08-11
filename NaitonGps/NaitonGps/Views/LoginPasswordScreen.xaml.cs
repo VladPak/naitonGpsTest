@@ -1,5 +1,6 @@
 ﻿using NaitonGps.Services;
 using Plugin.Connectivity;
+using SimpleWSA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,18 +47,32 @@ namespace NaitonGps.Views
                     {
                         if (Regex.IsMatch(webServiceName, providerPattern))
                         {
-                            var checkAccess = Preferences.Get("loginCompany", string.Empty);
-                            var response = await ApiService.Login(userEmail, entPassword.Text);
+                            //var checkAccess = Preferences.Get("loginCompany", string.Empty);
+                            //var response = await ApiService.Login(userEmail, entPassword.Text);
 
-                            if (response)
-                            {
-                                //Application.Current.MainPage = new MainPage();
-                                Application.Current.MainPage = new MainNavigationPage();
-                            }
-                            else
-                            {
-                                await DisplayAlert("", "You have problems with Web Service. Please contact the support center", "Ok");
-                            }
+                            var domain = Preferences.Get("loginCompany", string.Empty);
+                            var webserviceLink = Preferences.Get("webservicelink", string.Empty);
+                            string currentAppVersion = VersionTracking.CurrentVersion;
+
+                            Session session = new Session(userEmail,
+                                                          entPassword.Text,
+                                                          false,
+                                                          4,
+                                                          currentAppVersion,
+                                                          "naitongps",
+                                                          null);
+                            await session.CreateByConnectionProviderAddressAsync("https://connectionprovider.naiton.com/");
+
+                            //if ()
+                            //{
+                            //Application.Current.MainPage = new MainPage();
+                            Preferences.Set("token", SessionContext.Token);
+                            Application.Current.MainPage = new MainNavigationPage();
+                            //}
+                            //else
+                            //{
+                            //    await DisplayAlert("", "You have problems with Web Service. Please contact the support center", "Ok");
+                            //}
                         }
                         else
                         {

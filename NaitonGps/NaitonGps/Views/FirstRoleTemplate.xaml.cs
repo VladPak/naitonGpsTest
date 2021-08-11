@@ -1,4 +1,5 @@
-﻿using NaitonGps.ViewModels;
+﻿using NaitonGps.Models;
+using NaitonGps.ViewModels;
 using Rg.Plugins.Popup.Extensions;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,10 @@ namespace NaitonGps.Views
         {
             InitializeComponent();
             lblUserEmail.Text = Preferences.Get("loginEmail", string.Empty);
-
+            //Content.Text = Preferences.Get("token", string.Empty);
+            List<Roles> roleSource = new List<Roles>();
+            Content.Text = roleSource.Select(r=> r.RoleRight).ToString();
+            //Content.Text = Preferences.Get("allRoles", string.Empty);
             move();
         }
 
