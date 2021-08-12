@@ -1,8 +1,10 @@
 ﻿using NaitonGps.Models;
+using NaitonGps.Services;
 using NaitonGps.ViewModels;
 using Rg.Plugins.Popup.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,16 +17,11 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FirstRoleTemplate : Grid
     {
-        //public UserViewModel allUsers;
 
         public FirstRoleTemplate()
         {
             InitializeComponent();
             lblUserEmail.Text = Preferences.Get("loginEmail", string.Empty);
-            //Content.Text = Preferences.Get("token", string.Empty);
-            List<Roles> roleSource = new List<Roles>();
-            Content.Text = roleSource.Select(r=> r.RoleRight).ToString();
-            //Content.Text = Preferences.Get("allRoles", string.Empty);
             move();
         }
 
@@ -35,12 +32,12 @@ namespace NaitonGps.Views
 
         public async void move()
         {
-            await Content.TranslateTo(0, -300, 30, Easing.Linear);
+            await ContentContainer.TranslateTo(0, -300, 30, Easing.Linear);
             await Header.TranslateTo(0, -300, 30, Easing.Linear);
             Header.IsVisible = true;
-            Content.IsVisible = true;
+            ContentContainer.IsVisible = true;
             await Header.TranslateTo(0, 0, 500);
-            await Content.TranslateTo(0, 0, 300);
+            await ContentContainer.TranslateTo(0, 0, 300);
         }
 
     }

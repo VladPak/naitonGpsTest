@@ -9,9 +9,7 @@ namespace NaitonGps.Models
     {
         [JsonProperty]
         public int Id { get; set; }
-
         [JsonProperty]
-        public string RoleRight { get; set; }
-
+        public string RoleTitle { get; set; }
     }
 }

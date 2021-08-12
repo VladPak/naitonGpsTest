@@ -19,13 +19,13 @@ using SimpleWSA;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using NaitonGps.Services;
 
 namespace NaitonGps.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainNavigationPage : ContentPage
     {
-        public ObservableCollection<UserViewModel> allRecords { get; set; } = new ObservableCollection<UserViewModel>();
         public int maxIndex = 2;
         public int minIndex = 0;
         private int templateIndex;
@@ -53,19 +53,19 @@ namespace NaitonGps.Views
         public static bool isSmallScreen { get; } = screenWidth <= 360;
         public static bool isBigScreen { get; } = screenWidth >= 360;
 
+        public Dictionary<string, Roles[]> allRolesFromModel;
+
         public MainNavigationPage()
         {
             InitializeComponent();
-
-            //SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
-            //command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 1;
-            //command.WriteSchema = WriteSchema.TRUE;
-            //string xmlResult = SimpleWSA.Command.Execute(command,
-            //                                   RoutineType.DataSet,
-            //                                   httpMethod: SimpleWSA.HttpMethod.GET,
-            //                                   responseFormat: ResponseFormat.JSON);
-
-            var res = GetUserRoles();
+            
+            //allRolesFromModel = new Dictionary<string, Roles[]>();
+            var allRoles = ApiService.GetAllUserRoles();
+            //var showMe = allRolesFromModel.Select(s=>s.Value).Select(p=>p.).ToString();
+            //if (allRolesFromModel[])
+            //{
+            //    DisplayAlert("", "hahaha", "Ok");
+            //}
 
 
             ControlTemplate = template1;
@@ -172,24 +172,19 @@ namespace NaitonGps.Views
             };
         }
 
-        public static async Task<List<Roles>> GetUserRoles()
-        {
-            SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
-            command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 1;
-            command.WriteSchema = WriteSchema.TRUE;
-            string xmlResult = SimpleWSA.Command.Execute(command,
-                                               RoutineType.DataSet,
-                                               httpMethod: SimpleWSA.HttpMethod.GET,
-                                               responseFormat: ResponseFormat.JSON);
+        //public static async Task<Dictionary<string, Roles[]>> CallAllRoles()
+        //{
+        //    SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
+        //    command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 1;
+        //    command.WriteSchema = WriteSchema.TRUE;
+        //    string xmlResult = SimpleWSA.Command.Execute(command,
+        //                                       RoutineType.DataSet,
+        //                                       httpMethod: SimpleWSA.HttpMethod.GET,
+        //                                       responseFormat: ResponseFormat.JSON);
 
-            var result = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
-            Preferences.Set("allRoles", result.ToString());
-
-            //var httpClient = new HttpClient();
-            //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
-            //var response = await httpClient.GetStringAsync(xmlResult);
-            //return JsonConvert.DeserializeObject<List<Roles>>(response);
-        }
+        //    var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
+        //    return dataFinalize;
+        //}
 
         //Navigation controls
         //Previous Role (Swipe)

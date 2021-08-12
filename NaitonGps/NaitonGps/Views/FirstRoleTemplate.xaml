@@ -60,8 +60,31 @@
         </Grid>
         <!--#endregion-->
     </Grid>
-    <!--#endregion-->
+    <!--#endregion
 
-    <Label IsVisible="false" x:Name="Content" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="18" Text="Role: Manager"/>
+        <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="ContentContainer" IsVisible="false" HorizontalOptions="CenterAndExpand" Margin="10,0,10,0">
+
+        <ListView x:Name="userList"
+              HasUnevenRows="True"
+              ItemsSource="{Binding Roles}"
+              IsGroupingEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label FontSize="20" Text="{Binding RoleTitle}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
+    -->
+
+    <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="ContentContainer" IsVisible="false" HorizontalOptions="CenterAndExpand" Margin="10,0,10,0">
+        <Label IsVisible="false" x:Name="Content" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="18" Text="Role: Manager"/>
+    </StackLayout>
+
     <ContentPresenter Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="Fill" BackgroundColor="Transparent" />
 </Grid>

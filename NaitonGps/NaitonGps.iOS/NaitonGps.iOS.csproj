@@ -214,9 +214,6 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.1</Version>
-    </PackageReference>
     <PackageReference Include="Plugin.CrossPlatformTintedImage">
       <Version>1.0.0</Version>
     </PackageReference>
@@ -240,6 +237,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\..\Users\vladp\Downloads\SimpleWSA-master\SWSALibrary\SWSALibrary.csproj">
+      <Project>{6213e748-d6b2-4fc4-a494-a44da0ade5b3}</Project>
+      <Name>SWSALibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NaitonGps\NaitonGps.csproj">
       <Project>{6070C0CB-A93A-4140-B837-E3BF864B3EC0}</Project>
       <Name>NaitonGps</Name>

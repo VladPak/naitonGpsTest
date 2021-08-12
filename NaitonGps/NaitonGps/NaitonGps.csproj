@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="C:\Users\User\Downloads\SimpleWSA-master\SWSALibrary\SWSALibrary.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\..\Users\vladp\Downloads\SimpleWSA-master\SWSALibrary\SWSALibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>
