@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Grid xmlns="http://xamarin.com/schemas/2014/forms" 
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-      x:Class="NaitonGps.Views.FirstRoleTemplate"
+      x:Class="NaitonGps.Views.FifthRoleTemplate"
              NavigationPage.HasNavigationBar="False"
              xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              iOS:Page.UseSafeArea="true"
@@ -60,31 +60,8 @@
         </Grid>
         <!--#endregion-->
     </Grid>
-    <!--#endregion
+    <!--#endregion-->
 
-        <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="ContentContainer" IsVisible="false" HorizontalOptions="CenterAndExpand" Margin="10,0,10,0">
-
-        <ListView x:Name="userList"
-              HasUnevenRows="True"
-              ItemsSource="{Binding Roles}"
-              IsGroupingEnabled="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout>
-                            <Label FontSize="20" Text="{Binding RoleTitle}" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        
-    </StackLayout>
-    -->
-
-    <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="ContentContainer" IsVisible="false" HorizontalOptions="CenterAndExpand" Margin="10,0,10,0">
-        <Label x:Name="Content" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="18" Text="Role: Manager"/>
-    </StackLayout>
-
+    <Label IsVisible="false" x:Name="Content" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="18" Text="Role: 5th Role"/>
     <ContentPresenter Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="Fill" BackgroundColor="Transparent" />
 </Grid>

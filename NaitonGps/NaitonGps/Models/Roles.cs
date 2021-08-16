@@ -8,8 +8,8 @@ namespace NaitonGps.Models
     public class Roles
     {
         [JsonProperty]
-        public int Id { get; set; }
+        public int objecttypeid { get; set; }
         [JsonProperty]
-        public string RoleTitle { get; set; }
+        public string Object { get; set; }
     }
 }

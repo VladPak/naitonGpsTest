@@ -55,29 +55,29 @@ namespace NaitonGps.Services
             public string Token { get; set; }
         }
 
-        public static async Task<bool> Login(string email, string password)
-        {
-            var domain = Preferences.Get("loginCompany", string.Empty);
-            var webserviceLink = Preferences.Get("webservicelink", string.Empty);
-            string getTokenLink = String.Format(webserviceLink + "InitializeSession?domain={0}&login={1}&password={2}", domain, email, password);
+        //public static async Task<bool> Login(string email, string password)
+        //{
+        //    var domain = Preferences.Get("loginCompany", string.Empty);
+        //    var webserviceLink = Preferences.Get("webservicelink", string.Empty);
+        //    string getTokenLink = String.Format(webserviceLink + "InitializeSession?domain={0}&login={1}&password={2}", domain, email, password);
 
-            var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync(getTokenLink);
-            var responseContent = await response.Content.ReadAsStringAsync();
-            var content = JsonConvert.DeserializeObject<WebServiceSuccessResponse<InitializeSessionResponseContent>>(responseContent);
-            var tokenItself = content.Success.Token;
-            //var rsToString = responseContent.ToString();
-            Preferences.Set("accessToken", tokenItself);
+        //    var httpClient = new HttpClient();
+        //    var response = await httpClient.GetAsync(getTokenLink);
+        //    var responseContent = await response.Content.ReadAsStringAsync();
+        //    var content = JsonConvert.DeserializeObject<WebServiceSuccessResponse<InitializeSessionResponseContent>>(responseContent);
+        //    var tokenItself = content.Success.Token;
+        //    //var rsToString = responseContent.ToString();
+        //    Preferences.Set("accessToken", tokenItself);
 
-            if (!response.IsSuccessStatusCode)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+        //    if (!response.IsSuccessStatusCode)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return true;
+        //    }
+        //}
 
         //public static async Task<bool> LoginWSA(string email, string password)
         //{
@@ -96,19 +96,19 @@ namespace NaitonGps.Services
         //    //}
         //}
 
-        public static async Task<Dictionary<string, Roles[]>> GetAllUserRoles()
-        {
-            SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
-            command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 1;
-            command.WriteSchema = WriteSchema.TRUE;
-            string xmlResult = SimpleWSA.Command.Execute(command,
-                                               RoutineType.DataSet,
-                                               httpMethod: SimpleWSA.HttpMethod.GET,
-                                               responseFormat: ResponseFormat.JSON);
+        //public static async Task<Dictionary<string, Roles[]>> GetAllUserRoles()
+        //{
+        //    SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
+        //    command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 1;
+        //    command.WriteSchema = WriteSchema.TRUE;
+        //    string xmlResult = SimpleWSA.Command.Execute(command,
+        //                                       RoutineType.DataSet,
+        //                                       httpMethod: SimpleWSA.HttpMethod.GET,
+        //                                       responseFormat: ResponseFormat.JSON);
 
-            var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
+        //    var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
 
-            return dataFinalize;
-        }
+        //    return dataFinalize;
+        //}
     }
 }

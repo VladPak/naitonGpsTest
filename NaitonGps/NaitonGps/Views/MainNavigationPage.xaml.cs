@@ -26,7 +26,7 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainNavigationPage : ContentPage
     {
-        public int maxIndex = 2;
+        public int maxIndex;
         public int minIndex = 0;
         private int templateIndex;
         private int selectedIndex;
@@ -35,6 +35,8 @@ namespace NaitonGps.Views
         ControlTemplate template1 = new ControlTemplate(typeof(FirstRoleTemplate));
         ControlTemplate template2 = new ControlTemplate(typeof(SecondRoleTemplate));
         ControlTemplate template3 = new ControlTemplate(typeof(ThirdRoleTemplate));
+        ControlTemplate template4 = new ControlTemplate(typeof(FourthRoleTemplate));
+        ControlTemplate template5 = new ControlTemplate(typeof(FifthRoleTemplate));
         //Roles' pages 
         ControlTemplate template11 = new ControlTemplate(typeof(ManagerSecondPage));
         ControlTemplate template12 = new ControlTemplate(typeof(ManagerThirdPage));
@@ -58,15 +60,45 @@ namespace NaitonGps.Views
         public MainNavigationPage()
         {
             InitializeComponent();
-            
-            //allRolesFromModel = new Dictionary<string, Roles[]>();
-            var allRoles = ApiService.GetAllUserRoles();
-            //var showMe = allRolesFromModel.Select(s=>s.Value).Select(p=>p.).ToString();
-            //if (allRolesFromModel[])
-            //{
-            //    DisplayAlert("", "hahaha", "Ok");
-            //}
 
+            SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
+            command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 1;
+            command.WriteSchema = WriteSchema.TRUE;
+            string xmlResult = SimpleWSA.Command.Execute(command,
+                                               RoutineType.DataSet,
+                                               httpMethod: SimpleWSA.HttpMethod.GET,
+                                               responseFormat: ResponseFormat.JSON);
+
+            var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
+            var allRoles = dataFinalize.Values.ToList();
+
+
+            foreach (var item in allRoles)
+            {
+                    int numOfScreens = item.Select(p => p.Object).Count();
+
+                    if (numOfScreens > 0 && numOfScreens <= 5)
+                    {
+                        maxIndex = 0;
+                    }
+                    else if (numOfScreens > 5 && numOfScreens <= 10)
+                    {
+                        maxIndex = 1;
+                    }                    
+                    else if (numOfScreens > 10 && numOfScreens <= 15)
+                    {
+                        maxIndex = 2;
+                    }                    
+                    else if (numOfScreens > 15 && numOfScreens <= 20)
+                    {
+                        maxIndex = 3;
+                    }                    
+                    else if (numOfScreens > 20)
+                    {
+                        maxIndex = 4;
+                }
+
+            }
 
             ControlTemplate = template1;
             templateIndex = 0;
@@ -172,20 +204,6 @@ namespace NaitonGps.Views
             };
         }
 
-        //public static async Task<Dictionary<string, Roles[]>> CallAllRoles()
-        //{
-        //    SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
-        //    command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 1;
-        //    command.WriteSchema = WriteSchema.TRUE;
-        //    string xmlResult = SimpleWSA.Command.Execute(command,
-        //                                       RoutineType.DataSet,
-        //                                       httpMethod: SimpleWSA.HttpMethod.GET,
-        //                                       responseFormat: ResponseFormat.JSON);
-
-        //    var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
-        //    return dataFinalize;
-        //}
-
         //Navigation controls
         //Previous Role (Swipe)
         private void SwipeGestureRecognizer_Swiped_PreviousRole(object sender, SwipedEventArgs e)
@@ -265,12 +283,43 @@ namespace NaitonGps.Views
                 {
                     case 0:
                         ControlTemplate = template1;
+                        navItem1.IsVisible = true;
+                        navItem2.IsVisible = true;
+                        navItem3.IsVisible = true;
+                        navItem4.IsVisible = true;
+                        navItem5.IsVisible = true;
                         break;
                     case 1:
                         ControlTemplate = template2;
+                        navItem1.IsVisible = true;
+                        navItem2.IsVisible = true;
+                        navItem3.IsVisible = true;
+                        navItem4.IsVisible = true;
+                        navItem5.IsVisible = true;
                         break;
                     case 2:
                         ControlTemplate = template3;
+                        navItem1.IsVisible = true;
+                        navItem2.IsVisible = true;
+                        navItem3.IsVisible = true;
+                        navItem4.IsVisible = true;
+                        navItem5.IsVisible = true;
+                        break;                    
+                    case 3:
+                        ControlTemplate = template4;
+                        navItem1.IsVisible = true;
+                        navItem2.IsVisible = true;
+                        navItem3.IsVisible = true;
+                        navItem4.IsVisible = true;
+                        navItem5.IsVisible = true;
+                        break;                    
+                    case 4:
+                        ControlTemplate = template5;
+                        navItem1.IsVisible = true;
+                        navItem2.IsVisible = false;
+                        navItem3.IsVisible = false;
+                        navItem4.IsVisible = false;
+                        navItem5.IsVisible = false;
                         break;
                 }
             }
@@ -291,19 +340,50 @@ namespace NaitonGps.Views
                 {
                     case 0:
                         ControlTemplate = template1;
+                        navItem1.IsVisible = true;
+                        navItem2.IsVisible = true;
+                        navItem3.IsVisible = true;
+                        navItem4.IsVisible = true;
+                        navItem5.IsVisible = true;
                         break;
                     case 1:
                         ControlTemplate = template2;
+                        navItem1.IsVisible = true;
+                        navItem2.IsVisible = true;
+                        navItem3.IsVisible = true;
+                        navItem4.IsVisible = true;
+                        navItem5.IsVisible = true;
                         break;
                     case 2:
                         ControlTemplate = template3;
+                        navItem1.IsVisible = true;
+                        navItem2.IsVisible = true;
+                        navItem3.IsVisible = true;
+                        navItem4.IsVisible = true;
+                        navItem5.IsVisible = true;
+                        break;
+                    case 3:
+                        ControlTemplate = template4;
+                        navItem1.IsVisible = true;
+                        navItem2.IsVisible = true;
+                        navItem3.IsVisible = true;
+                        navItem4.IsVisible = true;
+                        navItem5.IsVisible = true;
+                        break;
+                    case 4:
+                        ControlTemplate = template5;
+                        navItem1.IsVisible = true;
+                        navItem2.IsVisible = false;
+                        navItem3.IsVisible = false;
+                        navItem4.IsVisible = false;
+                        navItem5.IsVisible = false;
                         break;
                 }
             }
             else if (selectedIndex < minIndex)
             {
-                selectedIndex = 2;
-                ControlTemplate = template3;
+                selectedIndex = maxIndex;
+                ControlTemplate = template5;
             }
         }
 
