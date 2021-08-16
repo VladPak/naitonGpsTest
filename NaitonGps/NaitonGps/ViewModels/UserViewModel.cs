@@ -10,8 +10,9 @@ namespace NaitonGps.ViewModels
     public class UserViewModel
     {
         public ObservableCollection<Users> users { get; set; }
-        public ObservableCollection<Orders> orders { get; set; }
         public ObservableCollection<Roles> roles { get; set; }
+        public ObservableCollection<Navigations> navigations { get; set; }
+        public ObservableCollection<Screens> screens { get; set; }
 
         public UserViewModel()
         {
@@ -20,6 +21,14 @@ namespace NaitonGps.ViewModels
                 new Users
                 {
                     userEmail = Preferences.Get("loginEmail", string.Empty), userRole = "Admin"
+                },
+            };
+
+            navigations = new ObservableCollection<Navigations>
+            {
+                new Navigations
+                {
+                    NavbarName = "Navigation1", Screens = {}
                 },
             };
 

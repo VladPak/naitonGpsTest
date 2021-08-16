@@ -72,7 +72,6 @@ namespace NaitonGps.Views
             var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
             var allRoles = dataFinalize.Values.ToList();
 
-
             foreach (var item in allRoles)
             {
                     int numOfScreens = item.Select(p => p.Object).Count();
@@ -283,43 +282,18 @@ namespace NaitonGps.Views
                 {
                     case 0:
                         ControlTemplate = template1;
-                        navItem1.IsVisible = true;
-                        navItem2.IsVisible = true;
-                        navItem3.IsVisible = true;
-                        navItem4.IsVisible = true;
-                        navItem5.IsVisible = true;
                         break;
                     case 1:
                         ControlTemplate = template2;
-                        navItem1.IsVisible = true;
-                        navItem2.IsVisible = true;
-                        navItem3.IsVisible = true;
-                        navItem4.IsVisible = true;
-                        navItem5.IsVisible = true;
                         break;
                     case 2:
                         ControlTemplate = template3;
-                        navItem1.IsVisible = true;
-                        navItem2.IsVisible = true;
-                        navItem3.IsVisible = true;
-                        navItem4.IsVisible = true;
-                        navItem5.IsVisible = true;
                         break;                    
                     case 3:
                         ControlTemplate = template4;
-                        navItem1.IsVisible = true;
-                        navItem2.IsVisible = true;
-                        navItem3.IsVisible = true;
-                        navItem4.IsVisible = true;
-                        navItem5.IsVisible = true;
                         break;                    
                     case 4:
                         ControlTemplate = template5;
-                        navItem1.IsVisible = true;
-                        navItem2.IsVisible = false;
-                        navItem3.IsVisible = false;
-                        navItem4.IsVisible = false;
-                        navItem5.IsVisible = false;
                         break;
                 }
             }
@@ -340,43 +314,18 @@ namespace NaitonGps.Views
                 {
                     case 0:
                         ControlTemplate = template1;
-                        navItem1.IsVisible = true;
-                        navItem2.IsVisible = true;
-                        navItem3.IsVisible = true;
-                        navItem4.IsVisible = true;
-                        navItem5.IsVisible = true;
                         break;
                     case 1:
                         ControlTemplate = template2;
-                        navItem1.IsVisible = true;
-                        navItem2.IsVisible = true;
-                        navItem3.IsVisible = true;
-                        navItem4.IsVisible = true;
-                        navItem5.IsVisible = true;
                         break;
                     case 2:
                         ControlTemplate = template3;
-                        navItem1.IsVisible = true;
-                        navItem2.IsVisible = true;
-                        navItem3.IsVisible = true;
-                        navItem4.IsVisible = true;
-                        navItem5.IsVisible = true;
                         break;
                     case 3:
                         ControlTemplate = template4;
-                        navItem1.IsVisible = true;
-                        navItem2.IsVisible = true;
-                        navItem3.IsVisible = true;
-                        navItem4.IsVisible = true;
-                        navItem5.IsVisible = true;
                         break;
                     case 4:
                         ControlTemplate = template5;
-                        navItem1.IsVisible = true;
-                        navItem2.IsVisible = false;
-                        navItem3.IsVisible = false;
-                        navItem4.IsVisible = false;
-                        navItem5.IsVisible = false;
                         break;
                 }
             }
@@ -387,7 +336,7 @@ namespace NaitonGps.Views
             }
         }
 
-        private void NavigatingFirstMenu(object sender, EventArgs e)
+        private void NavigatingMenu(object sender, EventArgs e)
         {
             Image imgClick = sender as Image;
             int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);

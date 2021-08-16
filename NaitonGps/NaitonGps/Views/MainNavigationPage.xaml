@@ -46,31 +46,31 @@
 
             <controls:TintedImage x:Name="navItem1" Grid.Row="0" Grid.Column="0" Source="home.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="NavigatingFirstMenu"></TapGestureRecognizer>
+                    <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </controls:TintedImage>
 
             <controls:TintedImage x:Name="navItem2" Grid.Row="0" Grid.Column="1" Source="chat.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="NavigatingFirstMenu"></TapGestureRecognizer>
+                    <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </controls:TintedImage>
 
             <controls:TintedImage x:Name="navItem3" Grid.Row="0" Grid.Column="2" Source="vehicle.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="NavigatingFirstMenu"></TapGestureRecognizer>
+                    <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </controls:TintedImage>
 
             <controls:TintedImage x:Name="navItem4" Grid.Row="0" Grid.Column="3" Source="compass.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="NavigatingFirstMenu"></TapGestureRecognizer>
+                    <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </controls:TintedImage>
 
             <controls:TintedImage x:Name="navItem5" Grid.Row="0" Grid.Column="4" Source="delivery.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="NavigatingFirstMenu"></TapGestureRecognizer>
+                    <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </controls:TintedImage>
 
