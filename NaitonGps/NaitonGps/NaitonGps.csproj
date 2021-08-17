@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="C:\Users\User\Downloads\SimpleWSA-master\SWSALibrary\SWSALibrary.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\..\Users\vladp\Downloads\SimpleWSA-master\SWSALibrary\SWSALibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,52 +40,52 @@
     <EmbeddedResource Update="Resources\MyColors.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ViewsForEachRole\Driver\DriverFifthPage.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\DriverFifthPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ViewsForEachRole\Driver\DriverFourthPage.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\DriverFourthPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ViewsForEachRole\Driver\DriverSecondPage.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\DriverSecondPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ViewsForEachRole\Driver\DriverThirdPage.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\DriverThirdPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ViewsForEachRole\Manager\ManagerFifthPage.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\ManagerFifthPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ViewsForEachRole\Manager\ManagerFourthPage.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\ManagerFourthPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ViewsForEachRole\Manager\ManagerSecondPage.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\ManagerSecondPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ViewsForEachRole\Manager\ManagerThirdPage.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\ManagerThirdPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ViewsForEachRole\SalesExecutive\SalesExFifthPage.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\SalesExFifthPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ViewsForEachRole\SalesExecutive\SalesExFourthPage.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\SalesExFourthPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ViewsForEachRole\SalesExecutive\SalesExSecondPage.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\SalesExSecondPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ViewsForEachRole\SalesExecutive\SalesExThirdPage.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\SalesExThirdPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DashboardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FifthRoleTemplate.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\FifthRoleTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FirstRoleTemplate.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\FirstRoleTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FourthRoleTemplate.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\FourthRoleTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LoginCompanySelectScreen.xaml">
@@ -106,10 +106,10 @@
     <EmbeddedResource Update="Views\MorePopUp.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SecondRoleTemplate.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\SecondRoleTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ThirdRoleTemplate.xaml">
+    <EmbeddedResource Update="ViewsForEachRole\ThirdRoleTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

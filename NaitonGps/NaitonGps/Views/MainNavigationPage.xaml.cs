@@ -20,20 +20,16 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using NaitonGps.Services;
+using System.IO;
 
 namespace NaitonGps.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainNavigationPage : ContentPage
     {
-        public int maxIndex;
-        public int minIndex = 0;
-        private int templateIndex;
-        private int selectedIndex;
-
-        //Main pages for each role
         ControlTemplate template1 = new ControlTemplate(typeof(FirstRoleTemplate));
         ControlTemplate template2 = new ControlTemplate(typeof(SecondRoleTemplate));
+
         ControlTemplate template3 = new ControlTemplate(typeof(ThirdRoleTemplate));
         ControlTemplate template4 = new ControlTemplate(typeof(FourthRoleTemplate));
         ControlTemplate template5 = new ControlTemplate(typeof(FifthRoleTemplate));
@@ -50,6 +46,13 @@ namespace NaitonGps.Views
         ControlTemplate template32 = new ControlTemplate(typeof(SalesExThirdPage));
         ControlTemplate template33 = new ControlTemplate(typeof(SalesExFourthPage));
         ControlTemplate template34 = new ControlTemplate(typeof(SalesExFifthPage));
+
+        public int maxIndex;
+        public int minIndex = 0;
+        private int templateIndex;
+        private int selectedIndex;
+
+        ControlTemplate defaultTemp = new ControlTemplate(typeof(FirstRoleTemplate));
 
         public static double screenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
         public static bool isSmallScreen { get; } = screenWidth <= 360;
@@ -72,34 +75,38 @@ namespace NaitonGps.Views
             var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
             var allRoles = dataFinalize.Values.ToList();
 
+            var viewsNames = Enum.GetNames(typeof(ViewsNames)).ToList();
+
             foreach (var item in allRoles)
             {
-                    int numOfScreens = item.Select(p => p.Object).Count();
+                //var numofrol = viewsNames.Count();
+                //Get number of screens allowed for user (21)
+                int numOfScreens = item.Select(p => p.Object).Count();
 
-                    if (numOfScreens > 0 && numOfScreens <= 5)
-                    {
-                        maxIndex = 0;
-                    }
-                    else if (numOfScreens > 5 && numOfScreens <= 10)
-                    {
-                        maxIndex = 1;
-                    }                    
-                    else if (numOfScreens > 10 && numOfScreens <= 15)
-                    {
-                        maxIndex = 2;
-                    }                    
-                    else if (numOfScreens > 15 && numOfScreens <= 20)
-                    {
-                        maxIndex = 3;
-                    }                    
-                    else if (numOfScreens > 20)
-                    {
-                        maxIndex = 4;
+                var result = item.Select(s=>s.Object).Where(allRole => viewsNames.Any(viewsName => viewsName.Equals(allRole))).Count();
+
+                if (result > 0)
+                {
+                    DisplayAlert("", "> 0", "Ok");
+                    int numOfIndeces = numOfScreens / 5;
+                    //int numOfIndecesRemainder = numOfScreens % 5;
+
+                    //if (numOfIndecesRemainder > 0)
+                    //{
+                    //    maxIndex = numOfIndeces;
+                    //}
+                    //else if (numOfIndecesRemainder == 0)
+                    //{
+                    //    maxIndex = numOfIndeces - 1;
+                    //}
                 }
-
+                else
+                {
+                    DisplayAlert("", "<= 0", "Ok");
+                }
             }
 
-            ControlTemplate = template1;
+            ControlTemplate = defaultTemp;
             templateIndex = 0;
             selectedIndex = 0;
             BindingContext = new UserViewModel();
@@ -114,93 +121,95 @@ namespace NaitonGps.Views
                 bottomNavMenu.ColumnSpacing = 30;
             }
 
-            if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3)
-            {
-                if (Application.Current.RequestedTheme == OSAppTheme.Light)
-                {
-                    navItem1.TintColor = Color.Green;
-                    navItem2.TintColor = Color.Black;
-                    navItem3.TintColor = Color.Black;
-                    navItem4.TintColor = Color.Black;
-                    navItem5.TintColor = Color.Black;
-                }
-                else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                {
-                    navItem1.TintColor = Color.Green;
-                    navItem2.TintColor = Color.White;
-                    navItem3.TintColor = Color.White;
-                    navItem4.TintColor = Color.White;
-                    navItem5.TintColor = Color.White;
-                }
-            }
+            ////Coloring the navbar btns when the app is loaded
+            //if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3 || ControlTemplate == template4 || ControlTemplate == template5)
+            //{
+            //    if (Application.Current.RequestedTheme == OSAppTheme.Light)
+            //    {
+            //        navItem1.TintColor = Color.Green;
+            //        navItem2.TintColor = Color.Black;
+            //        navItem3.TintColor = Color.Black;
+            //        navItem4.TintColor = Color.Black;
+            //        navItem5.TintColor = Color.Black;
+            //    }
+            //    else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
+            //    {
+            //        navItem1.TintColor = Color.Green;
+            //        navItem2.TintColor = Color.White;
+            //        navItem3.TintColor = Color.White;
+            //        navItem4.TintColor = Color.White;
+            //        navItem5.TintColor = Color.White;
+            //    }
+            //}
 
-            Application.Current.RequestedThemeChanged += (s, a) =>
-            {
-                TintedImage[] images = new TintedImage[] { navItem1, navItem2, navItem3, navItem4, navItem5 };
+            ////Coloring the navbar btns after switching the display mode light/dark
+            //Application.Current.RequestedThemeChanged += (s, a) =>
+            //{
+            //    TintedImage[] images = new TintedImage[] { navItem1, navItem2, navItem3, navItem4, navItem5 };
 
-                switch (a.RequestedTheme)
-                {
-                    case OSAppTheme.Dark:
+            //    switch (a.RequestedTheme)
+            //    {
+            //        case OSAppTheme.Dark:
 
-                        foreach (var itemI in images)
-                        {
-                            itemI.TintColor = Color.White;
-                        }
+            //            foreach (var itemI in images)
+            //            {
+            //                itemI.TintColor = Color.White;
+            //            }
 
-                        if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3)
-                        {
-                            navItem1.TintColor = Color.Green;
-                        }
-                        else if (ControlTemplate == template11 || ControlTemplate == template21 || ControlTemplate == template31)
-                        {
-                            navItem2.TintColor = Color.Green;
-                        }
-                        else if (ControlTemplate == template12 || ControlTemplate == template22 || ControlTemplate == template32)
-                        {
-                            navItem3.TintColor = Color.Green;
-                        }
-                        else if (ControlTemplate == template13 || ControlTemplate == template23 || ControlTemplate == template33)
-                        {
-                            navItem4.TintColor = Color.Green;
-                        }
-                        else if (ControlTemplate == template14 || ControlTemplate == template24 || ControlTemplate == template34)
-                        {
-                            navItem5.TintColor = Color.Green;
-                        }
-                        break;
-                    case OSAppTheme.Light:
+            //            if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3 || ControlTemplate == template4 || ControlTemplate == template5)
+            //            {
+            //                navItem1.TintColor = Color.Green;
+            //            }
+            //            else if (ControlTemplate == template11 || ControlTemplate == template21 || ControlTemplate == template31)
+            //            {
+            //                navItem2.TintColor = Color.Green;
+            //            }
+            //            else if (ControlTemplate == template12 || ControlTemplate == template22 || ControlTemplate == template32)
+            //            {
+            //                navItem3.TintColor = Color.Green;
+            //            }
+            //            else if (ControlTemplate == template13 || ControlTemplate == template23 || ControlTemplate == template33)
+            //            {
+            //                navItem4.TintColor = Color.Green;
+            //            }
+            //            else if (ControlTemplate == template14 || ControlTemplate == template24 || ControlTemplate == template34)
+            //            {
+            //                navItem5.TintColor = Color.Green;
+            //            }
+            //            break;
+            //        case OSAppTheme.Light:
 
-                        foreach (var itemG in images)
-                        {
-                            itemG.TintColor = Color.Black;
-                        }
+            //            foreach (var itemG in images)
+            //            {
+            //                itemG.TintColor = Color.Black;
+            //            }
 
-                        if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3)
-                        {
-                            navItem1.TintColor = Color.Green;
-                        }
-                        else if (ControlTemplate == template11 || ControlTemplate == template21 || ControlTemplate == template31)
-                        {
-                            navItem2.TintColor = Color.Green;
-                        }
-                        else if (ControlTemplate == template12 || ControlTemplate == template22 || ControlTemplate == template32)
-                        {
-                            navItem3.TintColor = Color.Green;
-                        }
-                        else if (ControlTemplate == template13 || ControlTemplate == template23 || ControlTemplate == template33)
-                        {
-                            navItem4.TintColor = Color.Green;
-                        }
-                        else if (ControlTemplate == template14 || ControlTemplate == template24 || ControlTemplate == template34)
-                        {
-                            navItem5.TintColor = Color.Green;
-                        }
-                        break;
-                    case OSAppTheme.Unspecified:
-                        DisplayAlert("", "Unspecified OS Theme", "Ok");
-                        break;
-                }
-            };
+            //            if (ControlTemplate == template1 || ControlTemplate == template2 || ControlTemplate == template3)
+            //            {
+            //                navItem1.TintColor = Color.Green;
+            //            }
+            //            else if (ControlTemplate == template11 || ControlTemplate == template21 || ControlTemplate == template31)
+            //            {
+            //                navItem2.TintColor = Color.Green;
+            //            }
+            //            else if (ControlTemplate == template12 || ControlTemplate == template22 || ControlTemplate == template32)
+            //            {
+            //                navItem3.TintColor = Color.Green;
+            //            }
+            //            else if (ControlTemplate == template13 || ControlTemplate == template23 || ControlTemplate == template33)
+            //            {
+            //                navItem4.TintColor = Color.Green;
+            //            }
+            //            else if (ControlTemplate == template14 || ControlTemplate == template24 || ControlTemplate == template34)
+            //            {
+            //                navItem5.TintColor = Color.Green;
+            //            }
+            //            break;
+            //        case OSAppTheme.Unspecified:
+            //            DisplayAlert("", "Unspecified OS Theme", "Ok");
+            //            break;
+            //    }
+            //};
         }
 
         //Navigation controls
@@ -269,7 +278,7 @@ namespace NaitonGps.Views
             await bottomNavMenu.TranslateTo(0, 200, 200, Easing.Linear);
             await bottomNavMenu.TranslateTo(0, 0);
         }
-
+         
         //Navigation functions
         public void NextContent()
         {
