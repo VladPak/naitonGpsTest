@@ -83,7 +83,7 @@
     -->
 
     <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="ContentContainer" IsVisible="false" HorizontalOptions="CenterAndExpand" Margin="10,0,10,0">
-        <Label x:Name="Content" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="18" Text="Role: Manager"/>
+        <Label x:Name="Content" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="18" Text="Accounting Reports Diagnostic Reports"/>
     </StackLayout>
 
     <ContentPresenter Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="Fill" BackgroundColor="Transparent" />

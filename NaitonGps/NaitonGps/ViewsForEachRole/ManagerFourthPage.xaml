@@ -19,6 +19,6 @@ Margin="10,0,10,15"
         <ColumnDefinition Width="*"></ColumnDefinition>
     </Grid.ColumnDefinitions>
 
-    <Label  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="Large" Text="Role: Manager, Page #4"/>
+    <Label  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="Large" Text="Dublicate Content Form"/>
     <ContentPresenter Grid.Row="2" Grid.ColumnSpan="3" />
 </Grid>

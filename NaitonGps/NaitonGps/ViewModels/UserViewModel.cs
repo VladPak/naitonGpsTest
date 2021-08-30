@@ -1,18 +1,19 @@
 ﻿using NaitonGps.Models;
+using NaitonGps.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace NaitonGps.ViewModels
 {
     public class UserViewModel
     {
         public ObservableCollection<Users> users { get; set; }
-        public ObservableCollection<Roles> roles { get; set; }
-        public ObservableCollection<Navigations> navigations { get; set; }
         public ObservableCollection<Screens> screens { get; set; }
+
 
         public UserViewModel()
         {
@@ -24,62 +25,89 @@ namespace NaitonGps.ViewModels
                 },
             };
 
-            navigations = new ObservableCollection<Navigations>
+            screens = new ObservableCollection<Screens>
             {
-                new Navigations
+                new Screens
                 {
-                    NavbarName = "Navigation1", Screens = {}
+                    ScreenTitle = "AccountingReportsDiagnosticReports", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "AccountingReportsDiagnosticReports3", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "BalanceSheetForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "DublicateContentFormInternalTransport", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "InvalidEmailAddressesForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "NaitonTranslation", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "NewMainDelivery", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "OrderLogForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "PerformanceScreenForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "ReeleezeeForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "RentalOverviewForm", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "ReportMenuNum1", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "ReportMenuNum2", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "ReportMenuNum3", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "ReportMenuNum4", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "ReportMenuNum5", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "ReportMenuNum6", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "ReportMenuNum7", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "ReportMenuNum8", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                },
+                new Screens
+                {
+                    ScreenTitle = "ReportMenuNum9", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
                 },
             };
-
-
-            //roles = new ObservableCollection<Roles>
-            //{
-            //    new Roles
-            //    {
-            //        RoleTitle = "Manager"
-            //    },
-            //    new Roles
-            //    {
-            //        RoleTitle = "Driver"
-            //    },
-            //    new Roles
-            //    {
-            //        RoleTitle = "Sales exec"
-            //    }
-            //};
-
-            //orders = new ObservableCollection<Orders>
-            //{
-            //    new Orders
-            //    {
-            //        orderTitle = "Order #1021", orderStatus = "Waiting", orderDate ="06/07/2021"
-            //    },
-            //    new Orders
-            //    {
-            //        orderTitle = "Order #2021", orderStatus = "Pending", orderDate ="06/12/2021"
-            //    },
-            //    new Orders
-            //    {
-            //        orderTitle = "Order #3021", orderStatus = "Waiting", orderDate ="06/09/2021"
-            //    },
-            //    new Orders
-            //    {
-            //        orderTitle = "Order #4021", orderStatus = "Pending", orderDate ="06/12/2021"
-            //    },
-            //    new Orders
-            //    {
-            //        orderTitle = "Order #5021", orderStatus = "Pending", orderDate ="06/13/2021"
-            //    },
-            //    new Orders
-            //    {
-            //        orderTitle = "Order #6021", orderStatus = "Canceled", orderDate ="04/05/2021"
-            //    },
-            //    new Orders
-            //    {
-            //        orderTitle = "Order #7021", orderStatus = "Delivered", orderDate ="03/10/2021"
-            //    },
-            //};
         }
     }
 }

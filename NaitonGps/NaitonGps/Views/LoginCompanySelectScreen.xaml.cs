@@ -14,6 +14,7 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginCompanySelectScreen : ContentPage
     {
+        int taps = 0;
         public LoginCompanySelectScreen()
         {
             InitializeComponent();
@@ -24,24 +25,35 @@ namespace NaitonGps.Views
             if (CrossConnectivity.Current.IsConnected)
             {
                 Preferences.Set("loginCompany", entCompany.Text);
+                //Call Web service
+                taps++;
                 var response = await ApiService.GetWebService(entCompany.Text);
 
-                //Call Web service
                 if (response)
                 {
-                    //Redirect to the page
-                    await Navigation.PushModalAsync(new LoginEmailScreen());
-                    entCompany.Text = string.Empty;
+                    if (taps == 1)
+                    {
+                        await Navigation.PushModalAsync(new LoginEmailScreen(), true);
+                        entCompany.Text = string.Empty;
+                        taps = 0;
+                    }
+                    else if (taps >= 2)
+                    {
+                        taps = 0;
+                        await DisplayAlert("", "Please wait. Your request is being proceeded", "Ok");
+                    }
                 }
                 else
                 {
                     await DisplayAlert("", "Company does not exist. Please enter valid company name", "Ok");
                     entCompany.Text = string.Empty;
+                    taps = 0;
                 }
             }
             else
             {
                 await DisplayAlert("", "Check the Internet connection.", "Ok");
+                taps = 0;
             }
         }
     }
