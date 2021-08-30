@@ -98,8 +98,6 @@ namespace NaitonGps.Views
             //Coloring the navbar btns after switching the display mode light/dark
             Application.Current.RequestedThemeChanged += (s, a) =>
             {
-                //TintedImage[] images = new TintedImage[] { navItem1, navItem2, navItem3, navItem4, navItem5 };
-                //var newImgToColor = allNavItems.TakeWhile(x => x.TintColor == Color.White || x.TintColor == Color.Black).SkipWhile(c => c.TintColor == Color.Green).ToArray();
                 var newImgToColor = allNavItems.SkipWhile(c => c.TintColor == Color.Green).ToArray();
 
                 switch (a.RequestedTheme)
@@ -162,8 +160,6 @@ namespace NaitonGps.Views
                         maxIndex = numOfIndeces;
                     }
 
-                    //templateIndex = 1;
-                    //selectedIndex = 1;
                     Array.Resize(ref allNavItems, 5);
                     allNavItems[0] = navItem1;
                     allNavItems[1] = navItem2;
@@ -179,12 +175,6 @@ namespace NaitonGps.Views
 
                     //Divide filtered screens into batches (5 items per batch)
                     var calculatedBatches = res.Batch(5).ToList();
-                    var firstBatch = calculatedBatches[0].ToArray();
-                    var secondBatch = calculatedBatches[1].ToArray();
-                    var thirdBatch = calculatedBatches[2].ToArray();
-                    var fourthBatch = calculatedBatches[3].ToArray();
-                    var fifthBatch = calculatedBatches[4].ToArray();
-
 
                     switch (selectedIndex)
                     {
@@ -194,24 +184,74 @@ namespace NaitonGps.Views
                             {
                                 for (int i = 0; i < sublist.ToArray().Count(); i++)
                                 {
-                                    for (int j = 0; j < allNavItems.Length; j++)
+                                    if (sublist.Count() != allNavItems.Length)
                                     {
-                                        //var tapGestureRecognizer = new TapGestureRecognizer();
-                                        //tapGestureRecognizer.Tapped += (s, e) => {
-                                        //    ControlTemplate = sublist.ToList()[i].ScreenLink;
-                                        //};
+                                        switch (sublist.Count())
+                                        {
+                                            case 1:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = false;
+                                                allNavItems[2].IsVisible = false;
+                                                allNavItems[3].IsVisible = false;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 2:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = false;
+                                                allNavItems[3].IsVisible = false;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 3:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = true;
+                                                allNavItems[3].IsVisible = false;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 4:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = true;
+                                                allNavItems[3].IsVisible = true;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 5:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = true;
+                                                allNavItems[3].IsVisible = true;
+                                                allNavItems[4].IsVisible = true;
+                                                break;
+                                            default:
+                                                DisplayAlert("", "Oops smth wront!", "Ok");
+                                                break;
+                                        }
+                                        int skipMenuItems = sublist.Count();
+                                        Array.Resize(ref allNavItems, skipMenuItems);
 
-                                        allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
-                                        //allNavItems[j].GestureRecognizers.Add(tapGestureRecognizer);
+                                        //allNavItems.Slice(0, 2);
+                                        for (int j = 0; j < allNavItems.Length; j++)
+                                        {
+                                            allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        for (int j = 0; j < allNavItems.Length; j++)
+                                        {
+                                            allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                        }
                                     }
                                 }
                                 index++;
                                 if (index > 0)
                                 {
+                                    ControlTemplate = sublist.ToList()[0].ScreenLink;
                                     break;
                                 }
+                                //ControlTemplate = firstBatch.ToList()[0].ScreenLink;
                             }
-                            ControlTemplate = firstBatch.ToList()[0].ScreenLink;
                             break;
                         case 2:
                             var index2 = 0;
@@ -219,18 +259,74 @@ namespace NaitonGps.Views
                             {
                                 for (int i = 0; i < sublist.ToArray().Count(); i++)
                                 {
-                                    for (int j = 0; j < allNavItems.Length; j++)
+                                    if (sublist.Count() != allNavItems.Length)
                                     {
-                                        allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                        switch (sublist.Count())
+                                        {
+                                            case 1:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = false;
+                                                allNavItems[2].IsVisible = false;
+                                                allNavItems[3].IsVisible = false;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 2:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = false;
+                                                allNavItems[3].IsVisible = false;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 3:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = true;
+                                                allNavItems[3].IsVisible = false;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 4:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = true;
+                                                allNavItems[3].IsVisible = true;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 5:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = true;
+                                                allNavItems[3].IsVisible = true;
+                                                allNavItems[4].IsVisible = true;
+                                                break;
+                                            default:
+                                                DisplayAlert("", "Oops smth wront!", "Ok");
+                                                break;
+                                        }
+                                        int skipMenuItems = sublist.Count();
+                                        Array.Resize(ref allNavItems, skipMenuItems);
+
+                                        //allNavItems.Slice(0, 2);
+                                        for (int j = 0; j < allNavItems.Length; j++)
+                                        {
+                                            allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        for (int j = 0; j < allNavItems.Length; j++)
+                                        {
+                                            allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                        }
                                     }
                                 }
                                 index2++;
                                 if (index2 > 0)
                                 {
+                                    ControlTemplate = sublist.ToList()[0].ScreenLink;
                                     break;
                                 }
                             }
-                            ControlTemplate = secondBatch.ToList()[0].ScreenLink;
+                            //ControlTemplate = secondBatch.ToList()[0].ScreenLink;
                             break;
                         case 3:
                             var index3 = 0;
@@ -238,18 +334,74 @@ namespace NaitonGps.Views
                             {
                                 for (int i = 0; i < sublist.ToArray().Count(); i++)
                                 {
-                                    for (int j = 0; j < allNavItems.Length; j++)
+                                    if (sublist.Count() != allNavItems.Length)
                                     {
-                                        allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                        switch (sublist.Count())
+                                        {
+                                            case 1:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = false;
+                                                allNavItems[2].IsVisible = false;
+                                                allNavItems[3].IsVisible = false;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 2:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = false;
+                                                allNavItems[3].IsVisible = false;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 3:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = true;
+                                                allNavItems[3].IsVisible = false;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 4:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = true;
+                                                allNavItems[3].IsVisible = true;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 5:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = true;
+                                                allNavItems[3].IsVisible = true;
+                                                allNavItems[4].IsVisible = true;
+                                                break;
+                                            default:
+                                                DisplayAlert("", "Oops smth wront!", "Ok");
+                                                break;
+                                        }
+                                        int skipMenuItems = sublist.Count();
+                                        Array.Resize(ref allNavItems, skipMenuItems);
+
+                                        //allNavItems.Slice(0, 2);
+                                        for (int j = 0; j < allNavItems.Length; j++)
+                                        {
+                                            allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        for (int j = 0; j < allNavItems.Length; j++)
+                                        {
+                                            allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                        }
                                     }
                                 }
                                 index3++;
                                 if (index3 > 0)
                                 {
+                                    ControlTemplate = sublist.ToList()[0].ScreenLink;
                                     break;
                                 }
                             }
-                            ControlTemplate = thirdBatch.ToList()[0].ScreenLink;
+                            //ControlTemplate = thirdBatch.ToList()[0].ScreenLink;
                             break;
                         case 4:
                             var index4 = 0;
@@ -257,18 +409,74 @@ namespace NaitonGps.Views
                             {
                                 for (int i = 0; i < sublist.ToArray().Count(); i++)
                                 {
-                                    for (int j = 0; j < allNavItems.Length; j++)
+                                    if (sublist.Count() != allNavItems.Length)
                                     {
-                                        allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                        switch (sublist.Count())
+                                        {
+                                            case 1:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = false;
+                                                allNavItems[2].IsVisible = false;
+                                                allNavItems[3].IsVisible = false;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 2:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = false;
+                                                allNavItems[3].IsVisible = false;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 3:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = true;
+                                                allNavItems[3].IsVisible = false;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 4:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = true;
+                                                allNavItems[3].IsVisible = true;
+                                                allNavItems[4].IsVisible = false;
+                                                break;
+                                            case 5:
+                                                allNavItems[0].IsVisible = true;
+                                                allNavItems[1].IsVisible = true;
+                                                allNavItems[2].IsVisible = true;
+                                                allNavItems[3].IsVisible = true;
+                                                allNavItems[4].IsVisible = true;
+                                                break;
+                                            default:
+                                                DisplayAlert("", "Oops smth wront!", "Ok");
+                                                break;
+                                        }
+                                        int skipMenuItems = sublist.Count();
+                                        Array.Resize(ref allNavItems, skipMenuItems);
+
+                                        //allNavItems.Slice(0, 2);
+                                        for (int j = 0; j < allNavItems.Length; j++)
+                                        {
+                                            allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        for (int j = 0; j < allNavItems.Length; j++)
+                                        {
+                                            allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
+                                        }
                                     }
                                 }
                                 index4++;
                                 if (index4 > 0)
                                 {
+                                    ControlTemplate = sublist.ToList()[0].ScreenLink;
                                     break;
                                 }
                             }
-                            ControlTemplate = fourthBatch.ToList()[0].ScreenLink;
+                            //ControlTemplate = fourthBatch.ToList()[0].ScreenLink;
                             break;
                         case 5:
                             var index5 = 0;
@@ -318,36 +526,19 @@ namespace NaitonGps.Views
                                             default:
                                                 break;
                                         }
-                                        int skipMenuItems = 5 - 4;
-                                        //calculatedBatches.Skip(4).Count();
+                                        int skipMenuItems = sublist.Count();
                                         Array.Resize(ref allNavItems, skipMenuItems);
-
-                                        //var copyArrayMenuItems = allNavItems.Skip(0).Take(2).ToArray();
-                                        
+                                       
                                         //allNavItems.Slice(0, 2);
                                         for (int j = 0; j < allNavItems.Length; j++)
                                         {
                                             allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
-
-                                            //var tapGestureRecognizer = new TapGestureRecognizer();
-                                            //tapGestureRecognizer.Tapped += (s, e) => {
-                                            //    ControlTemplate = sublist.ToList()[j].ScreenLink;
-                                            //};
-
-                                            //allNavItems[j].GestureRecognizers.Add(tapGestureRecognizer);
                                         }
                                     }
                                     else
                                     {
                                         for (int j = 0; j < allNavItems.Length; j++)
                                         {
-                                            //var tapGestureRecognizer = new TapGestureRecognizer();
-                                            //tapGestureRecognizer.Tapped += (s, e) => {
-                                            //    ControlTemplate = sublist.ToList()[j].ScreenLink;
-                                            //};
-
-                                            //allNavItems[j].GestureRecognizers.Add(tapGestureRecognizer);
-
                                             allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
                                         }
                                     }
@@ -355,12 +546,12 @@ namespace NaitonGps.Views
                                 index5++;
                                 if (index5 > 0)
                                 {
+                                    ControlTemplate = sublist.ToList()[0].ScreenLink;
                                     break;
                                 }
                             }
-                            ControlTemplate = fifthBatch.ToList()[0].ScreenLink;
+                            //ControlTemplate = fifthBatch.ToList()[0].ScreenLink;
                             break;
-
                         default:
                             DisplayAlert("", "No attached index for the menu", "Ok");
                             btnLeftArrow.IsVisible = false;
@@ -536,15 +727,9 @@ namespace NaitonGps.Views
         {
             Image imgClick = sender as Image;
             int currentGridRowClicked = (int)imgClick.GetValue(Grid.ColumnProperty);
-            //TintedImage[] images = new TintedImage[] { navItem1, navItem2, navItem3, navItem4, navItem5 };
 
             var calculatedBatches = res.Batch(5).ToList();
-            var firstBatch = calculatedBatches[0].ToArray();
-            var secondBatch = calculatedBatches[1].ToArray();
-            var thirdBatch = calculatedBatches[2].ToArray();
-            var fourthBatch = calculatedBatches[3].ToArray();
-            var fifthBatch = calculatedBatches[4].ToArray();
-
+            
             foreach (var imgToDefaultColor in allNavItems)
             {
                 if (Application.Current.RequestedTheme == OSAppTheme.Light)
@@ -556,28 +741,32 @@ namespace NaitonGps.Views
                     imgToDefaultColor.TintColor = Color.White;
                 }
             }
-
             allNavItems[currentGridRowClicked].TintColor = Color.Green;
 
             switch (selectedIndex)
             {
                 case 1:
+                    var firstBatch = calculatedBatches[0].ToArray();
                     ControlTemplate = firstBatch.ToList()[currentGridRowClicked].ScreenLink;
                     break;
                 case 2:
+                    var secondBatch = calculatedBatches[1].ToArray();
                     ControlTemplate = secondBatch.ToList()[currentGridRowClicked].ScreenLink;
                     break;
                 case 3:
+                    var thirdBatch = calculatedBatches[2].ToArray();
                     ControlTemplate = thirdBatch.ToList()[currentGridRowClicked].ScreenLink;
                     break;                
                 case 4:
+                    var fourthBatch = calculatedBatches[3].ToArray();
                     ControlTemplate = fourthBatch.ToList()[currentGridRowClicked].ScreenLink;
-                    break;                
+                    break;
                 case 5:
+                    var fifthBatch = calculatedBatches[4].ToArray();
                     ControlTemplate = fifthBatch.ToList()[currentGridRowClicked].ScreenLink;
                     break;
                 default:
-                    DisplayAlert("", "The chosen page is out of range. Please contact manager.", "Ok");
+                    DisplayAlert("", "The page does not exist. Please contact with dev team.", "Ok");
                     break;
             }
         }
