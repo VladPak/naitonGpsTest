@@ -98,22 +98,30 @@ namespace NaitonGps.Views
             //Coloring the navbar btns after switching the display mode light/dark
             Application.Current.RequestedThemeChanged += (s, a) =>
             {
-                var newImgToColor = allNavItems.SkipWhile(c => c.TintColor == Color.Green).ToArray();
+                //var newImgToColor = allNavItems.SkipWhile(c => c.TintColor == Color.Green).ToArray();
 
                 switch (a.RequestedTheme)
                 {
                     case OSAppTheme.Dark:
-                        for (int i = 0; i < newImgToColor.Length; i++)
+
+                        foreach (var item in allNavItems)
                         {
-                            newImgToColor[i].TintColor = Color.White;
+                            if (item.TintColor == Color.Black)
+                            {
+                                item.TintColor = Color.White;
+                            }
                         }
                     break;
                     case OSAppTheme.Light:
-                        for (int i = 0; i < newImgToColor.Length; i++)
+
+                        foreach (var item in allNavItems)
                         {
-                            newImgToColor[i].TintColor = Color.Black;
+                            if (item.TintColor == Color.White)
+                            {
+                                item.TintColor = Color.Black;
+                            }
                         }
-                    break;
+                        break;
                     case OSAppTheme.Unspecified:
                         DisplayAlert("", "Unspecified OS Theme", "Ok");
                         break;

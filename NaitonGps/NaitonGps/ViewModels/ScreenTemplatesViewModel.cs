@@ -15,15 +15,8 @@ namespace NaitonGps.ViewModels
     {
         public List<Screens> screens { get; set; }
 
-
         public ScreenTemplatesViewModel()
         {
-            //var tapGestureRecognizer = new TapGestureRecognizer();
-            ////tapGestureRecognizer.NumberOfTapsRequired = 1;
-            ////tapGestureRecognizer.Tapped += (s, e) => {
-            ////    ControlTemplate = 
-            ////};
-
             screens = new List<Screens>
             {
                 new Screens
