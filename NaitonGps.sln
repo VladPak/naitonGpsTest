@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaitonGps.iOS", "NaitonGps\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NaitonGps", "NaitonGps\NaitonGps\NaitonGps.csproj", "{6070C0CB-A93A-4140-B837-E3BF864B3EC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWSALibrary", "..\..\..\..\..\Users\vladp\Downloads\SimpleWSA-master\SWSALibrary\SWSALibrary.csproj", "{6213E748-D6B2-4FC4-A494-A44DA0ADE5B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWSALibrary", "C:\Users\User\Downloads\SimpleWSA-master\SWSALibrary\SWSALibrary.csproj", "{6213E748-D6B2-4FC4-A494-A44DA0ADE5B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

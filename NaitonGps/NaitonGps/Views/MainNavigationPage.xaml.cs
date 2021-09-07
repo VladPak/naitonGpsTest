@@ -584,16 +584,14 @@ namespace NaitonGps.Views
             if (Device.RuntimePlatform == Device.Android)
             {
                 DisplayAlert("", "Swipe navigation currently unavailable. Use arrow buttons please.", "Ok");
-                var duration = TimeSpan.FromMilliseconds(300);
-                Vibration.Vibrate(duration);
+                VibrationForNav();
             }
             else if (Device.RuntimePlatform == Device.iOS)
             {
                 PreviousContent();
                 SetMenuItems();
                 moveMenu();
-                var duration = TimeSpan.FromMilliseconds(300);
-                Vibration.Vibrate(duration);
+                VibrationForNav();
             }
 
         }
@@ -604,16 +602,14 @@ namespace NaitonGps.Views
             if (Device.RuntimePlatform == Device.Android)
             {
                 DisplayAlert("", "Swipe navigation currently unavailable. Use arrow buttons please.", "Ok");
-                var duration = TimeSpan.FromMilliseconds(300);
-                Vibration.Vibrate(duration);
+                VibrationForNav();
             }
             else if (Device.RuntimePlatform == Device.iOS)
             {
                 NextContent();
                 SetMenuItems();
                 moveMenu();
-                var duration = TimeSpan.FromMilliseconds(300);
-                Vibration.Vibrate(duration);
+                VibrationForNav();
             }
         }
 
@@ -623,8 +619,7 @@ namespace NaitonGps.Views
             PreviousContent();
             SetMenuItems();
             moveMenu();
-            var duration = TimeSpan.FromMilliseconds(300);
-            Vibration.Vibrate(duration);
+            VibrationForNav();
         }
 
         //Next Role (Arrow button)
@@ -633,8 +628,7 @@ namespace NaitonGps.Views
             NextContent();
             SetMenuItems();
             moveMenu();
-            var duration = TimeSpan.FromMilliseconds(300);
-            Vibration.Vibrate(duration);
+            VibrationForNav();
         }
 
         //Navigation menu animation
@@ -663,71 +657,20 @@ namespace NaitonGps.Views
         public void NextContent()
         {
             selectedIndex = selectedIndex + 1;
-            int indexCheck = templateIndex;
-            if (indexCheck != selectedIndex && selectedIndex <= maxIndex)
-            {
-                //switch (selectedIndex)
-                //{
-                //    case 1:
-                //        ControlTemplate = defaultTemp;
-                //        break;
-                //    case 2:
-                //        ControlTemplate = defaultTemp;
-                //        break;
-                //    case 3:
-                //        ControlTemplate = defaultTemp;
-                //        break;                    
-                //    case 4:
-                //        ControlTemplate = defaultTemp;
-                //        break;                    
-                //    case 5:
-                //        ControlTemplate = defaultTemp;
-                //        break;
-                //    default:
-                //        DisplayAlert("", "No navbar for such index", "Ok");
-                //        break;
-                //}
-            }
-            else if (selectedIndex > maxIndex)
+          
+            if (selectedIndex > maxIndex)
             {
                 selectedIndex = 1;
-                //ControlTemplate = defaultTemp;
             }
         }
 
         public void PreviousContent()
         {
             selectedIndex = selectedIndex - 1;
-            int indexCheck = templateIndex;
-            
-            if (indexCheck != selectedIndex && (selectedIndex > indexCheck || selectedIndex != 0) || indexCheck == selectedIndex)
-            {
-                //switch (selectedIndex)
-                //{
-                //    case 1:
-                //        ControlTemplate = defaultTemp;
-                //        break;
-                //    case 2:
-                //        ControlTemplate = defaultTemp;
-                //        break;
-                //    case 3:
-                //        ControlTemplate = defaultTemp;
-                //        break;
-                //    case 4:
-                //        ControlTemplate = defaultTemp;
-                //        break;
-                //    case 5:
-                //        ControlTemplate = defaultTemp;
-                //        break;
-                //    default:
-                //        DisplayAlert("", "No navbar for such index", "Ok");
-                //        break;
-                //}
-            }
-            else if (selectedIndex < minIndex)
+           
+            if (selectedIndex < minIndex)
             {
                 selectedIndex = maxIndex;
-                //ControlTemplate = defaultTemp;
             }
         }
 
@@ -749,6 +692,7 @@ namespace NaitonGps.Views
                     imgToDefaultColor.TintColor = Color.White;
                 }
             }
+
             allNavItems[currentGridRowClicked].TintColor = Color.Green;
 
             switch (selectedIndex)
@@ -779,5 +723,10 @@ namespace NaitonGps.Views
             }
         }
 
+        public void VibrationForNav()
+        {
+            var duration = TimeSpan.FromMilliseconds(300);
+            Vibration.Vibrate(duration);
+        }
     }
 }
