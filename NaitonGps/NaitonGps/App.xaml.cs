@@ -10,7 +10,8 @@ namespace NaitonGps
         public App()
         {
             InitializeComponent();
-            var nav = new NavigationPage(new LoginCompanySelectScreen());
+            //var nav = new NavigationPage(new LoginCompanySelectScreen());
+            var nav = new NavigationPage(new LoginScreenNaiton());
             MainPage = nav;
         }
 

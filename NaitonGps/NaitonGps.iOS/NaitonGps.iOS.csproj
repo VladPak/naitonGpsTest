@@ -344,4 +344,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\notFoundWhite.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\back.jpeg" />
+  </ItemGroup>
 </Project>
