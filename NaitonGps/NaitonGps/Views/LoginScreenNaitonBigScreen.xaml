@@ -49,10 +49,14 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
+                        <!--
                         <local:BorderedEntry HeightRequest="30" ReturnType="Next" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entCompany" Placeholder="Company" PlaceholderColor="Black" Margin="0,0,0,0"/>
                         <local:BorderedEntry HeightRequest="30" ReturnType="Next" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entEmail" Placeholder="Email" PlaceholderColor="Black" Margin="0,0,0,0"/>
                         <local:BorderedEntry HeightRequest="30" ReturnType="Done" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entPassword" IsPassword="True" Placeholder="Password" PlaceholderColor="Black" Margin="0,0,0,0"/>
-
+                        -->
+                        <local:FloatingLabelInput Title="SampleToUp" ReturnType="Next" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entCompany"/>
+                        <local:FloatingLabelInput Title="SecondToGo" ReturnType="Next" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entEmail"/>
+                        <local:FloatingLabelInput Title="FinalEntry" ReturnType="Done" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" IsPassword="True" x:Name="entPassword"/>
 
                         <Frame VerticalOptions="Center" Grid.Row="3" Grid.Column="0" BackgroundColor="#66a103" CornerRadius="5" BorderColor="{AppThemeBinding Light={StaticResource colorGreen}, Dark={StaticResource colorGreen}}" HasShadow="False" WidthRequest="100">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
