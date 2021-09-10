@@ -15,7 +15,8 @@ namespace NaitonGps.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
+            //XfxControls.Init();
+            //global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             base.OnCreate(savedInstanceState);
             Rg.Plugins.Popup.Popup.Init(this);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

@@ -31,7 +31,7 @@ namespace NaitonGps.Views
         ControlTemplate defaultTemp = new ControlTemplate(typeof(DefaultTemplate));
         public int maxIndex;
         public int minIndex = 1;
-        private int templateIndex;
+        //private int templateIndex;
         private int selectedIndex;
         public int maxNavItemsFull;
         public int maxNavItemsRemained;
@@ -59,7 +59,7 @@ namespace NaitonGps.Views
             {
                 bottomNavMenu.ColumnSpacing = 30;
             }
-            templateIndex = 1;
+            //templateIndex = 1;
             selectedIndex = 1;
             SetMenuItems();
 
@@ -571,7 +571,7 @@ namespace NaitonGps.Views
                 {
                     DisplayAlert("", "No screens available for you. Please contact development team.", "Ok");
                     ControlTemplate = defaultTemp;
-                    templateIndex = 1;
+                    //templateIndex = 1;
                     selectedIndex = 1;
                 }
             }
