@@ -7,7 +7,7 @@
              iOS:Page.UseSafeArea="true"
              iOS:Page.PrefersStatusBarHidden="Default"
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
-       Margin="10,0,10,15"
+      x:Name="MajorGrid"
       >
     <Grid.RowDefinitions>
         <RowDefinition Height="0.4*"></RowDefinition>
@@ -31,8 +31,8 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <!--#region Header -->
-        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+        <!--#region Header 
+                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
@@ -58,6 +58,31 @@
                 </Image>
             </StackLayout>
         </Grid>
+        -->
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Grid.Row="0" Source="{AppThemeBinding Light=notification.png, Dark=notificationWhite.png}"  WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" Margin="15,0,0,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PopUpSample"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image Grid.Column="1" Grid.Row="0" Source="nonLogo.png" HorizontalOptions="Center"></Image>
+            
+            <Image Grid.Column="2" Grid.Row="0" Source="{AppThemeBinding Light=settings.png, Dark=settingsWhite.png }" HeightRequest="30" WidthRequest="30" HorizontalOptions="End" Margin="0,0,15,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PopUpSample"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
         <!--#endregion-->
     </Grid>
     <!--#endregion
@@ -82,7 +107,7 @@
     </StackLayout>
     -->
 
-    <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="ContentContainer" IsVisible="false" HorizontalOptions="CenterAndExpand" Margin="10,0,10,0">
+    <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="ContentContainer" IsVisible="false" HorizontalOptions="CenterAndExpand" Margin="10,15,10,0">
         <Label x:Name="Content" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="18" Text="Accounting Reports Diagnostic Reports"/>
     </StackLayout>
 

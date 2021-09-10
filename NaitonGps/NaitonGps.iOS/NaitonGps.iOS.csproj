@@ -347,4 +347,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\back.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\acceptance.png" />
+  </ItemGroup>
 </Project>

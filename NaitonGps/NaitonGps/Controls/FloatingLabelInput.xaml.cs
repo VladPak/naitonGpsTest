@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,6 +13,10 @@ namespace NaitonGps.Controls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FloatingLabelInput : ContentView
     {
+        public static double screenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
+        public static bool isSmallScreen { get; } = screenWidth <= 480;
+        public static bool isBigScreen { get; } = screenWidth >= 480;
+
         int _placeholderFontSize = 18;
         int _titleFontSize = 14;
         int _topMargin = -20;
@@ -75,6 +79,15 @@ namespace NaitonGps.Controls
         public FloatingLabelInput()
         {
             InitializeComponent();
+            if (isSmallScreen)
+            {
+                _titleFontSize = 12;
+            }
+            else if (isBigScreen)
+            {
+                _titleFontSize = 14;
+            }
+
             LabelTitle.TranslationX = 10;
             LabelTitle.FontSize = _placeholderFontSize;
         }

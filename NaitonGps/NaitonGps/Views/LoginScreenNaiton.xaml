@@ -55,6 +55,12 @@
                         <local:BorderedEntry HeightRequest="30" BackgroundColor="#000000000" ReturnType="Next" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entCompany" Placeholder="Company" PlaceholderColor="Black" Margin="0,0,0,0"/>
                         <local:BorderedEntry HeightRequest="30" ReturnType="Next" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entEmail" Placeholder="Email" PlaceholderColor="Black" Margin="0,0,0,0"/>
                         <local:BorderedEntry HeightRequest="30" ReturnType="Done" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entPassword" IsPassword="True" Placeholder="Password" PlaceholderColor="Black" Margin="0,0,0,0"/>
+                        
+                                                <Label Grid.Row="4" Grid.Column="0" Text="Terms of Service" FontSize="14" TextColor="#7d7d7d" Margin="0,50,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
                         -->
                         <local:FloatingLabelInput Title="SampleToUp" ReturnType="Next" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entCompany"/>
                         <local:FloatingLabelInput Title="SecondToGo" ReturnType="Next" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entEmail"/>

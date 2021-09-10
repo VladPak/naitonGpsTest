@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="C:\Users\User\Downloads\SimpleWSA-master\SWSALibrary\SWSALibrary.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\..\Users\vladp\Downloads\SimpleWSA-master\SWSALibrary\SWSALibrary.csproj" />
 
   </ItemGroup>
 
@@ -136,6 +136,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="ViewsForEachRole\ThirdRoleTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TermsAndServices.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

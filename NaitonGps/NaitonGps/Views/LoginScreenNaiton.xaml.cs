@@ -31,9 +31,10 @@ namespace NaitonGps.Views
             await frameLogin.TranslateTo(0, 0, 330, Easing.Linear);
         }
 
-        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            DisplayAlert("", "Terms of Service is clicked", "Ok");
+            //DisplayAlert("", "Terms of Service is clicked", "Ok");
+            await Navigation.PushModalAsync(new TermsAndServices());
         }
     }
 }
