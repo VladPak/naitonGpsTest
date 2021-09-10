@@ -74,24 +74,6 @@
                 </Image.GestureRecognizers>
             </controls:TintedImage>
 
-            <!--
-            <CollectionView  ItemsSource="{Binding screens}" x:Name="bottomNavMenu" VerticalOptions="End" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Horizontal" Span="5"/>
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate> 
-                    <DataTemplate>
-                        <controls:TintedImage Source="{Binding ScreenImage}" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center">
-                            <Image.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
-                            </Image.GestureRecognizers>
-                        </controls:TintedImage>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-           -->
-
-
             <Grid.GestureRecognizers>
                 <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped_PreviousRole"></SwipeGestureRecognizer>
                 <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped_NextRole"></SwipeGestureRecognizer>
