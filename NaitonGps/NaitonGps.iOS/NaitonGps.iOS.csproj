@@ -350,4 +350,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\acceptance.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_eye_hide.png" />
+  </ItemGroup>
 </Project>

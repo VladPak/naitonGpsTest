@@ -27,6 +27,7 @@ namespace NaitonGps.Views
             entPassword.Text = string.Empty;
         }
 
+
         private async void tapLogin_Tapped(object sender, EventArgs e)
         {
             var userEmail = Preferences.Get("loginEmail", string.Empty);

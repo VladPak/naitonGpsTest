@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:NaitonGps.Controls" 
              xmlns:customFrame="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:triggers="clr-namespace:NaitonGps.Triggers"
+             
              x:Class="NaitonGps.Views.LoginScreenNaitonBigScreen"
              NavigationPage.HasNavigationBar="False"
              xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
@@ -22,7 +24,7 @@
             </Grid.ColumnDefinitions>
             <Image x:Name="imgBackground" Source="back.jpeg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
         <ScrollView>
-            
+
             <Grid Grid.Row="0" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*"></RowDefinition>
@@ -49,26 +51,33 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
-                        <!--
-                        <local:BorderedEntry HeightRequest="30" ReturnType="Next" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entCompany" Placeholder="Company" PlaceholderColor="Black" Margin="0,0,0,0"/>
-                        <local:BorderedEntry HeightRequest="30" ReturnType="Next" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entEmail" Placeholder="Email" PlaceholderColor="Black" Margin="0,0,0,0"/>
-                        <local:BorderedEntry HeightRequest="30" ReturnType="Done" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entPassword" IsPassword="True" Placeholder="Password" PlaceholderColor="Black" Margin="0,0,0,0"/>
-                        
-                                                <Label Grid.Row="4" Grid.Column="0" Text="Terms of Service" FontSize="14" TextColor="#7d7d7d" Margin="0,50,0,0" HorizontalOptions="Center" VerticalOptions="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1"></TapGestureRecognizer>
-                            </Label.GestureRecognizers>
-                        </Label>
-                        -->
-                        <local:FloatingLabelInput Title="SampleToUp" ReturnType="Next" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entCompany"/>
-                        <local:FloatingLabelInput Title="SecondToGo" ReturnType="Next" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entEmail"/>
-                        <local:FloatingLabelInput Title="FinalEntry" ReturnType="Done" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" IsPassword="True" x:Name="entPassword"/>
+                        <local:FloatingLabelInput Title="Company" ReturnType="Next" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entCompany"/>
+                        <local:FloatingLabelInput Title="Email" ReturnType="Next" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entEmail"/>
+                        <local:FloatingLabelInput Title="Password" ReturnType="Done" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" IsPassword="{Binding Source={x:Reference ShowPasswordActualTrigger}, Path=HidePassword}" x:Name="entPassword"/>
+
+                        <ImageButton VerticalOptions="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1"
+                            Padding="0"
+                            Margin="0,0,10,0"
+                            HeightRequest="30"
+                            HorizontalOptions="End"
+                            Source="ic_eye_hide">
+                            <ImageButton.Triggers>
+                                <EventTrigger Event="Clicked">
+                                    <triggers:ShowPasswordTriggerAction ShowIcon="ic_eye"
+                                                                    HideIcon="ic_eye_hide"
+                                                                    x:Name="ShowPasswordActualTrigger"/>
+                                </EventTrigger>
+                            </ImageButton.Triggers>
+                        </ImageButton>
 
                         <Frame VerticalOptions="Center" Grid.Row="3" Grid.Column="0" BackgroundColor="#66a103" CornerRadius="5" BorderColor="{AppThemeBinding Light={StaticResource colorGreen}, Dark={StaticResource colorGreen}}" HasShadow="False" WidthRequest="100">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                                 <Label Text="Log In" FontSize="17" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"></Label>
                                 <Image Source="rightarrowWhite.png" HeightRequest="15"></Image>
                             </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                            </Frame.GestureRecognizers>
                         </Frame>
 
                         <Label Grid.Row="4" Grid.Column="0" Text="Terms of Service" FontSize="14" TextColor="#7d7d7d" Margin="0,50,0,0" HorizontalOptions="Center" VerticalOptions="Center">
@@ -80,6 +89,5 @@
                 </customFrame:PancakeView>
             </Grid>
         </ScrollView>
-
     </Grid>
 </ContentPage>
