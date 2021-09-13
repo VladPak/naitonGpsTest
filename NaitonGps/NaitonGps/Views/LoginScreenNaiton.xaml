@@ -12,6 +12,7 @@
              iOS:Page.PrefersStatusBarHidden="True"
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
              >
+    <ScrollView>
     <Grid>
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
@@ -22,8 +23,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Image x:Name="imgBackground" Source="back.jpeg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
-        <ScrollView>
+        <Image x:Name="imgBackground" Source="back2.png" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
 
             <Grid Grid.Row="0" Grid.Column="0">
                 <Grid.RowDefinitions>
@@ -36,11 +36,12 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Image x:Name="imgLogo" Source="nonLogo.png" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" ></Image>
-                <customFrame:PancakeView x:Name="frameLogin" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4" BackgroundColor="#ffffff" CornerRadius="10,10,0,0">
-                    <Grid Margin="10,15,10,20">
+                <Image x:Name="imgLogo" Source="logoMain.png" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" ></Image>
+                <customFrame:PancakeView x:Name="frameLogin" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="4" BackgroundColor="#ffffff" CornerRadius="10,10,0,0">
+                    <Grid Margin="10,15,10,20" Padding="0,0,0,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
@@ -56,7 +57,7 @@
                         <local:FloatingLabelInput Title="Email" ReturnType="Next" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entEmail"/>
                         <local:FloatingLabelInput Title="Password" ReturnType="Done" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" IsPassword="{Binding Source={x:Reference ShowPasswordActualTrigger}, Path=HidePassword}" x:Name="entPassword"/>
 
-                        <ImageButton VerticalOptions="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1"
+                            <ImageButton VerticalOptions="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1"
                             Padding="0"
                             Margin="0,0,10,0"
                             HeightRequest="30"
@@ -89,8 +90,7 @@
                     </Grid>
                 </customFrame:PancakeView>
             </Grid>
-        </ScrollView>
 
     </Grid>
-
+    </ScrollView>
 </ContentPage>
