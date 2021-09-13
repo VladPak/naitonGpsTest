@@ -10,5 +10,6 @@ namespace NaitonGps.Models
         public string picklistAssigneeName { get; set; }
         public int picklistRackQuantity { get; set; }
         public int picklistRackWeight { get; set; }
+        public string picklistColorStatus { get; set; }
     }
 }

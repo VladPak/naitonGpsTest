@@ -15,35 +15,35 @@ namespace NaitonGps.ViewModels
             {
                 new TemplatePickListData
                 {
-                    pickListId = 450, picklistAssigneeName = "Jan Hendrik Volders", picklistRackQuantity = 15, picklistRackWeight = 725
+                    pickListId = 450, picklistAssigneeName = "Jan Hendrik Volders", picklistRackQuantity = 15, picklistRackWeight = 725, picklistColorStatus = "Red"
                 },                
                 new TemplatePickListData
                 {
-                    pickListId = 450, picklistAssigneeName = "Arjen Verhaart", picklistRackQuantity = 33, picklistRackWeight = 2500
+                    pickListId = 650, picklistAssigneeName = "Arjen Verhaart", picklistRackQuantity = 33, picklistRackWeight = 2500, picklistColorStatus = "Orange"
                 },                
                 new TemplatePickListData
                 {
-                    pickListId = 450, picklistAssigneeName = "Jan Hendrik Volders", picklistRackQuantity = 12, picklistRackWeight = 550
+                    pickListId = 550, picklistAssigneeName = "Jan Hendrik Volders", picklistRackQuantity = 12, picklistRackWeight = 550, picklistColorStatus = "Green"
                 },                
                 new TemplatePickListData
                 {
-                    pickListId = 450, picklistAssigneeName = "", picklistRackQuantity = 3, picklistRackWeight = 200
+                    pickListId = 750, picklistAssigneeName = "", picklistRackQuantity = 3, picklistRackWeight = 200, picklistColorStatus = "#00000000"
                 },                
                 new TemplatePickListData
                 {
-                    pickListId = 450, picklistAssigneeName = "", picklistRackQuantity = 15, picklistRackWeight = 725
+                    pickListId = 970, picklistAssigneeName = "", picklistRackQuantity = 15, picklistRackWeight = 725, picklistColorStatus = "#00000000"
                 },                
                 new TemplatePickListData
                 {
-                    pickListId = 450, picklistAssigneeName = "Ignacio Minaya Sanchez", picklistRackQuantity = 40, picklistRackWeight = 3300
+                    pickListId = 658, picklistAssigneeName = "Ignacio Minaya Sanchez", picklistRackQuantity = 40, picklistRackWeight = 3300, picklistColorStatus = "#00000000"
                 },                
                 new TemplatePickListData
                 {
-                    pickListId = 450, picklistAssigneeName = "", picklistRackQuantity = 15, picklistRackWeight = 1250
+                    pickListId = 320, picklistAssigneeName = "", picklistRackQuantity = 15, picklistRackWeight = 1250, picklistColorStatus = "#00000000"
                 },                
                 new TemplatePickListData
                 {
-                    pickListId = 450, picklistAssigneeName = "Jan Hendrik Volders", picklistRackQuantity = 10, picklistRackWeight = 446
+                    pickListId = 450, picklistAssigneeName = "Jan Hendrik Volders", picklistRackQuantity = 10, picklistRackWeight = 446, picklistColorStatus = "Green"
                 },
             };
         }

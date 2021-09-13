@@ -217,6 +217,9 @@
     <PackageReference Include="morelinq">
       <Version>3.3.2</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Plugin.CrossPlatformTintedImage">
       <Version>1.0.0</Version>
     </PackageReference>
@@ -376,5 +379,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\bellNotification.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\statusBar.png" />
   </ItemGroup>
 </Project>
