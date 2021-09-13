@@ -17,7 +17,7 @@ namespace NaitonGps.Views
     public partial class LoginScreenNaiton : ContentPage
     {
         int taps = 0;
-
+        //fixed
         public LoginScreenNaiton()
         {
             InitializeComponent();
