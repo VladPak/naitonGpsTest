@@ -22,7 +22,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Image x:Name="imgBackground" Source="back.jpeg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
+            <Image x:Name="imgBackground" Source="back2.png" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
         <ScrollView>
 
             <Grid Grid.Row="0" Grid.Column="0">
@@ -35,10 +35,11 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Image x:Name="imgLogo" Source="nonLogo.png" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" ></Image>
-                <customFrame:PancakeView x:Name="frameLogin" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" BackgroundColor="#ffffff" CornerRadius="20,20,0,0">
+                <Image x:Name="imgLogo" Source="logoMain.png" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" ></Image>
+                <customFrame:PancakeView x:Name="frameLogin" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="2" BackgroundColor="#ffffff" CornerRadius="20,20,0,0">
                     <Grid Padding="0,20,0,20" Margin="20,10,20,20">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"></RowDefinition>

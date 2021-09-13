@@ -23,6 +23,7 @@ namespace NaitonGps.Views
         public FirstRoleTemplate()
         {
             InitializeComponent();
+            BindingContext = new PickListViewModel();
             //lblUserEmail.Text = Preferences.Get("loginEmail", string.Empty);
             if (isSmallScreen)
             {

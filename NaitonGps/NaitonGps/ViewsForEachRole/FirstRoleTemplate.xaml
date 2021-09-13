@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Grid xmlns="http://xamarin.com/schemas/2014/forms" 
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+      xmlns:controls="clr-namespace:Plugin.CrossPlatformTintedImage.Abstractions;assembly=Plugin.CrossPlatformTintedImage.Abstractions"
       x:Class="NaitonGps.Views.FirstRoleTemplate"
              NavigationPage.HasNavigationBar="False"
              xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
@@ -10,9 +11,9 @@
       x:Name="MajorGrid"
       >
     <Grid.RowDefinitions>
+        <RowDefinition Height="0.6*"></RowDefinition>
+        <RowDefinition Height="6*"></RowDefinition>
         <RowDefinition Height="0.4*"></RowDefinition>
-        <RowDefinition Height="3*"></RowDefinition>
-        <RowDefinition Height="0.45*"></RowDefinition>
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*"></ColumnDefinition>
@@ -21,13 +22,16 @@
     </Grid.ColumnDefinitions>
 
     <!--#region Header and Body content -->
-    <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="Header" IsVisible="false">
+    <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="Header" IsVisible="false" BackgroundColor="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <!--
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+            -->
+                <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
@@ -69,15 +73,15 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="0" Grid.Row="0" Source="{AppThemeBinding Light=notification.png, Dark=notificationWhite.png}"  WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" Margin="15,0,0,0">
+            <Image Grid.Column="0" Grid.Row="0" Source="{AppThemeBinding Light=bellNotification.png, Dark=bellNotification.png}"  WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" Margin="15,0,0,0">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="PopUpSample"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
 
-            <Image Grid.Column="1" Grid.Row="0" Source="nonLogo.png" HorizontalOptions="Center"></Image>
-            
-            <Image Grid.Column="2" Grid.Row="0" Source="{AppThemeBinding Light=settings.png, Dark=settingsWhite.png }" HeightRequest="30" WidthRequest="30" HorizontalOptions="End" Margin="0,0,15,0">
+            <Image Grid.Column="1" Grid.Row="0" Source="logoNavbar.png" HorizontalOptions="Center"></Image>
+
+            <Image Grid.Column="2" Grid.Row="0" Source="{AppThemeBinding Light=userInformation.png, Dark=userInformation.png }" HeightRequest="30" WidthRequest="30" HorizontalOptions="End" Margin="0,0,15,0">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="PopUpSample"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
@@ -107,8 +111,47 @@
     </StackLayout>
     -->
 
-    <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="ContentContainer" IsVisible="false" HorizontalOptions="CenterAndExpand" Margin="10,15,10,0">
-        <Label x:Name="Content" Font="Bold" HorizontalOptions="CenterAndExpand" FontSize="18" Text="Accounting Reports Diagnostic Reports"/>
+    <StackLayout BackgroundColor="Transparent" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" x:Name="ContentContainer" IsVisible="false" Margin="15,0,15,0">
+        <Label x:Name="Content" Font="Bold" HorizontalOptions="StartAndExpand" FontSize="30" Text="Picklist"/>
+        <CollectionView ItemsSource="{Binding dataForPicklist}" VerticalOptions="Start" VerticalScrollBarVisibility="Never">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Frame HasShadow="False" BackgroundColor="#dbdbdb" CornerRadius="20" Margin="0,10,0,10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"></Image>
+                                <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding pickListId}" FontSize="15" FontAttributes="Bold"/>
+
+                                <Label Grid.Row="1" Grid.Column="1" Margin="10,20,0,0" FontSize="15" VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding picklistRackQuantity}" FontAttributes="Bold" />
+                                            <Span Text="{Binding picklistRackWeight}" TextColor="#a4a7b6"  />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                
+                                <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Name}" FontSize="15" FontAttributes="Bold"/>
+                                
+                                <Label Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding picklistAssigneeName}" FontSize="15" FontAttributes="Bold"/>
+                                <controls:TintedImage Source="rightArrow.png" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" TintColor="#bdbdbd"></controls:TintedImage>
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </StackLayout>
 
     <ContentPresenter Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="Fill" BackgroundColor="Transparent" />

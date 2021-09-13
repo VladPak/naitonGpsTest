@@ -345,9 +345,6 @@
     <BundleResource Include="Resources\notFoundWhite.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\back.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\acceptance.png" />
   </ItemGroup>
   <ItemGroup>
@@ -355,5 +352,29 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_eye_hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\back2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logoNaiton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logoMain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logoNavbar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logoNaitonNavbar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\userInformation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bellNotification.png" />
   </ItemGroup>
 </Project>
