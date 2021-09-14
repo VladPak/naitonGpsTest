@@ -28,9 +28,6 @@ namespace NaitonGps
                 var nav = new NavigationPage(new LoginScreenNaitonBigScreen());
                 MainPage = nav;
             }
-
-            //var nav = new NavigationPage(new LoginCompanySelectScreen());
-
         }
 
         protected override void OnStart()

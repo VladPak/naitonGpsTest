@@ -12,7 +12,6 @@
              iOS:Page.PrefersStatusBarHidden="True"
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
              >
-    <ScrollView>
     <Grid>
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
@@ -40,14 +39,14 @@
                 </Grid.ColumnDefinitions>
 
                 <Image x:Name="imgLogo" Source="logoMain.png" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" ></Image>
-                <customFrame:PancakeView x:Name="frameLogin" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="4" BackgroundColor="#ffffff" CornerRadius="10,10,0,0">
-                    <Grid Margin="10,15,10,20" Padding="0,0,0,0">
+                <customFrame:PancakeView x:Name="frameLogin" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="3" BackgroundColor="#ffffff" CornerRadius="10,10,0,0">
+                    <Grid Margin="10,15,10,20">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="1.5*"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="0.6*"></RowDefinition>
+                            <RowDefinition Height="0.6*"></RowDefinition>
+                            <RowDefinition Height="0.6*"></RowDefinition>
+                            <RowDefinition Height="0.8*"></RowDefinition>
+                            <RowDefinition Height="0.5*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -60,7 +59,7 @@
                             <ImageButton VerticalOptions="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1"
                             Padding="0"
                             Margin="0,0,10,0"
-                            HeightRequest="30"
+                            HeightRequest="27"
                             HorizontalOptions="End"
                             Source="ic_eye_hide">
                             <ImageButton.Triggers>
@@ -82,7 +81,7 @@
                             </Frame.GestureRecognizers>
                         </Frame>
 
-                        <Label Grid.Row="4" Grid.Column="0" Text="Terms of Service" FontSize="14" TextColor="#7d7d7d" Margin="0,50,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Grid.Row="4" Grid.Column="0" Text="Terms of Service" FontSize="14" TextColor="#7d7d7d" Margin="0,25,0,0" HorizontalOptions="Center" VerticalOptions="Center">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1"></TapGestureRecognizer>
                             </Label.GestureRecognizers>
@@ -92,5 +91,4 @@
             </Grid>
 
     </Grid>
-    </ScrollView>
 </ContentPage>

@@ -17,7 +17,7 @@ namespace NaitonGps.Views
     public partial class LoginScreenNaiton : ContentPage
     {
         int taps = 0;
-        //fixed
+        
         public LoginScreenNaiton()
         {
             InitializeComponent();
@@ -31,13 +31,13 @@ namespace NaitonGps.Views
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             await imgBackground.ScaleTo(1.2, 90, Easing.Linear);
-            await imgLogo.TranslateTo(0, -50, 280, Easing.Linear);
+            await imgLogo.TranslateTo(0, -20, 280, Easing.Linear);
             await frameLogin.TranslateTo(0, 0, 330, Easing.Linear);
         }
 
         private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new TermsAndServices());
+            //await Navigation.PushModalAsync(new TermsAndServices());
         }
 
         private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)

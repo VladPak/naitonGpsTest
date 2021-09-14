@@ -21,7 +21,7 @@ namespace NaitonGps.Views
         private async void Button_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopPopupAsync();
-
+            
         }
     }
 }

@@ -51,5 +51,9 @@ namespace NaitonGps.Views
             await ContentContainer.TranslateTo(0, 0, 300);
         }
 
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
