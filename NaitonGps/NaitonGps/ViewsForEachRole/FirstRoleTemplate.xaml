@@ -23,7 +23,7 @@
     </Grid.ColumnDefinitions>
 
     <!--#region Header -->
-    <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="Header" IsVisible="false" BackgroundColor="Transparent">
+    <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="Header" IsVisible="true" BackgroundColor="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -62,7 +62,7 @@
     <!--#endregion-->
 
     <!--#region Body -->
-    <Grid x:Name="ContentContainer" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="false" Margin="15,0,15,0" BackgroundColor="Transparent">
+    <Grid x:Name="ContentContainer" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="true" Margin="15,0,15,0" BackgroundColor="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.4*"></RowDefinition>
             <RowDefinition Height="6*"></RowDefinition>
@@ -73,7 +73,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#00000000">
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
@@ -86,7 +86,7 @@
             <Frame Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start" BackgroundColor="#ffffff" CornerRadius="5" BorderColor="#69717E" HasShadow="False" WidthRequest="60">
                 <StackLayout Margin="-5,-10,-5,-10" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
                     <Image Source="scan.png" HeightRequest="20"></Image>
-                    <Label Text="Scan" FontSize="17" TextColor="#69717E" FontAttributes="none" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                    <Label Text="Scan" FontSize="17" TextColor="#1B222B" FontAttributes="none" HorizontalOptions="Center" VerticalOptions="Center"></Label>
                 </StackLayout>
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
@@ -94,40 +94,45 @@
             </Frame>
         </Grid>
 
-        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding dataForPicklist}" VerticalOptions="Start" VerticalScrollBarVisibility="Never">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout>
-                        <Frame HasShadow="False" BackgroundColor="#F2F3F4" CornerRadius="15" Margin="0,12,0,0">
-                            <Grid ColumnSpacing="0" RowSpacing="0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="0.2*"></RowDefinition>
-                                    <RowDefinition Height="0.2*"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="0.1*"></ColumnDefinition>
-                                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                                    <ColumnDefinition Width="4*"></ColumnDefinition>
-                                    <ColumnDefinition Width="0.3*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
+        <RefreshView IsRefreshing="{Binding IsRefreshing}" x:Name="rv" Command="{Binding RefreshCommand}" Grid.Row="1" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="3">
+            <ScrollView VerticalScrollBarVisibility="Never">
+                <CollectionView ItemsSource="{Binding dataForPicklist}" VerticalOptions="Start" VerticalScrollBarVisibility="Never">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="False" BackgroundColor="#F2F3F4" CornerRadius="15" Margin="0,12,0,0">
+                                    <Grid ColumnSpacing="0" RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="0.2*"></RowDefinition>
+                                            <RowDefinition Height="0.2*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                                            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
 
-                                <controls:TintedImage Margin="-20,0,0,0" TintColor="{Binding picklistColorStatus}" Source="statusBar.png" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Start" VerticalOptions="Center"></controls:TintedImage>
+                                        <controls:TintedImage Margin="-20,0,0,0" TintColor="{Binding picklistColorStatus}" Source="statusBar.png" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Start" VerticalOptions="Center"></controls:TintedImage>
 
-                                <Label BackgroundColor="Transparent" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Text="{Binding Path=pickListId, StringFormat='ID {0}'}" FontSize="20" FontAttributes="None" HorizontalOptions="Start"/>
+                                        <Label BackgroundColor="Transparent" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Text="{Binding Path=pickListId, StringFormat='ID {0}'}" FontSize="20" FontAttributes="None" HorizontalOptions="Start"/>
 
-                                <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-                                    <Label FontAttributes="Bold" Text="{Binding Path=picklistRackQuantity, StringFormat='Qty {0}  &#x2022;'}" FontSize="16" TextColor="#000000"/>
-                                    <Label FontAttributes="Bold" Text="{Binding Path=picklistRackWeight, StringFormat='{0} kg'}" FontSize="16" TextColor="#000000"/>
-                                </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                                            <Label FontAttributes="Bold" Text="{Binding Path=picklistRackQuantity, StringFormat='Qty {0}  &#x2022;'}" FontSize="16" TextColor="#000000"/>
+                                            <Label FontAttributes="Bold" Text="{Binding Path=picklistRackWeight, StringFormat='{0} kg'}" FontSize="16" TextColor="#000000"/>
+                                        </StackLayout>
 
-                                <Label BackgroundColor="Transparent" Grid.Row="0" Grid.Column="2" TextColor="#5c5c5c" Grid.ColumnSpan="2" Grid.RowSpan="2" WidthRequest="90" HorizontalTextAlignment="End" VerticalOptions="Center" Text="{Binding picklistAssigneeName}" FontSize="15" HorizontalOptions="End" FontAttributes="Bold"/>
-                                <controls:TintedImage BackgroundColor="Transparent" Source="rightarrow.png" WidthRequest="30" HeightRequest="50" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" TintColor="#5c5c5c"></controls:TintedImage>
-                            </Grid>
-                        </Frame>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                                        <Label BackgroundColor="Transparent" Grid.Row="0" Grid.Column="2" TextColor="#5c5c5c" Grid.ColumnSpan="2" Grid.RowSpan="2" WidthRequest="90" HorizontalTextAlignment="End" VerticalOptions="Center" Text="{Binding picklistAssigneeName}" FontSize="15" HorizontalOptions="End" FontAttributes="Bold"/>
+                                        <controls:TintedImage BackgroundColor="Transparent" Source="rightarrow.png" WidthRequest="30" HeightRequest="50" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" TintColor="#5c5c5c"></controls:TintedImage>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </ScrollView>
+        </RefreshView>
     </Grid> 
     <!--#endregion-->
 
