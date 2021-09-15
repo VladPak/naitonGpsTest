@@ -82,7 +82,7 @@ namespace NaitonGps.Views
                 var allButFirst = allNavItems.Skip(1).Take(4).ToArray();
                 foreach (var item in allButFirst)
                 {
-                    item.TintColor = Color.Black;
+                    item.TintColor = Color.FromHex("#69717E");
                 }
             }
             else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
@@ -106,7 +106,7 @@ namespace NaitonGps.Views
 
                         foreach (var item in allNavItems)
                         {
-                            if (item.TintColor == Color.Black)
+                            if (item.TintColor == Color.FromHex("#69717E"))
                             {
                                 item.TintColor = Color.White;
                             }
@@ -118,7 +118,7 @@ namespace NaitonGps.Views
                         {
                             if (item.TintColor == Color.White)
                             {
-                                item.TintColor = Color.Black;
+                                item.TintColor = Color.FromHex("#69717E");
                             }
                         }
                         break;
@@ -643,7 +643,7 @@ namespace NaitonGps.Views
                 if (Application.Current.RequestedTheme == OSAppTheme.Light)
                 {
                     images[0].TintColor = Color.Green;
-                     images[i].TintColor = Color.Black;
+                     images[i].TintColor = Color.FromHex("#69717E");
                 }
                 else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
                 {
@@ -685,7 +685,7 @@ namespace NaitonGps.Views
             {
                 if (Application.Current.RequestedTheme == OSAppTheme.Light)
                 {
-                    imgToDefaultColor.TintColor = Color.Black;
+                    imgToDefaultColor.TintColor = Color.FromHex("#69717E");
                 }
                 else if (Application.Current.RequestedTheme == OSAppTheme.Dark)
                 {

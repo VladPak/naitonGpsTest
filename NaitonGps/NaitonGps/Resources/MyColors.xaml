@@ -8,4 +8,6 @@
     <Color x:Key="colorBlack">#000000</Color>
     <Color x:Key="colorTransparent">#00000000</Color>
     <Color x:Key="colorRed">#ff0000</Color>
+
+    <Color x:Key="colorGrayStatic">#69717E</Color>
 </ResourceDictionary>

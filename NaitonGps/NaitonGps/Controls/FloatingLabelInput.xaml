@@ -13,8 +13,8 @@
                    ReturnType="{Binding ReturnType, Source={x:Reference this}}"
                    IsPassword="{Binding IsPassword, Source={x:Reference this}}"
                    Keyboard="{Binding Keyboard, Source={x:Reference this}}"
-                   TextColor="#000000" 
-                   BackgroundColor="#e0e0e0"
+                   TextColor="#1B2B1D" 
+                   BackgroundColor="#f2f4f2"
                    Unfocused="Handle_Unfocused" 
                    Focused="Handle_Focused">
             </local:BorderedEntry>

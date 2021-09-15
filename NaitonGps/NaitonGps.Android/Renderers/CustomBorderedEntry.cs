@@ -43,7 +43,7 @@ namespace NaitonGps.Droid.Renderers
                 ColorStateList myList = new ColorStateList(states, colors);
 
                 GradientDrawable gradientDrawable = new GradientDrawable();
-                gradientDrawable.SetCornerRadius(5);
+                gradientDrawable.SetCornerRadius(8);
                 Control.Background = gradientDrawable;
                 gradientDrawable.SetStroke(2, myList);
             }

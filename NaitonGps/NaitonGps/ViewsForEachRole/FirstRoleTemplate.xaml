@@ -43,7 +43,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="0" Grid.Row="0" Source="{AppThemeBinding Light=bellNotification.png, Dark=bellNotification.png}"  WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" Margin="15,0,0,0">
+            <Image Grid.Column="0" Grid.Row="0" Source="{AppThemeBinding Light=userInformation.png, Dark=userInformation.png}"  WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" Margin="15,0,0,0">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="PopUpSample"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
@@ -51,7 +51,7 @@
 
             <Image Grid.Column="1" Grid.Row="0" Source="logoNavbar.png" HorizontalOptions="Center"></Image>
 
-            <Image Grid.Column="2" Grid.Row="0" Source="{AppThemeBinding Light=userInformation.png, Dark=userInformation.png }" HeightRequest="30" WidthRequest="30" HorizontalOptions="End" Margin="0,0,15,0">
+            <Image Grid.Column="2" Grid.Row="0" Source="{AppThemeBinding Light=bellNotification.png, Dark=bellNotification.png }" HeightRequest="30" WidthRequest="30" HorizontalOptions="End" Margin="0,0,15,0">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="PopUpSample"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
@@ -62,9 +62,9 @@
     <!--#endregion-->
 
     <!--#region Body -->
-    <Grid x:Name="ContentContainer" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="false" Margin="15,20,15,0">
+    <Grid x:Name="ContentContainer" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="false" Margin="15,0,15,0" BackgroundColor="Transparent">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0.4*"></RowDefinition>
             <RowDefinition Height="6*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -82,11 +82,11 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" x:Name="Content" Font="Bold" HorizontalOptions="Start" VerticalOptions="Start" FontSize="25" Text="Picklist"/>
-            <Frame Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start" BackgroundColor="#ffffff" CornerRadius="5" BorderColor="{AppThemeBinding Light={StaticResource colorBlack}, Dark={StaticResource colorBlack}}" HasShadow="False" WidthRequest="60">
+            <Label Grid.Row="0" Grid.Column="0" x:Name="Content" Font="Bold" HorizontalOptions="Start" VerticalOptions="Center" FontSize="25" Text="Picklist"/>
+            <Frame Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start" BackgroundColor="#ffffff" CornerRadius="5" BorderColor="#69717E" HasShadow="False" WidthRequest="60">
                 <StackLayout Margin="-5,-10,-5,-10" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
                     <Image Source="scan.png" HeightRequest="20"></Image>
-                    <Label Text="Scan" FontSize="17" TextColor="#3c3c3c" FontAttributes="none" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                    <Label Text="Scan" FontSize="17" TextColor="#69717E" FontAttributes="none" HorizontalOptions="Center" VerticalOptions="Center"></Label>
                 </StackLayout>
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
@@ -98,8 +98,8 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
-                        <Frame HasShadow="False" BackgroundColor="#dbdbdb" CornerRadius="15" Margin="0,10,0,10">
-                            <Grid ColumnSpacing="0" RowSpacing="5">
+                        <Frame HasShadow="False" BackgroundColor="#F2F3F4" CornerRadius="15" Margin="0,12,0,0">
+                            <Grid ColumnSpacing="0" RowSpacing="0">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="0.2*"></RowDefinition>
                                     <RowDefinition Height="0.2*"></RowDefinition>

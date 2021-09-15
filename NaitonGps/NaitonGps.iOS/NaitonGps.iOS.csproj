@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\CustomBorderedEntry.cs" />
     <Compile Include="Renderers\ImageTintingRenderer.cs" />
     <Compile Include="Renderers\KeyboardViewRenderer.cs" />
     <None Include="Entitlements.plist" />
@@ -382,5 +383,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\statusBar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\scan.png" />
   </ItemGroup>
 </Project>

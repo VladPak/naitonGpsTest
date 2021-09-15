@@ -21,8 +21,8 @@ namespace NaitonGps.Views
         public LoginScreenNaitonBigScreen()
         {
             InitializeComponent();
-            imgBackground.ScaleX = 1;
-            imgBackground.ScaleY = 1;
+            //imgBackground.ScaleX = 1;
+            //imgBackground.ScaleY = 1;
             imgLogo.TranslationY = 100;
             frameLogin.TranslationY = 450;
         }
@@ -30,8 +30,10 @@ namespace NaitonGps.Views
         //Main screen animation
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await imgBackground.ScaleTo(1.2, 90, Easing.Linear);
-            await imgLogo.TranslateTo(0, -100, 280, Easing.Linear);
+            //await imgBackground.ScaleTo(1.2, 90, Easing.Linear);
+            //await imgLogo.TranslateTo(0, -100, 280, Easing.Linear);
+            //await frameLogin.TranslateTo(0, 0, 330, Easing.Linear);
+            await imgLogo.TranslateTo(0, -90, 280, Easing.Linear);
             await frameLogin.TranslateTo(0, 0, 330, Easing.Linear);
         }
 
