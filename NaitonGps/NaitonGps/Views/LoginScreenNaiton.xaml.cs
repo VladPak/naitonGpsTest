@@ -21,18 +21,19 @@ namespace NaitonGps.Views
         public LoginScreenNaiton()
         {
             InitializeComponent();
-
-            imgBackground.ScaleX = 1;
-            imgBackground.ScaleY = 1;
+            scrollToActivate.IsEnabled = false;
+            //imgBackground.ScaleX = 1;
+            //imgBackground.ScaleY = 1;
             imgLogo.TranslationY = 100;
             frameLogin.TranslationY = 450;            
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await imgBackground.ScaleTo(1.2, 90, Easing.Linear);
+            //await imgBackground.ScaleTo(1.2, 90, Easing.Linear);
             await imgLogo.TranslateTo(0, -20, 280, Easing.Linear);
             await frameLogin.TranslateTo(0, 0, 330, Easing.Linear);
+            scrollToActivate.IsEnabled = true;
         }
 
         private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)

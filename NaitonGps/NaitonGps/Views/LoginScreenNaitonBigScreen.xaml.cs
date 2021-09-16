@@ -17,7 +17,7 @@ namespace NaitonGps.Views
     public partial class LoginScreenNaitonBigScreen : ContentPage
     {
         int taps = 0;
-
+        
         public LoginScreenNaitonBigScreen()
         {
             InitializeComponent();
@@ -25,6 +25,22 @@ namespace NaitonGps.Views
             //imgBackground.ScaleY = 1;
             imgLogo.TranslationY = 100;
             frameLogin.TranslationY = 450;
+
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                ScrollViewMain.IsEnabled = true;
+                Grid.SetRowSpan(frameLogin, 2);
+                Grid.SetRow(GridFrame, 3);
+            }
+            else if (Device.RuntimePlatform == Device.Android)
+            {
+                ScrollViewMain.IsEnabled = false;
+                Grid.SetRowSpan(frameLogin, 3);
+                Grid.SetRow(GridFrame, 4);
+
+
+            }
+
         }
 
         //Main screen animation
