@@ -8,7 +8,7 @@
              iOS:Page.UseSafeArea="true"
              iOS:Page.PrefersStatusBarHidden="Default"
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
-             BackgroundColor="{AppThemeBinding Light={StaticResource colorWhite}, Dark={StaticResource colorGrey}}" 
+             BackgroundColor="{AppThemeBinding Light={StaticResource colorGrayBackground}, Dark={StaticResource colorGrayBackground}}" 
              >
     <Grid>
         <Grid.RowDefinitions>
@@ -44,31 +44,31 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <controls:TintedImage x:Name="navItem1" Grid.Row="0" Grid.Column="0" Source="" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+            <controls:TintedImage x:Name="navItem1" Grid.Row="0" Grid.Column="0" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </controls:TintedImage>
 
-            <controls:TintedImage x:Name="navItem2" Grid.Row="0" Grid.Column="1" Source="" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+            <controls:TintedImage x:Name="navItem2" Grid.Row="0" Grid.Column="1" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </controls:TintedImage>
 
-            <controls:TintedImage x:Name="navItem3" Grid.Row="0" Grid.Column="2" Source="" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+            <controls:TintedImage x:Name="navItem3" Grid.Row="0" Grid.Column="2" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </controls:TintedImage>
 
-            <controls:TintedImage x:Name="navItem4" Grid.Row="0" Grid.Column="3" Source="" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+            <controls:TintedImage x:Name="navItem4" Grid.Row="0" Grid.Column="3" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </controls:TintedImage>
 
-            <controls:TintedImage x:Name="navItem5" Grid.Row="0" Grid.Column="4" Source="" WidthRequest="30" HeightRequest="30" VerticalOptions="Center">
+            <controls:TintedImage x:Name="navItem5" Grid.Row="0" Grid.Column="4" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>
                 </Image.GestureRecognizers>

@@ -45,10 +45,10 @@ namespace NaitonGps.Views
         public async void move()
         {
             //await ContentContainer.TranslateTo(0, -300, 30, Easing.Linear);
-            await Header.TranslateTo(0, -300, 30, Easing.Linear);
-            Header.IsVisible = true;
+            //await Header.TranslateTo(0, -300, 30, Easing.Linear);
+            //Header.IsVisible = true;
             //ContentContainer.IsVisible = true;
-            await Header.TranslateTo(0, 0, 500);
+            //await Header.TranslateTo(0, 0, 500);
             //await ContentContainer.TranslateTo(0, 0, 300);
         }
 

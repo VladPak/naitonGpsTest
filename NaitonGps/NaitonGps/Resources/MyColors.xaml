@@ -10,4 +10,5 @@
     <Color x:Key="colorRed">#ff0000</Color>
 
     <Color x:Key="colorGrayStatic">#69717E</Color>
+    <Color x:Key="colorGrayBackground">#F2F3F4</Color>
 </ResourceDictionary>

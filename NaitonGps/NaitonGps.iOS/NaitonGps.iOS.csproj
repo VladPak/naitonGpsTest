@@ -271,12 +271,6 @@
     <BundleResource Include="Resources\home%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\more.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\more%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\notification.png" />
   </ItemGroup>
   <ItemGroup>
@@ -386,5 +380,20 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\scan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\picklist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\validation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\dispatch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\crossdock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\moreoptions.png" />
   </ItemGroup>
 </Project>

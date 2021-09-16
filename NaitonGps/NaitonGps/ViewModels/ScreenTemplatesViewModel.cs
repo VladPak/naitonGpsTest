@@ -21,23 +21,23 @@ namespace NaitonGps.ViewModels
             {
                 new Screens
                 {
-                    screenNumber = 1, ScreenTitle = "AccountingReportsDiagnosticReports", ScreenImage = "home.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
+                    screenNumber = 1, ScreenTitle = "AccountingReportsDiagnosticReports", ScreenImage = "picklist.png", ScreenLink = new ControlTemplate(typeof(FirstRoleTemplate))
                 },
                 new Screens
                 {
-                    screenNumber = 2, ScreenTitle = "AccountingReportsDiagnosticReports3", ScreenImage = "chat.png", ScreenLink = new ControlTemplate(typeof(ManagerSecondPage))
+                    screenNumber = 2, ScreenTitle = "AccountingReportsDiagnosticReports3", ScreenImage = "validation.png", ScreenLink = new ControlTemplate(typeof(ManagerSecondPage))
                 },
                 new Screens
                 {
-                    screenNumber = 3, ScreenTitle = "BalanceSheetForm", ScreenImage = "delivery.png", ScreenLink = new ControlTemplate(typeof(ManagerThirdPage))
+                    screenNumber = 3, ScreenTitle = "BalanceSheetForm", ScreenImage = "dispatch.png", ScreenLink = new ControlTemplate(typeof(ManagerThirdPage))
                 },
                 new Screens
                 {
-                    screenNumber = 4, ScreenTitle = "DublicateContentForm", ScreenImage = "compass.png", ScreenLink = new ControlTemplate(typeof(ManagerFourthPage))
+                    screenNumber = 4, ScreenTitle = "DublicateContentForm", ScreenImage = "crossdock.png", ScreenLink = new ControlTemplate(typeof(ManagerFourthPage))
                 },
                 new Screens
                 {
-                    screenNumber = 5, ScreenTitle = "InternalTransport", ScreenImage = "vehicle.png", ScreenLink = new ControlTemplate(typeof(ManagerFifthPage))
+                    screenNumber = 5, ScreenTitle = "InternalTransport", ScreenImage = "moreoptions.png", ScreenLink = new ControlTemplate(typeof(ManagerFifthPage))
                 },
                 new Screens
                 {
