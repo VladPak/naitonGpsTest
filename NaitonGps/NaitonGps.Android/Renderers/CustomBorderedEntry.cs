@@ -30,22 +30,29 @@ namespace NaitonGps.Droid.Renderers
 
             if (Control != null)
             {
-                Control.SetBackgroundColor(global::Android.Graphics.Color.Transparent);
-                Control.Bottom = 5;
 
-                int[][] states = new int[][] {
-                new int[] { -Android.Resource.Attribute.StateFocused}, // enabled
-                new int[] {Android.Resource.Attribute.StateFocused} // disabled
-                };
+                //Control.SetBackgroundColor(global::Android.Graphics.Color.Transparent);
+                ////Control.Bottom = 5;
 
-                int[] colors = new int[] { Color.Black.ToAndroid(), Color.FromHex("#66a103").ToAndroid() };
+                //int[][] states = new int[][] {
+                //new int[] { -Android.Resource.Attribute.StateFocused}, // enabled
+                //new int[] {Android.Resource.Attribute.StateFocused} // disabled
+                //};
 
-                ColorStateList myList = new ColorStateList(states, colors);
+                //int[] colors = new int[] { Color.LightGray.ToAndroid(), Color.FromHex("#66a103").ToAndroid() };
 
-                GradientDrawable gradientDrawable = new GradientDrawable();
-                gradientDrawable.SetCornerRadius(8);
-                Control.Background = gradientDrawable;
-                gradientDrawable.SetStroke(2, myList);
+                //ColorStateList myList = new ColorStateList(states, colors);
+
+                //GradientDrawable gradientDrawable = new GradientDrawable();
+                //gradientDrawable.SetCornerRadius(15);
+                //Control.Background = gradientDrawable;
+                //gradientDrawable.SetStroke(2, myList);
+
+                GradientDrawable gd = new GradientDrawable();
+                gd.SetColor(Color.FromHex("#E7E8E7").ToAndroid());
+                gd.SetCornerRadius(15);
+                gd.SetStroke(2, Color.FromHex("#E7E8E7").ToAndroid());
+                Control.Background = gd;
             }
         }
     }

@@ -14,9 +14,11 @@
                    IsPassword="{Binding IsPassword, Source={x:Reference this}}"
                    Keyboard="{Binding Keyboard, Source={x:Reference this}}"
                    TextColor="#1B2B1D" 
-                   BackgroundColor="#f2f4f2"
+                   BackgroundColor="#00000000"
                    Unfocused="Handle_Unfocused" 
-                   Focused="Handle_Focused">
+                   Focused="Handle_Focused"
+                                 
+                                 >
             </local:BorderedEntry>
             <Label x:Name="LabelTitle" 
                    Text="{Binding Title, Source={x:Reference this}}" TextColor="Black" VerticalOptions="Center">
