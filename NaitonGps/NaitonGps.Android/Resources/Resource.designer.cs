@@ -21068,43 +21068,40 @@ namespace NaitonGps.Droid
 			public const int rightarrowWhite = 2131165368;
 			
 			// aapt resource value: 0x7F0700B9
-			public const int RoundedEntry = 2131165369;
+			public const int scan = 2131165369;
 			
 			// aapt resource value: 0x7F0700BA
-			public const int scan = 2131165370;
+			public const int settings = 2131165370;
 			
 			// aapt resource value: 0x7F0700BB
-			public const int settings = 2131165371;
+			public const int settingsWhite = 2131165371;
 			
 			// aapt resource value: 0x7F0700BC
-			public const int settingsWhite = 2131165372;
+			public const int statusBar = 2131165372;
 			
 			// aapt resource value: 0x7F0700BD
-			public const int statusBar = 2131165373;
+			public const int test_custom_background = 2131165373;
 			
 			// aapt resource value: 0x7F0700BE
-			public const int test_custom_background = 2131165374;
+			public const int tooltip_frame_dark = 2131165374;
 			
 			// aapt resource value: 0x7F0700BF
-			public const int tooltip_frame_dark = 2131165375;
+			public const int tooltip_frame_light = 2131165375;
 			
 			// aapt resource value: 0x7F0700C0
-			public const int tooltip_frame_light = 2131165376;
+			public const int userInformation = 2131165376;
 			
 			// aapt resource value: 0x7F0700C1
-			public const int userInformation = 2131165377;
+			public const int validation = 2131165377;
 			
 			// aapt resource value: 0x7F0700C2
-			public const int validation = 2131165378;
+			public const int vehicle = 2131165378;
 			
 			// aapt resource value: 0x7F0700C3
-			public const int vehicle = 2131165379;
+			public const int vehicleGreen = 2131165379;
 			
 			// aapt resource value: 0x7F0700C4
-			public const int vehicleGreen = 2131165380;
-			
-			// aapt resource value: 0x7F0700C5
-			public const int vehicleWhite = 2131165381;
+			public const int vehicleWhite = 2131165380;
 			
 			static Drawable()
 			{
