@@ -1,4 +1,5 @@
 ﻿using NaitonGps.ViewModels;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,9 +31,10 @@ namespace NaitonGps.Views
             await DisplayAlert("", "The filter btn clicked", "Ok");
         }
 
-        private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
-            DisplayAlert("", "Call popUp", "Ok");
+            //DisplayAlert("", "Call popUp", "Ok");
+            await PopupNavigation.Instance.PushAsync(new AssignPicklistPopUp());
         }
 
         private void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)

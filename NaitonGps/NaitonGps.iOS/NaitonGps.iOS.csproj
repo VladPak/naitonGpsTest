@@ -402,4 +402,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\reform.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\closePopup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\btnPopup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lblPrint.png" />
+  </ItemGroup>
 </Project>

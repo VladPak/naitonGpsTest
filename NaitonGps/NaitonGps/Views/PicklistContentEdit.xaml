@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NaitonGps.Views.PicklistContentEdit"
+             
+             NavigationPage.HasNavigationBar="False"
+             xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             iOS:Page.UseSafeArea="true"
+             iOS:Page.PrefersStatusBarHidden="Default"
+             iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
+             >
+    <ContentPage.Content>
+        <Grid Margin="10,0,10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="8*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid BackgroundColor="Transparent" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0" Grid.Row="0" Source="{AppThemeBinding Light=back.png, Dark=back.png}"  WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" Margin="5,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label Grid.Row="0" Grid.Column="1" Text="Picklist 450" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Start"></Label>
+
+                <Image IsVisible="false" Grid.Column="2" Grid.Row="0" Source="{AppThemeBinding Light=reform.png, Dark=reform.png }" HeightRequest="30" WidthRequest="30" HorizontalOptions="End" Margin="0,0,5,0">
+
+                </Image>
+            </Grid>
+
+            <Label Text="Data from VM" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,-10,0,0"></Label>
+
+            <Grid x:Name="gridToHide" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Frame VerticalOptions="End" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" BackgroundColor="#ffffff" CornerRadius="10" BorderColor="#69717E" HasShadow="False">
+                    <Image Source="lblPrint.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="25" HeightRequest="25"></Image>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame VerticalOptions="End" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="#187CBC" CornerRadius="10" BorderColor="#187CBC" HasShadow="False">
+                    <Label Text="Save &amp; Print" FontSize="20" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </Grid>
+           
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
