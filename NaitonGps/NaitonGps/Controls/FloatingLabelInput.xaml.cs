@@ -82,6 +82,7 @@ namespace NaitonGps.Controls
             if (isSmallScreen)
             {
                 _titleFontSize = 12;
+                
             }
             else if (isBigScreen)
             {

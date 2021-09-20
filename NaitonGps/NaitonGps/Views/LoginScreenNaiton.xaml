@@ -46,9 +46,9 @@
                 <customFrame:PancakeView x:Name="frameLogin" BackgroundColor="#ffffff" CornerRadius="20,20,0,0">
                 <Grid Margin="10,15,10,15">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0.6*"></RowDefinition>
-                        <RowDefinition Height="0.6*"></RowDefinition>
-                        <RowDefinition Height="0.6*"></RowDefinition>
+                        <RowDefinition Height="0.7*"></RowDefinition>
+                        <RowDefinition Height="0.7*"></RowDefinition>
+                        <RowDefinition Height="0.7*"></RowDefinition>
                         <RowDefinition Height="0.8*"></RowDefinition>
                         <RowDefinition Height="0.5*"></RowDefinition>
                         <RowDefinition Height="0.5*"></RowDefinition>

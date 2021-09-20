@@ -28,11 +28,14 @@ namespace NaitonGps.Views
 
             if (isSmallScreen)
             {
-                MajorGrid.Margin = new Thickness(5, 20, 5, 20); ;
+                MajorGrid.Margin = new Thickness(5, 20, 5, 20);
+                rowToAdjust.Height = new GridLength(0.7, GridUnitType.Star);
+                
             }
             else if (isBigScreen)
             {
-                MajorGrid.Margin = new Thickness(10, 0, 10, 10); ;
+                MajorGrid.Margin = new Thickness(10, 0, 10, 10);
+                rowToAdjust.Height = new GridLength(0.4, GridUnitType.Star);
             }
             move();
         }
@@ -53,6 +56,16 @@ namespace NaitonGps.Views
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            
+        }
+
+        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new PicklistContent());
+        }
+
+        private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
             
         }

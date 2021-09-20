@@ -22,5 +22,10 @@ namespace NaitonGps.Views
 		{
 			await Navigation.PushPopupAsync(new MorePopUp());
 		}
-	}
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

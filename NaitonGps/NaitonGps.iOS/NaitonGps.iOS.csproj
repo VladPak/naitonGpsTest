@@ -396,4 +396,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\moreoptions.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\reform.png" />
+  </ItemGroup>
 </Project>

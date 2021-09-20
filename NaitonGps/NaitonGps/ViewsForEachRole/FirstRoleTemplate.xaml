@@ -31,7 +31,7 @@
     <!--#region Body -->
     <Grid x:Name="ContentContainer" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="true" Margin="15,0,15,0" BackgroundColor="Transparent">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.4*"></RowDefinition>
+            <RowDefinition x:Name="rowToAdjust" Height="0.4*"></RowDefinition>
             <RowDefinition Height="6*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -82,7 +82,7 @@
 
                                         <controls:TintedImage Margin="-20,0,0,0" TintColor="{Binding picklistColorStatus}" Source="statusBar.png" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Start" VerticalOptions="Center"></controls:TintedImage>
 
-                                        <Label BackgroundColor="Transparent" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Text="{Binding Path=pickListId, StringFormat='ID {0}'}" FontSize="20" FontAttributes="None" HorizontalOptions="Start"/>
+                                        <Label BackgroundColor="Transparent" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Text="{Binding Path=pickListId, StringFormat='ID {0}'}" FontSize="17" FontAttributes="None" HorizontalOptions="Start"/>
 
                                         <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
                                             <Label FontAttributes="Bold" Text="{Binding Path=picklistRackQuantity, StringFormat='Qty {0}  &#x2022;'}" FontSize="16" TextColor="#000000"/>
@@ -92,12 +92,14 @@
                                         <Label BackgroundColor="Transparent" Grid.Row="0" Grid.Column="2" TextColor="#5c5c5c" Grid.ColumnSpan="2" Grid.RowSpan="2" WidthRequest="100" HorizontalTextAlignment="End" VerticalOptions="Center" Text="{Binding picklistAssigneeName}" FontSize="14" HorizontalOptions="End" FontAttributes="None"/>
                                         <controls:TintedImage BackgroundColor="Transparent" Source="rightarrow.png" WidthRequest="20" HeightRequest="20" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" TintColor="{StaticResource colorGrayStatic}"></controls:TintedImage>
                                     </Grid>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
                                 </Frame>
                             </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-
             </ScrollView>
         </RefreshView>
     </Grid> 

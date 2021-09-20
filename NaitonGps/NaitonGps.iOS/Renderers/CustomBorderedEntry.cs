@@ -19,13 +19,13 @@ namespace NaitonGps.iOS.Renderers
             base.OnElementChanged(e);
             if (Control != null)
             {
-
                 //Control.BackgroundColor = UIColor.FromRGB(204, 153, 255);
                 Control.BorderStyle = UITextBorderStyle.RoundedRect;
                 Control.Layer.CornerRadius = (nfloat)9;
                 Control.Layer.BorderWidth = 1;
                 Control.Layer.MasksToBounds = true;
                 Control.Layer.BorderColor = Color.FromHex("#E7E8E7").ToCGColor();
+                //Control.TintColor = UIColor.FromRGB(38, 134, 70);
             }
         }
     }
