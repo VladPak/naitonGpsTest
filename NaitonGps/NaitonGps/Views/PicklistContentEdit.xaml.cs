@@ -40,14 +40,16 @@ namespace NaitonGps.Views
             await Navigation.PopModalAsync();
         }
 
-        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            DisplayAlert("", "Label clicked", "Ok");
+            //await DisplayAlert("", "Label clicked", "Ok");
+            await PopupNavigation.Instance.PushAsync(new PicklistPrintLabelsBottomPopup());
         }
 
-        private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
-            DisplayAlert("", "Save N Print", "Ok");
+            //await DisplayAlert("", "Save And Print", "Ok");
+            await PopupNavigation.Instance.PushAsync(new PicklistQuantityBottomPopup());
         }
 
         public async void CloseAllPopup()
