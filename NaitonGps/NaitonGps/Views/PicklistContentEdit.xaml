@@ -65,56 +65,57 @@
                                     <Frame HasShadow="False" BackgroundColor="{StaticResource colorGrayBackground}" CornerRadius="10" Margin="0,10,0,0">
                                         <Grid ColumnSpacing="0" RowSpacing="0">
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="*"></RowDefinition>
-                                                <RowDefinition Height="*"></RowDefinition>
-                                                <RowDefinition Height="*"></RowDefinition>
-                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="0.2*"></RowDefinition>
+                                                <RowDefinition Height="0.2*"></RowDefinition>
+                                                <RowDefinition Height="0.2*"></RowDefinition>
+                                                <RowDefinition Height="0.7*"></RowDefinition>
                                             </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="0.1*"></ColumnDefinition>
                                                 <ColumnDefinition Width="*"></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
 
-                                            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding itemName}" TextColor="Black" FontSize="20" FontAttributes="None" HorizontalOptions="Start"/>
-                                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding itemSubname}" TextColor="#69717E" FontSize="14" FontAttributes="None" HorizontalOptions="Start"/>
-                                            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding itemSizes}" TextColor="#69717E" FontSize="14" FontAttributes="None" HorizontalOptions="Start"/>
+                                            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding itemName}" TextColor="Black" FontSize="20" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Start"/>
+                                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding itemSubname}" TextColor="#69717E" FontSize="14" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding itemSizes}" TextColor="#69717E" FontSize="14" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Start"/>
 
-                                            <Frame Grid.Row="3" Grid.Column="0" CornerRadius="15" BackgroundColor="{StaticResource colorWhite}">
+                                            <Frame Grid.Row="3" Grid.Column="0" CornerRadius="15" BackgroundColor="{StaticResource colorWhite}" HasShadow="False">
                                                 <Grid>
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition Height="0.5*"></RowDefinition>
+                                                        <RowDefinition Height="*"></RowDefinition>
                                                         <RowDefinition Height="*"></RowDefinition>
                                                     </Grid.RowDefinitions>
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="*"></ColumnDefinition>
-                                                        <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="0.2*"></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
 
-                                                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Text="Quantity" FontSize="13" TextColor="#69717E" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"></Label>
-                                                    <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Text="{Binding itemQuantity}" FontSize="15" TextColor="{StaticResource colorBlack}" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Text="Quantity" FontSize="18" TextColor="#69717E" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Text="{Binding itemQuantity}" FontSize="18" TextColor="{StaticResource colorBlack}" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"></Label>
 
-                                                    <controls:TintedImage Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Source="rightarrow.png" TintColor="#69717E" WidthRequest="15" HeightRequest="30" HorizontalOptions="End" VerticalOptions="Center"></controls:TintedImage>
+                                                    <controls:TintedImage Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Source="rightarrow.png" TintColor="#69717E" WidthRequest="20" HeightRequest="30" HorizontalOptions="End" VerticalOptions="Center"></controls:TintedImage>
                                                 </Grid>
                                                 <Frame.GestureRecognizers>
                                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" NumberOfTapsRequired="1"></TapGestureRecognizer>
                                                 </Frame.GestureRecognizers>
                                             </Frame>
 
-                                            <Frame Grid.Row="3" Grid.Column="1" CornerRadius="15" BackgroundColor="{StaticResource colorWhite}">
+                                            <Frame Grid.Row="3" Grid.Column="2" CornerRadius="15" BackgroundColor="{StaticResource colorWhite}" HasShadow="False">
                                                 <Grid>
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition Height="0.5*"></RowDefinition>
+                                                        <RowDefinition Height="*"></RowDefinition>
                                                         <RowDefinition Height="*"></RowDefinition>
                                                     </Grid.RowDefinitions>
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="*"></ColumnDefinition>
-                                                        <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="0.2*"></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
 
-                                                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Text="Rack" FontSize="13" TextColor="#69717E" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"></Label>
-                                                    <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Text="{Binding itemRackAllocation}" FontSize="15" TextColor="{StaticResource colorBlack}" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Text="Rack" FontSize="18" TextColor="#69717E" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Text="{Binding itemRackAllocation}" FontSize="18" TextColor="{StaticResource colorBlack}" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"></Label>
 
-                                                    <controls:TintedImage Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Source="rightarrow.png" TintColor="#69717E" WidthRequest="15" HeightRequest="30" HorizontalOptions="End" VerticalOptions="Center"></controls:TintedImage>
+                                                    <controls:TintedImage Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Source="rightarrow.png" TintColor="#69717E" WidthRequest="20" HeightRequest="30" HorizontalOptions="End" VerticalOptions="Center"></controls:TintedImage>
                                                 </Grid>
                                                 <Frame.GestureRecognizers>
                                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4" NumberOfTapsRequired="1"></TapGestureRecognizer>
@@ -138,7 +139,7 @@
             
             
             
-            <Grid x:Name="gridToHide" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" >
+            <Grid x:Name="gridToHide" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
@@ -149,6 +150,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
+                
                 <Frame VerticalOptions="End" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" BackgroundColor="#ffffff" CornerRadius="10" BorderColor="#69717E" HasShadow="False">
                     <Image Source="lblPrint.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="25" HeightRequest="25"></Image>
                     <Frame.GestureRecognizers>

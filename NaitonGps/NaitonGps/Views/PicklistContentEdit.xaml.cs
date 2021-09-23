@@ -44,7 +44,6 @@ namespace NaitonGps.Views
 
         private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            //await DisplayAlert("", "Label clicked", "Ok");
             await PopupNavigation.Instance.PushAsync(new PicklistPrintLabelsBottomPopup());
         }
 
@@ -66,8 +65,7 @@ namespace NaitonGps.Views
 
         private async void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
         {
-            await DisplayAlert("", "Rack Search Clicked", "Ok");
-            //await PopupNavigation.Instance.PushAsync(new PicklistPrintLabelsBottomPopup());
+            await PopupNavigation.Instance.PushAsync(new PicklistSearchItemBottomPopup());
         }
     }
 }
