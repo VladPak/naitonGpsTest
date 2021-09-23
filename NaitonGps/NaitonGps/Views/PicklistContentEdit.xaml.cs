@@ -1,4 +1,5 @@
-﻿using Rg.Plugins.Popup.Services;
+﻿using NaitonGps.ViewModels;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace NaitonGps.Views
         {
             CloseAllPopup();
             InitializeComponent();
+            BindingContext = new PicklistContentDataViewModel();
 
             switch (modeResult)
             {
@@ -48,13 +50,24 @@ namespace NaitonGps.Views
 
         private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
-            //await DisplayAlert("", "Save And Print", "Ok");
-            await PopupNavigation.Instance.PushAsync(new PicklistQuantityBottomPopup());
+            await DisplayAlert("", "Save And Print", "Ok");
+            //await PopupNavigation.Instance.PushAsync(new PicklistQuantityBottomPopup());
         }
 
         public async void CloseAllPopup()
         {
             await PopupNavigation.Instance.PopAllAsync();
+        }
+
+        private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
+        {
+            await PopupNavigation.Instance.PushAsync(new PicklistQuantityBottomPopup());
+        }
+
+        private async void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
+        {
+            await DisplayAlert("", "Rack Search Clicked", "Ok");
+            //await PopupNavigation.Instance.PushAsync(new PicklistPrintLabelsBottomPopup());
         }
     }
 }

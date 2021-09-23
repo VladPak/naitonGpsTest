@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Plugin.CrossPlatformTintedImage.Abstractions;assembly=Plugin.CrossPlatformTintedImage.Abstractions"
              x:Class="NaitonGps.Views.PicklistContentEdit"
              
              NavigationPage.HasNavigationBar="False"
@@ -46,8 +47,97 @@
                 </Image>
             </Grid>
 
-            <Label Text="Data from VM" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,-10,0,0"></Label>
 
+
+            <!--
+            <Label Text="Data from VM" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,-10,0,0"></Label>
+                                                        <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,6,0,0" Spacing="20">
+                                                <Label FontAttributes="None" Text="{Binding itemSubname}" FontSize="15" TextColor="#69717E"/>
+                                                <Label FontAttributes="None" Text="{Binding itemSizes}" FontSize="15" TextColor="#69717E"/>
+                                            </StackLayout>
+            -->
+            <RefreshView IsRefreshing="{Binding IsRefreshing}" x:Name="rv" Command="{Binding RefreshCommand}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,-10,0,0" VerticalOptions="Start">
+                <ScrollView VerticalScrollBarVisibility="Never">
+                    <CollectionView ItemsSource="{Binding dataPicklistContentPerItem}" VerticalOptions="Start" VerticalScrollBarVisibility="Never">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame HasShadow="False" BackgroundColor="{StaticResource colorGrayBackground}" CornerRadius="10" Margin="0,10,0,0">
+                                        <Grid ColumnSpacing="0" RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding itemName}" TextColor="Black" FontSize="20" FontAttributes="None" HorizontalOptions="Start"/>
+                                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding itemSubname}" TextColor="#69717E" FontSize="14" FontAttributes="None" HorizontalOptions="Start"/>
+                                            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding itemSizes}" TextColor="#69717E" FontSize="14" FontAttributes="None" HorizontalOptions="Start"/>
+
+                                            <Frame Grid.Row="3" Grid.Column="0" CornerRadius="15" BackgroundColor="{StaticResource colorWhite}">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="0.5*"></RowDefinition>
+                                                        <RowDefinition Height="*"></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Text="Quantity" FontSize="13" TextColor="#69717E" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Text="{Binding itemQuantity}" FontSize="15" TextColor="{StaticResource colorBlack}" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+
+                                                    <controls:TintedImage Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Source="rightarrow.png" TintColor="#69717E" WidthRequest="15" HeightRequest="30" HorizontalOptions="End" VerticalOptions="Center"></controls:TintedImage>
+                                                </Grid>
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                                </Frame.GestureRecognizers>
+                                            </Frame>
+
+                                            <Frame Grid.Row="3" Grid.Column="1" CornerRadius="15" BackgroundColor="{StaticResource colorWhite}">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="0.5*"></RowDefinition>
+                                                        <RowDefinition Height="*"></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Text="Rack" FontSize="13" TextColor="#69717E" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Text="{Binding itemRackAllocation}" FontSize="15" TextColor="{StaticResource colorBlack}" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+
+                                                    <controls:TintedImage Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Source="rightarrow.png" TintColor="#69717E" WidthRequest="15" HeightRequest="30" HorizontalOptions="End" VerticalOptions="Center"></controls:TintedImage>
+                                                </Grid>
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                                </Frame.GestureRecognizers>
+                                            </Frame>
+
+
+
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+            </RefreshView>
+
+
+
+
+            
+            
+            
             <Grid x:Name="gridToHide" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>

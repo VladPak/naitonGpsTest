@@ -74,6 +74,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\CustomBorderedEntry.cs" />
+    <Compile Include="Renderers\CustomBorderedEntryTransparent.cs" />
     <Compile Include="Renderers\ImageTintingRenderer.cs" />
     <Compile Include="Renderers\KeyboardViewRenderer.cs" />
     <None Include="Entitlements.plist" />
@@ -410,5 +411,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\lblPrint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\plus.png" />
   </ItemGroup>
 </Project>

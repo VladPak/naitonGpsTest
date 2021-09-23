@@ -42,42 +42,42 @@ namespace NaitonGps.ViewModels
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Blue ice",
-                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Green",
-                    itemQuantity = 5, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 5, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Blue ice",
-                    itemQuantity = 8, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 8, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Blue ice",
-                    itemQuantity = 25, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 25, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Blue ice",
-                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Blue ice",
-                    itemQuantity = 99, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 99, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },                
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Blue ice",
-                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },                
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Blue ice",
-                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },
             };
 
@@ -88,42 +88,42 @@ namespace NaitonGps.ViewModels
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Blue ice",
-                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Green",
-                    itemQuantity = 5, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 5, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Blue ice",
-                    itemQuantity = 8, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 8, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Blue ice",
-                    itemQuantity = 25, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 25, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Blue ice",
-                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Blue ice",
-                    itemQuantity = 99, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 99, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Blue ice",
-                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },
                 new PicklistContentData
                 {
                     itemId = 1, itemName = "Landing Tread Silver - Blue ice",
-                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm"
+                    itemQuantity = 12, itemSubname = "Blue, UP63", itemSizes = "301 cm x 70 cm, 12 mm", itemRackAllocation = "A1.034.12"
                 },
             };
                 IsRefreshing = false;

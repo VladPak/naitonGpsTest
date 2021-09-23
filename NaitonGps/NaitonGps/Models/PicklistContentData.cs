@@ -11,5 +11,6 @@ namespace NaitonGps.Models
         public int itemQuantity { get; set; }
         public string itemSubname { get; set; }
         public string itemSizes { get; set; }
+        public string itemRackAllocation { get; set; }
     }
 }
