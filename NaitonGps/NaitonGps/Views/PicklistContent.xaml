@@ -12,7 +12,7 @@
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
              >
     <ContentPage.Content>
-        <Grid x:Name="gridMain" Margin="10,0,10,0">
+        <Grid x:Name="gridMain" Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='10,0,10,0', ExtraSmall='10, 15, 10, 20'}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="8*"></RowDefinition>
@@ -34,7 +34,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Image x:Name="iconBack" Grid.Column="0" Grid.Row="0" Source="{AppThemeBinding Light=back.png, Dark=back.png}"  WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" Margin="5,0,0,0">
+                <Image x:Name="iconBack" Grid.Column="0" Grid.Row="0" Source="{AppThemeBinding Light=back.png, Dark=back.png}"  WidthRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='25'}" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='25' }" HorizontalOptions="Start" Margin="5,0,0,0">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
                     </Image.GestureRecognizers>

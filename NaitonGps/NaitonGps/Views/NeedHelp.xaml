@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:markups="clr-namespace:TheNextLoop.Markups;assembly=TheNextLoop.Markups"
              x:Class="NaitonGps.Views.NeedHelp"
              xmlns:customFrame="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              NavigationPage.HasNavigationBar="False"
@@ -10,7 +11,7 @@
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
              >
     <ContentPage.Content>
-        <Grid Margin="15,15,15,15" RowSpacing="0" ColumnSpacing="0">
+        <Grid Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='10,0,10,0', ExtraSmall='10, 10, 10, 0'}" RowSpacing="0" ColumnSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.5*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -24,14 +25,14 @@
             </Grid.ColumnDefinitions>
 
             <!--Back button-->
-            <Image Grid.Row="0" Grid.Column="0" Source="leftarrow.png" HorizontalOptions="Start" HeightRequest="20" WidthRequest="20">
+            <Image Grid.Row="0" Grid.Column="0" Source="leftarrow.png" HorizontalOptions="Start" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='25'}" WidthRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='25'}">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
 
-            <Image Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="80" HeightRequest="80" Source="question.png"></Image>
-            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="Need Help ?" HorizontalOptions="Center" FontSize="18" FontAttributes="Bold" Margin="0,15,0,0" TextColor="Black"></Label>
+            <Image Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='80', ExtraSmall='65'}" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='80', ExtraSmall='65'}" Source="question.png"></Image>
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="Need Help" HorizontalOptions="Center" FontSize="18" FontAttributes="Bold" Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='0,15,0,0', ExtraSmall='0,0,0,0'}" TextColor="Black"></Label>
 
             <!--
                                     <ScrollView>
