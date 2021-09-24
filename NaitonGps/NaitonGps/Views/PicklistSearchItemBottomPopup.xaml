@@ -24,7 +24,7 @@
             <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,0,0,0" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#ffffff">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.09*"></RowDefinition>
-                    <RowDefinition Height="0.15*"></RowDefinition>
+                    <RowDefinition Height="0.1*"></RowDefinition>
                     <RowDefinition Height="0.2*"></RowDefinition>
                     <RowDefinition Height="1.5*"></RowDefinition>
                 </Grid.RowDefinitions>
