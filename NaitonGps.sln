@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NaitonGps", "NaitonGps\Nait
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWSALibrary", "..\..\..\..\..\Users\vladp\Downloads\SimpleWSA-master\SWSALibrary\SWSALibrary.csproj", "{6213E748-D6B2-4FC4-A494-A44DA0ADE5B3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheNextLoop.Markups", "..\..\..\..\..\Users\vladp\Downloads\TheNextLoop.OnScreenSize-main\Src\TheNextLoop.Markups\TheNextLoop.Markups\TheNextLoop.Markups.csproj", "{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,18 @@ Global
 		{6213E748-D6B2-4FC4-A494-A44DA0ADE5B3}.Release|iPhone.Build.0 = Release|Any CPU
 		{6213E748-D6B2-4FC4-A494-A44DA0ADE5B3}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{6213E748-D6B2-4FC4-A494-A44DA0ADE5B3}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Release|iPhone.Build.0 = Release|Any CPU
+		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

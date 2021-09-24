@@ -85,7 +85,7 @@
 
                         <Label Grid.Row="4" Grid.Column="0" Text="Need Help?" FontSize="18" TextColor="#268646" Margin="0,10,0,0" HorizontalOptions="Center" VerticalOptions="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" NumberOfTapsRequired="1"></TapGestureRecognizer>
                                 </Label.GestureRecognizers>
                         </Label>
                         <Label Grid.Row="5" Grid.Column="0" Text="Terms of Service" FontSize="13" TextColor="#7d7d7d" HorizontalOptions="Center" VerticalOptions="Center">

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NaitonGps.Views.TermsAndServices"
+             x:Class="NaitonGps.Views.NeedHelp"
              xmlns:customFrame="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              NavigationPage.HasNavigationBar="False"
              xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
@@ -30,10 +30,10 @@
                 </Image.GestureRecognizers>
             </Image>
 
-            <Image Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="80" HeightRequest="80" Source="acceptance.png"></Image>
-            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="Terms And Service" HorizontalOptions="Center" FontSize="18" FontAttributes="Bold" Margin="0,15,0,0" TextColor="Black"></Label>
+            <Image Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="80" HeightRequest="80" Source="question.png"></Image>
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="Need Help ?" HorizontalOptions="Center" FontSize="18" FontAttributes="Bold" Margin="0,15,0,0" TextColor="Black"></Label>
 
-                <!--
+            <!--
                                     <ScrollView>
                     <StackLayout Orientation="Vertical" Margin="8,10,8,10" BackgroundColor="#0000">
                         <Label Text="Header text ..." TextColor="Black" FontSize="12" FontAttributes="Italic" HorizontalTextAlignment="Start"></Label>

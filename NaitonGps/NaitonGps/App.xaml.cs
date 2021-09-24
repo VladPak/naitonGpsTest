@@ -18,13 +18,11 @@ namespace NaitonGps
 
             if (isSmallScreen)
             {
-                //var nav = new NavigationPage(new LoginCompanySelectScreen());
                 var nav = new NavigationPage(new LoginScreenNaiton());
                 MainPage = nav;
             }
             else if (isBigScreen)
             {
-                //var nav = new NavigationPage(new LoginCompanySelectScreen());
                 var nav = new NavigationPage(new LoginScreenNaitonBigScreen());
                 MainPage = nav;
             }

@@ -171,5 +171,9 @@ namespace NaitonGps.Views
             }
         }
 
+        private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NeedHelp());
+        }
     }
 }

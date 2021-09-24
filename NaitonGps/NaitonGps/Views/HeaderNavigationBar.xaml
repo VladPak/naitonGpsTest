@@ -24,7 +24,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="0" Grid.Row="0" Source="{AppThemeBinding Light=userInformation.png, Dark=userInformation.png}"  WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" Margin="15,0,0,0">
+            <Image x:Name="iconUser" Grid.Column="0" Grid.Row="0" Source="{AppThemeBinding Light=userInformation.png, Dark=userInformation.png}"  WidthRequest="0" HeightRequest="0" HorizontalOptions="Start" Margin="15,0,0,0">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="PopUpSample"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
@@ -32,7 +32,7 @@
 
             <Image Grid.Column="1" Grid.Row="0" Source="logoNavbar.png" HorizontalOptions="Center"></Image>
 
-            <Image Grid.Column="2" Grid.Row="0" Source="{AppThemeBinding Light=bellNotification.png, Dark=bellNotification.png }" HeightRequest="30" WidthRequest="30" HorizontalOptions="End" Margin="0,0,15,0">
+            <Image x:Name="iconNotification" Grid.Column="2" Grid.Row="0" Source="{AppThemeBinding Light=bellNotification.png, Dark=bellNotification.png }" HeightRequest="0" WidthRequest="0" HorizontalOptions="End" Margin="0,0,15,0">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="PopUpSample"></TapGestureRecognizer>
                 </Image.GestureRecognizers>

@@ -35,7 +35,7 @@ namespace NaitonGps.Views
 
         private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            //await Navigation.PushModalAsync(new TermsAndServices());
+            await Navigation.PushModalAsync(new TermsAndServices());
         }
 
         private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
@@ -146,6 +146,11 @@ namespace NaitonGps.Views
                 await DisplayAlert("", "Check the Internet connection.", "Ok");
                 taps = 0;
             }
+        }
+
+        private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NeedHelp());
         }
     }
 }

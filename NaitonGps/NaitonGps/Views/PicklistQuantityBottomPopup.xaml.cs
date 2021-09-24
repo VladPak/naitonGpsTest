@@ -16,6 +16,7 @@ namespace NaitonGps.Views
         public PicklistQuantityBottomPopup()
         {
             InitializeComponent();
+
         }
 
         private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
