@@ -28,7 +28,7 @@ namespace NaitonGps.Views
 
             if (isSmallScreen)
             {
-                MajorGrid.Margin = new Thickness(5, 20, 5, 20);
+                MajorGrid.Margin = new Thickness(5, 20, 5, 15);
                 rowToAdjust.Height = new GridLength(0.7, GridUnitType.Star);
                 
             }

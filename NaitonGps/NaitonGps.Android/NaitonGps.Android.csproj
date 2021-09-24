@@ -314,5 +314,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\btnPopup.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\technology.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

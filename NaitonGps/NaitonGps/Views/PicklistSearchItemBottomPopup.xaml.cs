@@ -17,7 +17,9 @@ namespace NaitonGps.Views
         public PicklistSearchItemBottomPopup()
         {
             InitializeComponent();
+            
             BindingContext = new RacksViewModel();
+            
         }
 
         private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
