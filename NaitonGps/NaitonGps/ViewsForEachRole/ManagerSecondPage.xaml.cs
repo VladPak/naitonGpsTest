@@ -20,14 +20,14 @@ namespace NaitonGps.ViewsForEachRole
         {
             InitializeComponent();
 
-            if (isSmallScreen)
-            {
-                MajorGrid.Margin = new Thickness(5, 20, 5, 20); ;
-            }
-            else if (isBigScreen)
-            {
-                MajorGrid.Margin = new Thickness(10, 0, 10, 10); ;
-            }
+            //if (isSmallScreen)
+            //{
+            //    MajorGrid.Margin = new Thickness(5, 20, 5, 20); ;
+            //}
+            //else if (isBigScreen)
+            //{
+            //    MajorGrid.Margin = new Thickness(10, 0, 10, 10); ;
+            //}
         }
     }
 }

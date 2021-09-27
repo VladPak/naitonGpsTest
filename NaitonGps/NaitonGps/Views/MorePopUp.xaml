@@ -20,7 +20,7 @@
     <StackLayout 
         VerticalOptions="EndAndExpand" 
         HorizontalOptions="FillAndExpand" >
-        <Frame CornerRadius="20"  HorizontalOptions="FillAndExpand" HeightRequest="300" BackgroundColor="{AppThemeBinding Light={StaticResource colorWhite}, Dark={StaticResource colorGrey}}">
+        <Frame CornerRadius="20"  HorizontalOptions="FillAndExpand" HasShadow="False" HeightRequest="300" BackgroundColor="{AppThemeBinding Light={StaticResource colorWhite}, Dark={StaticResource colorGrey}}">
             <Grid Margin="0,0,0,10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
@@ -31,9 +31,9 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Grid.Row="0" HorizontalOptions="Center" Text="This is title test label" TextColor="{AppThemeBinding Light={StaticResource colorBlack}, Dark={StaticResource colorWhite}}"></Label>
-                <Label Grid.Column="0" Grid.Row="1" HorizontalOptions="Start" Text="This is just a text for the filling the space of this PopUp window. And by the way, this is gonna be Naiton GPS app fully built on Xamarin." TextColor="{AppThemeBinding Light={StaticResource colorBlack}, Dark={StaticResource colorWhite}}"></Label>
-                <Frame Grid.Column="0" Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="100" HeightRequest="40" CornerRadius="25" BackgroundColor="#66a103" BorderColor="{AppThemeBinding Light={StaticResource colorGreen}, Dark={StaticResource colorGreen}}" HasShadow="False" >
+                <Label Grid.Column="0" Grid.Row="0" HorizontalOptions="Center" Text="PopUp Window" TextColor="{AppThemeBinding Light={StaticResource colorBlack}, Dark={StaticResource colorWhite}}"></Label>
+                <Label Grid.Column="0" Grid.Row="1" HorizontalOptions="Center" Text="Elements gonna be here" TextColor="{AppThemeBinding Light={StaticResource colorBlack}, Dark={StaticResource colorWhite}}"></Label>
+                <Frame Grid.Column="0" Grid.Row="2" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="100" HeightRequest="40" CornerRadius="25" BackgroundColor="#69717E" BorderColor="{AppThemeBinding Light={StaticResource colorGrayBackground}, Dark={StaticResource colorGrayBackground}}" HasShadow="False" >
                     <Label Text="Close" TextColor="{AppThemeBinding Light={StaticResource colorWhite}, Dark={StaticResource colorWhite}}" HorizontalOptions="Center" VerticalOptions="Center">
                     </Label>
                     <Frame.GestureRecognizers>

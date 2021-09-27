@@ -23,34 +23,34 @@ namespace NaitonGps.Views
             InitializeComponent();
             BindingContext = new PicklistContentDataViewModel();
 
-            if (isSmallScreen)
-            {
-                gridMain.Margin = new Thickness(10, 15, 10, 20);
-                rv.Margin = new Thickness(0,0,0,0);
+            //if (isSmallScreen)
+            //{
+            //    gridMain.Margin = new Thickness(10, 15, 10, 20);
+            //    rv.Margin = new Thickness(0,0,0,0);
                 
-                iconBack.WidthRequest = 25;
-                iconBack.HeightRequest = 25;
-                iconListChange.HeightRequest = 25;
-                iconListChange.WidthRequest = 25;
+            //    iconBack.WidthRequest = 25;
+            //    iconBack.HeightRequest = 25;
+            //    iconListChange.HeightRequest = 25;
+            //    iconListChange.WidthRequest = 25;
 
-                lblHeaderTitle.FontSize = 18;
-                lblButtonStartPicking.FontSize = 16; 
+            //    lblHeaderTitle.FontSize = 18;
+            //    lblButtonStartPicking.FontSize = 16; 
 
-            }
-            else if (isBigScreen)
-            {
-                gridMain.Margin = new Thickness(10, 0, 10, 0);
-                rv.Margin = new Thickness(0, -10, 0, 0);
+            //}
+            //else if (isBigScreen)
+            //{
+            //    gridMain.Margin = new Thickness(10, 0, 10, 0);
+            //    rv.Margin = new Thickness(0, -10, 0, 0);
                 
-                iconBack.WidthRequest = 30;
-                iconBack.HeightRequest = 30;
-                iconListChange.HeightRequest = 30;
-                iconListChange.WidthRequest = 30;
+            //    iconBack.WidthRequest = 30;
+            //    iconBack.HeightRequest = 30;
+            //    iconListChange.HeightRequest = 30;
+            //    iconListChange.WidthRequest = 30;
 
-                lblHeaderTitle.FontSize = 22;
-                lblButtonStartPicking.FontSize = 20;
+            //    lblHeaderTitle.FontSize = 22;
+            //    lblButtonStartPicking.FontSize = 20;
 
-            }
+            //}
 
         }
 
@@ -72,7 +72,7 @@ namespace NaitonGps.Views
 
         private void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
         {
-            DisplayAlert("", "The item is clicked`", "Ok");
+            DisplayAlert("", "The item is clicked", "Ok");
         }
     }
 }

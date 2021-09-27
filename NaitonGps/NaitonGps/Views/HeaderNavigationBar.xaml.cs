@@ -21,22 +21,22 @@ namespace NaitonGps.Views
 		{
 			InitializeComponent ();
 
-			if (isSmallScreen)
-			{
-				iconUser.HeightRequest = 25;
-				iconUser.WidthRequest = 25;
+			//if (isSmallScreen)
+			//{
+			//	iconUser.HeightRequest = 25;
+			//	iconUser.WidthRequest = 25;
 
-				iconNotification.HeightRequest = 25;
-				iconNotification.WidthRequest = 25;
-			}
-			else if (isBigScreen)
-			{
-				iconUser.HeightRequest = 30;
-				iconUser.WidthRequest = 30;
+			//	iconNotification.HeightRequest = 25;
+			//	iconNotification.WidthRequest = 25;
+			//}
+			//else if (isBigScreen)
+			//{
+			//	iconUser.HeightRequest = 30;
+			//	iconUser.WidthRequest = 30;
 
-				iconNotification.HeightRequest = 30;
-				iconNotification.WidthRequest = 30;
-			}
+			//	iconNotification.HeightRequest = 30;
+			//	iconNotification.WidthRequest = 30;
+			//}
 		}
 
 		private async void PopUpSample(object sender, EventArgs e)

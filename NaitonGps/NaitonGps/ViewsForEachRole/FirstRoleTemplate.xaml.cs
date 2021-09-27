@@ -26,17 +26,17 @@ namespace NaitonGps.Views
             InitializeComponent();
             BindingContext = new PickListViewModel();
 
-            if (isSmallScreen)
-            {
-                MajorGrid.Margin = new Thickness(5, 20, 5, 15);
-                rowToAdjust.Height = new GridLength(0.7, GridUnitType.Star);
+            //if (isSmallScreen)
+            //{
+            //    MajorGrid.Margin = new Thickness(5, 20, 5, 15);
+            //    rowToAdjust.Height = new GridLength(0.7, GridUnitType.Star);
                 
-            }
-            else if (isBigScreen)
-            {
-                MajorGrid.Margin = new Thickness(10, 0, 10, 10);
-                rowToAdjust.Height = new GridLength(0.4, GridUnitType.Star);
-            }
+            //}
+            //else if (isBigScreen)
+            //{
+            //    MajorGrid.Margin = new Thickness(10, 0, 10, 10);
+            //    rowToAdjust.Height = new GridLength(0.4, GridUnitType.Star);
+            //}
             move();
         }
 

@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
       xmlns:controls="clr-namespace:Plugin.CrossPlatformTintedImage.Abstractions;assembly=Plugin.CrossPlatformTintedImage.Abstractions"
       xmlns:common="clr-namespace:NaitonGps.Views;assembly=NaitonGps"
+      xmlns:markups="clr-namespace:TheNextLoop.Markups;assembly=TheNextLoop.Markups"
       x:Class="NaitonGps.ViewsForEachRole.ManagerThirdPage"
         
       NavigationPage.HasNavigationBar="False"
@@ -11,6 +12,7 @@
       iOS:Page.PrefersStatusBarHidden="Default"
       iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
       x:Name="MajorGrid"
+      Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='10, 0, 10, 10', ExtraSmall='5, 20, 5, 20'}"
       >
         <Grid.RowDefinitions>
             <RowDefinition Height="0.6*"></RowDefinition>

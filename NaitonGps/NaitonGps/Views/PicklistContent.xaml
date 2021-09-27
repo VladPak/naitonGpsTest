@@ -40,16 +40,16 @@
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Label x:Name="lblHeaderTitle" Grid.Row="0" Grid.Column="1" Text="Picklist 450 Preview" TextColor="#69717E" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Start"></Label>
+                <Label x:Name="lblHeaderTitle" Grid.Row="0" Grid.Column="1" Text="Picklist 450 Preview" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='22', ExtraSmall='18'}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Start"></Label>
 
-                <Image x:Name="iconListChange" Grid.Column="2" Grid.Row="0" Source="{AppThemeBinding Light=reform.png, Dark=reform.png }" HeightRequest="30" WidthRequest="30" HorizontalOptions="End" Margin="0,0,5,0">
+                <Image x:Name="iconListChange" Grid.Column="2" Grid.Row="0" Source="{AppThemeBinding Light=reform.png, Dark=reform.png }" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='25'}" WidthRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='25'}" HorizontalOptions="End" Margin="0,0,5,0">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
                     </Image.GestureRecognizers>
                 </Image>
             </Grid>
 
-            <RefreshView IsRefreshing="{Binding IsRefreshing}" x:Name="rv" Command="{Binding RefreshCommand}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,-10,0,0" VerticalOptions="Start">
+            <RefreshView IsRefreshing="{Binding IsRefreshing}" x:Name="rv" Command="{Binding RefreshCommand}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='0,-10,0,0', ExtraSmall='0,0,0,0'}" VerticalOptions="Start">
                 <ScrollView VerticalScrollBarVisibility="Never">
                     <CollectionView ItemsSource="{Binding dataPicklistContentPerItem}" VerticalOptions="Start" VerticalScrollBarVisibility="Never">
                         <CollectionView.ItemTemplate>

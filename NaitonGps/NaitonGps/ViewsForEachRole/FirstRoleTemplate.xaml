@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
       xmlns:controls="clr-namespace:Plugin.CrossPlatformTintedImage.Abstractions;assembly=Plugin.CrossPlatformTintedImage.Abstractions"
       xmlns:common="clr-namespace:NaitonGps.Views;assembly=NaitonGps"
+      xmlns:markups="clr-namespace:TheNextLoop.Markups;assembly=TheNextLoop.Markups"
       x:Class="NaitonGps.Views.FirstRoleTemplate"
       
       NavigationPage.HasNavigationBar="False"
@@ -11,6 +12,7 @@
       iOS:Page.PrefersStatusBarHidden="Default"
       iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
       x:Name="MajorGrid"
+      Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='10,0,10,10', ExtraSmall='5, 20, 5, 15'}"
       >
     <Grid.RowDefinitions>
         <RowDefinition Height="0.6*"></RowDefinition>
@@ -31,7 +33,7 @@
     <!--#region Body -->
     <Grid x:Name="ContentContainer" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="true" Margin="15,0,15,0" BackgroundColor="Transparent">
         <Grid.RowDefinitions>
-            <RowDefinition x:Name="rowToAdjust" Height="0.4*"></RowDefinition>
+            <RowDefinition x:Name="rowToAdjust" Height="{markups:OnScreenSize DefaultSize='Auto', Medium='0.4*', ExtraSmall='0.7*'}"></RowDefinition>
             <RowDefinition Height="6*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>

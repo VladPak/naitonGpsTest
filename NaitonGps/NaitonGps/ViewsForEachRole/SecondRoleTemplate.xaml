@@ -1,14 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Grid xmlns="http://xamarin.com/schemas/2014/forms" 
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+      xmlns:markups="clr-namespace:TheNextLoop.Markups;assembly=TheNextLoop.Markups"
       x:Class="NaitonGps.Views.SecondRoleTemplate"
-             NavigationPage.HasNavigationBar="False"
-             xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             iOS:Page.UseSafeArea="true"
-             iOS:Page.PrefersStatusBarHidden="Default"
-             iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
-       Margin="10,0,10,15"
-      >
+      
+        NavigationPage.HasNavigationBar="False"
+        xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+        iOS:Page.UseSafeArea="true"
+        iOS:Page.PrefersStatusBarHidden="Default"
+        iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
+      Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='10,0,10,10', ExtraSmall='5, 20, 5, 15'}"
+    >
     <Grid.RowDefinitions>
         <RowDefinition Height="0.4*"></RowDefinition>
         <RowDefinition Height="3*"></RowDefinition>

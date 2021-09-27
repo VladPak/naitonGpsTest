@@ -14,6 +14,7 @@ namespace NaitonGps.Views
     public partial class PicklistPrintLabelsBottomPopup : Rg.Plugins.Popup.Pages.PopupPage
     {
         public int initialValue = 0;
+
         public PicklistPrintLabelsBottomPopup()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace NaitonGps.Views
             int newValue = initialValue -= 1;
             if (newValue < 0)
             {
-                DisplayAlert("", "No negative value is accepted", "Ok");
+                DisplayAlert("", "Negative value is not accepted", "Ok");
                 initialValue = 0;
                 entQuantity.Text = initialValue.ToString();
             }
