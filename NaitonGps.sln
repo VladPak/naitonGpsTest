@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaitonGps.iOS", "NaitonGps\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NaitonGps", "NaitonGps\NaitonGps\NaitonGps.csproj", "{6070C0CB-A93A-4140-B837-E3BF864B3EC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWSALibrary", "..\..\..\..\..\Users\vladp\Downloads\SimpleWSA-master\SWSALibrary\SWSALibrary.csproj", "{6213E748-D6B2-4FC4-A494-A44DA0ADE5B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWSALibrary", "C:\Users\User\Downloads\SimpleWSA-master\SWSALibrary\SWSALibrary.csproj", "{6213E748-D6B2-4FC4-A494-A44DA0ADE5B3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheNextLoop.Markups", "..\..\..\..\..\Users\vladp\Downloads\TheNextLoop.OnScreenSize-main\Src\TheNextLoop.Markups\TheNextLoop.Markups\TheNextLoop.Markups.csproj", "{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheNextLoop.Markups", "C:\Users\User\Downloads\TheNextLoop.OnScreenSize-main\Src\TheNextLoop.Markups\TheNextLoop.Markups\TheNextLoop.Markups.csproj", "{317B096F-6A65-4EB8-9C05-C9F91F74E7B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,18 +89,18 @@ Global
 		{6213E748-D6B2-4FC4-A494-A44DA0ADE5B3}.Release|iPhone.Build.0 = Release|Any CPU
 		{6213E748-D6B2-4FC4-A494-A44DA0ADE5B3}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{6213E748-D6B2-4FC4-A494-A44DA0ADE5B3}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Release|iPhone.Build.0 = Release|Any CPU
-		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{A8F94255-D785-4CCA-B05B-D3ACA4072EDF}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{317B096F-6A65-4EB8-9C05-C9F91F74E7B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{317B096F-6A65-4EB8-9C05-C9F91F74E7B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{317B096F-6A65-4EB8-9C05-C9F91F74E7B4}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{317B096F-6A65-4EB8-9C05-C9F91F74E7B4}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{317B096F-6A65-4EB8-9C05-C9F91F74E7B4}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{317B096F-6A65-4EB8-9C05-C9F91F74E7B4}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{317B096F-6A65-4EB8-9C05-C9F91F74E7B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{317B096F-6A65-4EB8-9C05-C9F91F74E7B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{317B096F-6A65-4EB8-9C05-C9F91F74E7B4}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{317B096F-6A65-4EB8-9C05-C9F91F74E7B4}.Release|iPhone.Build.0 = Release|Any CPU
+		{317B096F-6A65-4EB8-9C05-C9F91F74E7B4}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{317B096F-6A65-4EB8-9C05-C9F91F74E7B4}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

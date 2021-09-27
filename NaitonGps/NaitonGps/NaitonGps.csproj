@@ -31,8 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\Users\vladp\Downloads\SimpleWSA-master\SWSALibrary\SWSALibrary.csproj" />
-    <ProjectReference Include="..\..\..\..\..\..\..\Users\vladp\Downloads\TheNextLoop.OnScreenSize-main\Src\TheNextLoop.Markups\TheNextLoop.Markups\TheNextLoop.Markups.csproj" />
+    <ProjectReference Include="C:\Users\User\Downloads\SimpleWSA-master\SWSALibrary\SWSALibrary.csproj" />
+    <ProjectReference Include="C:\Users\User\Downloads\TheNextLoop.OnScreenSize-main\Src\TheNextLoop.Markups\TheNextLoop.Markups\TheNextLoop.Markups.csproj" />
   </ItemGroup>
 
   <ItemGroup>

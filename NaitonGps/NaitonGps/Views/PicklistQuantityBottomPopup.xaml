@@ -18,8 +18,8 @@
             HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
 
-    <ScrollView VerticalScrollBarVisibility="Never">
-        <Frame CornerRadius="15" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#ffffff" HasShadow="False">
+    <ScrollView VerticalScrollBarVisibility="Never" VerticalOptions="End">
+        <Frame CornerRadius="15" VerticalOptions="End" HorizontalOptions="FillAndExpand" BackgroundColor="#ffffff" HasShadow="False">
             <Grid RowSpacing="0" ColumnSpacing="0" Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='0,0,0,15', ExtraSmall='0,0,0,0'}" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#ffffff">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.2*"></RowDefinition>
