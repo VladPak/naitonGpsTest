@@ -35,7 +35,7 @@ namespace NaitonGps.Views
             int newValue = initialValue -= 1;
             if (newValue < 0)
             {
-                DisplayAlert("", "Min value is 0", "Ok");
+                DisplayAlert("", "No negative value is accepted", "Ok");
                 initialValue = 0;
                 entQuantity.Text = initialValue.ToString();
             }
