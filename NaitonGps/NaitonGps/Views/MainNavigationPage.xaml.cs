@@ -28,21 +28,23 @@ namespace NaitonGps.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainNavigationPage : ContentPage
     {
+        //Menu construction props
         ControlTemplate defaultTemp = new ControlTemplate(typeof(DefaultTemplate));
         public int maxIndex;
         public int minIndex = 1;
         private int selectedIndex;
         public int maxNavItemsFull;
         public int maxNavItemsRemained;
-
-        public static double screenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
-        public static bool isSmallScreen { get; } = screenWidth <= 360;
-        public static bool isBigScreen { get; } = screenWidth >= 360;
-
         public ScreenTemplatesViewModel Screens;
         TintedImage[] allNavItems;
         public TintedImage linkToRemember;
         public List<Screens> res;
+
+        //Screen size consideration for UI layout
+        public static double screenWidth { get; } = DeviceDisplay.MainDisplayInfo.Width;
+        public static bool isSmallScreen { get; } = screenWidth <= 360;
+        public static bool isBigScreen { get; } = screenWidth >= 360;
+
 
         public MainNavigationPage()
         {
@@ -96,8 +98,6 @@ namespace NaitonGps.Views
             //Coloring the navbar btns after switching the display mode light/dark
             Application.Current.RequestedThemeChanged += (s, a) =>
             {
-                //var newImgToColor = allNavItems.SkipWhile(c => c.TintColor == Color.Green).ToArray();
-
                 switch (a.RequestedTheme)
                 {
                     case OSAppTheme.Dark:
@@ -109,7 +109,7 @@ namespace NaitonGps.Views
                                 item.TintColor = Color.White;
                             }
                         }
-                    break;
+                        break;
                     case OSAppTheme.Light:
 
                         foreach (var item in allNavItems)
@@ -125,7 +125,6 @@ namespace NaitonGps.Views
                         break;
                 }
             };
-
         }
 
         public void SetMenuItems()
@@ -256,7 +255,6 @@ namespace NaitonGps.Views
                                     ControlTemplate = sublist.ToList()[0].ScreenLink;
                                     break;
                                 }
-                                //ControlTemplate = firstBatch.ToList()[0].ScreenLink;
                             }
                             break;
                         case 2:
@@ -311,7 +309,6 @@ namespace NaitonGps.Views
                                         int skipMenuItems = sublist.Count();
                                         Array.Resize(ref allNavItems, skipMenuItems);
 
-                                        //allNavItems.Slice(0, 2);
                                         for (int j = 0; j < allNavItems.Length; j++)
                                         {
                                             allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
@@ -332,7 +329,6 @@ namespace NaitonGps.Views
                                     break;
                                 }
                             }
-                            //ControlTemplate = secondBatch.ToList()[0].ScreenLink;
                             break;
                         case 3:
                             var index3 = 0;
@@ -407,7 +403,6 @@ namespace NaitonGps.Views
                                     break;
                                 }
                             }
-                            //ControlTemplate = thirdBatch.ToList()[0].ScreenLink;
                             break;
                         case 4:
                             var index4 = 0;
@@ -461,7 +456,6 @@ namespace NaitonGps.Views
                                         int skipMenuItems = sublist.Count();
                                         Array.Resize(ref allNavItems, skipMenuItems);
 
-                                        //allNavItems.Slice(0, 2);
                                         for (int j = 0; j < allNavItems.Length; j++)
                                         {
                                             allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
@@ -482,7 +476,6 @@ namespace NaitonGps.Views
                                     break;
                                 }
                             }
-                            //ControlTemplate = fourthBatch.ToList()[0].ScreenLink;
                             break;
                         case 5:
                             var index5 = 0;
@@ -535,7 +528,6 @@ namespace NaitonGps.Views
                                         int skipMenuItems = sublist.Count();
                                         Array.Resize(ref allNavItems, skipMenuItems);
                                        
-                                        //allNavItems.Slice(0, 2);
                                         for (int j = 0; j < allNavItems.Length; j++)
                                         {
                                             allNavItems[j].Source = sublist.ToList()[j].ScreenImage;
@@ -556,7 +548,6 @@ namespace NaitonGps.Views
                                     break;
                                 }
                             }
-                            //ControlTemplate = fifthBatch.ToList()[0].ScreenLink;
                             break;
                         default:
                             DisplayAlert("", "No attached index for the menu", "Ok");
@@ -569,7 +560,6 @@ namespace NaitonGps.Views
                 {
                     DisplayAlert("", "No screens available for you. Please contact development team.", "Ok");
                     ControlTemplate = defaultTemp;
-                    //templateIndex = 1;
                     selectedIndex = 1;
                 }
             }
@@ -591,7 +581,6 @@ namespace NaitonGps.Views
                 moveMenu();
                 VibrationForNav();
             }
-
         }
 
         //Next Role (Swipe)
