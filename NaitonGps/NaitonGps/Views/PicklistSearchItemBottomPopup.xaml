@@ -19,14 +19,13 @@
             HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
 
-    <ScrollView VerticalScrollBarVisibility="Never">
-        <Frame CornerRadius="15" VerticalOptions="End" HorizontalOptions="FillAndExpand" BackgroundColor="#ffffff" HasShadow="False">
-            <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,0,0,0" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#ffffff">
+        <Frame CornerRadius="15" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#ffffff" HasShadow="False">
+            <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,0,0,0" Padding="0" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.04*"></RowDefinition>
                     <RowDefinition Height="0.1*"></RowDefinition>
                     <RowDefinition Height="0.1*"></RowDefinition>
-                    <RowDefinition Height="1.5*"></RowDefinition>
+                    <RowDefinition Height="0.6*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -41,7 +40,6 @@
                 </Image>
 
                 <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Select Rack" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='28', ExtraSmall='22'}" FontAttributes="Bold" TextColor="Black" VerticalTextAlignment="Start" VerticalOptions="Center" HorizontalOptions="Start"/>
-
 
                 <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Transparent" VerticalOptions="Start">
                     <Grid.RowDefinitions>
@@ -84,8 +82,8 @@
 
 
                 <RefreshView IsRefreshing="{Binding IsRefreshing}" x:Name="rv" Command="{Binding RefreshCommand}" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3">
-                    <ScrollView VerticalScrollBarVisibility="Never">
-                        <CollectionView ItemsSource="{Binding rack}" VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Never">
+                    <ScrollView VerticalScrollBarVisibility="Never" IsEnabled="True">
+                        <CollectionView ItemsSource="{Binding rack}" VerticalScrollBarVisibility="Never" BackgroundColor="Transparent" VerticalOptions="Fill" HeightRequest="100">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid ColumnSpacing="0" RowSpacing="0" Margin="0,15,0,10">
@@ -112,5 +110,4 @@
 
             </Grid>
         </Frame>
-    </ScrollView>
 </pages:PopupPage>

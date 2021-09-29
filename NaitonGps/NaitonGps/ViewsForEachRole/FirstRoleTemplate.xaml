@@ -65,7 +65,7 @@
 
         <RefreshView IsRefreshing="{Binding IsRefreshing}" x:Name="rv" Command="{Binding RefreshCommand}" Grid.Row="1" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="3">
             <ScrollView VerticalScrollBarVisibility="Never">
-                <CollectionView ItemsSource="{Binding dataForPicklist}" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Never">
+                <CollectionView ItemsSource="{Binding dataForPicklist}" BackgroundColor="Transparent" VerticalOptions="Fill" VerticalScrollBarVisibility="Never" HeightRequest="100">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout>
