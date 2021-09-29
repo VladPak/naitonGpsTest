@@ -83,9 +83,9 @@
                 </Grid>
 
 
-                <RefreshView IsRefreshing="{Binding IsRefreshing}" x:Name="rv" Command="{Binding RefreshCommand}" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" VerticalOptions="Start">
+                <RefreshView IsRefreshing="{Binding IsRefreshing}" x:Name="rv" Command="{Binding RefreshCommand}" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3">
                     <ScrollView VerticalScrollBarVisibility="Never">
-                        <CollectionView ItemsSource="{Binding rack}" VerticalOptions="Start" VerticalScrollBarVisibility="Never">
+                        <CollectionView ItemsSource="{Binding rack}" VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Never">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid ColumnSpacing="0" RowSpacing="0" Margin="0,15,0,10">

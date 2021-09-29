@@ -49,9 +49,9 @@
                 </Image>
             </Grid>
 
-            <RefreshView IsRefreshing="{Binding IsRefreshing}" x:Name="rv" Command="{Binding RefreshCommand}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='0,-10,0,0', ExtraSmall='0,0,0,0'}" VerticalOptions="Start">
+            <RefreshView IsRefreshing="{Binding IsRefreshing}" x:Name="rv" Command="{Binding RefreshCommand}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='0,-10,0,0', ExtraSmall='0,0,0,0'}">
                 <ScrollView VerticalScrollBarVisibility="Never">
-                    <CollectionView ItemsSource="{Binding dataPicklistContentPerItem}" VerticalOptions="Start" VerticalScrollBarVisibility="Never">
+                    <CollectionView ItemsSource="{Binding dataPicklistContentPerItem}" VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Never">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout>
