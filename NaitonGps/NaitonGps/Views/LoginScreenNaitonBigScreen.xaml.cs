@@ -81,6 +81,7 @@ namespace NaitonGps.Views
                         var userEmail = Preferences.Get("loginEmail", string.Empty);
                         var emailPattern = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
                         var providerPattern = @"\b(naitongps)\b";
+                        var providerPattern2 = @"\b(hwtest)\b";
                         var webServiceName = Preferences.Get("loginCompany", string.Empty);
                         var userPassword = entPassword.Text;
 
@@ -94,8 +95,8 @@ namespace NaitonGps.Views
                             {
                                 if (Regex.IsMatch(userEmail, emailPattern))
                                 {
-                                    if (Regex.IsMatch(webServiceName, providerPattern))
-                                    {
+                                    //if (Regex.IsMatch(webServiceName, providerPattern) || Regex.IsMatch(webServiceName, providerPattern2))
+                                    //{
                                         //var checkAccess = Preferences.Get("loginCompany", string.Empty);
                                         //var response = await ApiService.Login(userEmail, entPassword.Text);
 
@@ -108,7 +109,7 @@ namespace NaitonGps.Views
                                                                       false,
                                                                       4,
                                                                       currentAppVersion,
-                                                                      "naitongps",
+                                                                      Preferences.Get("loginCompany", string.Empty),
                                                                       null);
                                         await session.CreateByConnectionProviderAddressAsync("https://connectionprovider.naiton.com/");
 
@@ -122,11 +123,11 @@ namespace NaitonGps.Views
                                         //{
                                         //    await DisplayAlert("", "You have problems with Web Service. Please contact the support center", "Ok");
                                         //}
-                                    }
-                                    else
-                                    {
-                                        await DisplayAlert("", "Only naitongps users allowed", "Ok");
-                                    }
+                                    //}
+                                    //else
+                                    //{
+                                    //    await DisplayAlert("", "Only naitongps & hwtest users allowed", "Ok");
+                                    //}
                                 }
                                 else if (string.IsNullOrWhiteSpace(userPassword))
                                 {

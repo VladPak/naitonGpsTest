@@ -5,6 +5,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using Android.Views;
+using System.Net;
 
 namespace NaitonGps.Droid
 {
@@ -27,6 +28,9 @@ namespace NaitonGps.Droid
             //Window.Attributes.LayoutInDisplayCutoutMode = LayoutInDisplayCutoutMode.ShortEdges;
             Window.AddFlags(WindowManagerFlags.Fullscreen);
             Window.AddFlags(WindowManagerFlags.LayoutInOverscan);
+
+            ServicePointManager.ServerCertificateValidationCallback += (o, certificate, chain, errors) => true;
+
 
             LoadApplication(new App());
         }

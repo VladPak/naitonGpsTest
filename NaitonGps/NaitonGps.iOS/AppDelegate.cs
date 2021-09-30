@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Net;
 using Foundation;
 using UIKit;
 
@@ -22,6 +22,11 @@ namespace NaitonGps.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            ServicePointManager
+            .ServerCertificateValidationCallback +=
+            (sender, cert, chain, sslPolicyErrors) => true;
+
+
             //XfxControls.Init();
             //global::Xamarin.Forms.Forms.Init();
             Rg.Plugins.Popup.Popup.Init();
