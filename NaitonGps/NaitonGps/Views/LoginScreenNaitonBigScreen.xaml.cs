@@ -45,9 +45,6 @@ namespace NaitonGps.Views
         //Main screen animation
         private async void PopUpLoginFrame(object sender, EventArgs e)
         {
-            //await imgBackground.ScaleTo(1.2, 90, Easing.Linear);
-            //await imgLogo.TranslateTo(0, -100, 280, Easing.Linear);
-            //await frameLogin.TranslateTo(0, 0, 330, Easing.Linear);
             await imgLogo.TranslateTo(0, -90, 280, Easing.Linear);
             await frameLogin.TranslateTo(0, 0, 330, Easing.Linear);
         }
@@ -58,7 +55,8 @@ namespace NaitonGps.Views
             if (CrossConnectivity.Current.IsConnected)
             {
                 Preferences.Set("loginCompany", entCompany.Text);
-                
+                //Preferences.Set("loginEmail", entEmail.Text);
+
                 //Call Web service
                 taps++;
                 var response = await ApiService.GetWebService(entCompany.Text);

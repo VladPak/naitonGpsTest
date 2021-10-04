@@ -21,29 +21,29 @@ namespace NaitonGps.Views
         public LoginScreenNaiton()
         {
             InitializeComponent();
+
+            entCompany.Text = string.Empty;
+            entEmail.Text = string.Empty;
+            entPassword.Text = string.Empty;
             scrollToActivate.IsEnabled = false;
             imgLogo.TranslationY = 100;
             frameLogin.TranslationY = 450;            
         }
 
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private async void PopUpLoginFrame(object sender, EventArgs e)
         {
             await imgLogo.TranslateTo(0, -45, 280, Easing.Linear);
             await frameLogin.TranslateTo(0, 0, 330, Easing.Linear);
             scrollToActivate.IsEnabled = true;
         }
 
-        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new TermsAndServices());
-        }
-
-        private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+        private async void LoginInit(object sender, EventArgs e)
         {
             if (CrossConnectivity.Current.IsConnected)
             {
                 Preferences.Set("loginCompany", entCompany.Text);
-                Preferences.Set("loginEmail", entEmail.Text);
+                //Preferences.Set("loginEmail", entEmail.Text);
+                
                 //Call Web service
                 taps++;
                 var response = await ApiService.GetWebService(entCompany.Text);
@@ -55,89 +55,102 @@ namespace NaitonGps.Views
                         //Login with email and password
                         //await Navigation.PushModalAsync(new LoginEmailScreen(), true);
 
-                        var userEmail = Preferences.Get("loginEmail", string.Empty);
-                        var emailPattern = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
-                        var providerPattern = @"\b(naitongps)\b";
-                        var webServiceName = Preferences.Get("loginCompany", string.Empty);
+                        var userEmail = entEmail.Text;
                         var userPassword = entPassword.Text;
+                        Preferences.Set("loginEmail", entEmail.Text);
+                        Preferences.Set("loginPassword", entPassword.Text);
+
+                        var emailPattern = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
 
                         if (CrossConnectivity.Current.IsConnected)
                         {
-                            if (string.IsNullOrEmpty(userPassword) || userPassword != "Gromit12")
+                            if (string.IsNullOrEmpty(userPassword) || string.IsNullOrWhiteSpace(userPassword))
                             {
                                 await DisplayAlert("", "Invalid password", "Ok");
+                                entCompany.Text = Preferences.Get("loginCompany", string.Empty);
+                                entEmail.Text = Preferences.Get("loginEmail", string.Empty);
+
+                                entPassword.Text = string.Empty;
+                                entPassword.Focus();
+                            }
+                            else if (string.IsNullOrWhiteSpace(userEmail) || string.IsNullOrEmpty(userEmail) || !Regex.IsMatch(userEmail, emailPattern))
+                            {
+                                await DisplayAlert("", "Invalid email", "Ok");
+                                entCompany.Text = Preferences.Get("loginCompany", string.Empty);
+                                entPassword.Text = Preferences.Get("loginPassword", string.Empty);
+
+                                entEmail.Text = string.Empty;
+                                entEmail.Focus();
                             }
                             else
                             {
-                                if (Regex.IsMatch(userEmail, emailPattern))
+                                while (true)
                                 {
-                                    if (Regex.IsMatch(webServiceName, providerPattern))
+                                    try
                                     {
-                                        //var checkAccess = Preferences.Get("loginCompany", string.Empty);
-                                        //var response = await ApiService.Login(userEmail, entPassword.Text);
-
-                                        var domain = Preferences.Get("loginCompany", string.Empty);
-                                        var webserviceLink = Preferences.Get("webservicelink", string.Empty);
                                         string currentAppVersion = VersionTracking.CurrentVersion;
 
                                         Session session = new Session(userEmail,
-                                                                      entPassword.Text,
-                                                                      false,
-                                                                      4,
-                                                                      currentAppVersion,
-                                                                      "naitongps",
-                                                                      null);
+                                                                        entPassword.Text,
+                                                                        false,
+                                                                        4,
+                                                                        currentAppVersion,
+                                                                        Preferences.Get("loginCompany", string.Empty),
+                                                                        null);
                                         await session.CreateByConnectionProviderAddressAsync("https://connectionprovider.naiton.com/");
 
-                                        //if ()
-                                        //{
-                                        //Application.Current.MainPage = new MainPage();
                                         Preferences.Set("token", SessionContext.Token);
                                         Application.Current.MainPage = new MainNavigationPage();
-                                        //}
-                                        //else
-                                        //{
-                                        //    await DisplayAlert("", "You have problems with Web Service. Please contact the support center", "Ok");
-                                        //}
+                                        break;
                                     }
-                                    else
+                                    catch (RestServiceException exRes)
                                     {
-                                        await DisplayAlert("", "Only naitongps users allowed", "Ok");
+                                        if (exRes.Code == "MI008")
+                                        {
+                                            await SessionContext.Refresh();
+
+                                            continue;
+                                        }
+                                        else
+                                        {
+                                            await DisplayAlert("", exRes.Message, "Ok");
+                                            entEmail.Text = string.Empty;
+                                            entPassword.Text = string.Empty;
+                                            entEmail.Focus();
+                                            break;
+                                        }
+
                                     }
-                                }
-                                else if (string.IsNullOrWhiteSpace(userPassword))
-                                {
-                                    await DisplayAlert("", "Password field is empty", "Ok");
-                                }
-                                else if (!Regex.IsMatch(userEmail, emailPattern))
-                                {
-                                    await DisplayAlert("", "Wrong email format", "Ok");
-                                }
-                                else
-                                {
-                                    await DisplayAlert("", "Email or password input error.", "Ok");
+                                    catch (Exception ex)
+                                    {
+                                        await DisplayAlert("", ex.Message, "Ok");
+                                        entEmail.Text = string.Empty;
+                                        entPassword.Text = string.Empty;
+                                        entEmail.Focus();
+                                        break;
+                                    }
                                 }
                             }
-                        }
+
+                            }
                         else
                         {
                             await DisplayAlert("", "Check the Internet connection.", "Ok");
                         }
 
-
-                        entCompany.Text = string.Empty;
                         taps = 0;
                     }
                     else if (taps >= 2)
                     {
-                        taps = 0;
+                        taps = 1;
                         await DisplayAlert("", "Please wait. Your request is being proceeded", "Ok");
                     }
                 }
                 else
                 {
-                    await DisplayAlert("", "Company does not exist. Please enter valid company name", "Ok");
+                    await DisplayAlert("", "Wrong company name.Please enter valid name", "Ok");
                     entCompany.Text = string.Empty;
+                    entCompany.Focus();
                     taps = 0;
                 }
             }
@@ -148,9 +161,14 @@ namespace NaitonGps.Views
             }
         }
 
-        private async void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
+        private async void CallNeedHelp(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NeedHelp());
+        }
+
+        private async void CallTermsAndService(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new TermsAndServices());
         }
     }
 }
