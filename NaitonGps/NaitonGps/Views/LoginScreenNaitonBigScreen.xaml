@@ -14,7 +14,7 @@
              >
         <Grid>
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
+            <TapGestureRecognizer Tapped="PopUpLoginFrame" NumberOfTapsRequired="1"></TapGestureRecognizer>
             </Grid.GestureRecognizers>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
@@ -79,13 +79,13 @@
                                     <Image Source="rightarrowWhite.png" HeightRequest="22" VerticalOptions="Center" HorizontalOptions="Center"></Image>
                                 </StackLayout>
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                    <TapGestureRecognizer Tapped="LoginInit" NumberOfTapsRequired="1"></TapGestureRecognizer>
                                 </Frame.GestureRecognizers>
                         </Frame>
 
                         <Label Grid.Row="4" Grid.Column="0" Text="Need Help?" FontSize="18" TextColor="#268646" Margin="0,10,0,0" HorizontalOptions="Center" VerticalOptions="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                    <TapGestureRecognizer Tapped="CallNeedHelp" NumberOfTapsRequired="1"></TapGestureRecognizer>
                                 </Label.GestureRecognizers>
                         </Label>
                         <Label Grid.Row="5" Grid.Column="0" Text="Terms of Service" FontSize="13" TextColor="#7d7d7d" HorizontalOptions="Center" VerticalOptions="Center">
@@ -96,7 +96,7 @@
                                     </OnPlatform>
                                 </Label.Margin>
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                <TapGestureRecognizer Tapped="CallTermsAndService" NumberOfTapsRequired="1"></TapGestureRecognizer>
                             </Label.GestureRecognizers>
                         </Label>
                     </Grid>

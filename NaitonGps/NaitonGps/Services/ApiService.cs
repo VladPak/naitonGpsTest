@@ -96,19 +96,5 @@ namespace NaitonGps.Services
         //    //}
         //}
 
-        //public static async Task<Dictionary<string, Roles[]>> GetAllUserRoles()
-        //{
-        //    SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
-        //    command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 1;
-        //    command.WriteSchema = WriteSchema.TRUE;
-        //    string xmlResult = SimpleWSA.Command.Execute(command,
-        //                                       RoutineType.DataSet,
-        //                                       httpMethod: SimpleWSA.HttpMethod.GET,
-        //                                       responseFormat: ResponseFormat.JSON);
-
-        //    var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
-
-        //    return dataFinalize;
-        //}
     }
 }
