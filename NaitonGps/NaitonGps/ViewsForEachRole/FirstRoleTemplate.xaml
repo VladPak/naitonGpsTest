@@ -4,54 +4,32 @@
       xmlns:controls="clr-namespace:Plugin.CrossPlatformTintedImage.Abstractions;assembly=Plugin.CrossPlatformTintedImage.Abstractions"
       xmlns:common="clr-namespace:NaitonGps.Views;assembly=NaitonGps"
       xmlns:markups="clr-namespace:TheNextLoop.Markups;assembly=TheNextLoop.Markups"
-      x:Class="NaitonGps.Views.FirstRoleTemplate"
-      
+      x:Class="NaitonGps.Views.FirstRoleTemplate" 
       NavigationPage.HasNavigationBar="False"
       xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
       iOS:Page.UseSafeArea="true"
       iOS:Page.PrefersStatusBarHidden="Default"
       iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
-      x:Name="MajorGrid"
       Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='10,0,10,10', ExtraSmall='5, 20, 5, 15'}"
-      >
-    <Grid.RowDefinitions>
-        <RowDefinition Height="0.6*"></RowDefinition>
-        <RowDefinition Height="6*"></RowDefinition>
-        <RowDefinition Height="0.4*"></RowDefinition>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*"></ColumnDefinition>
-        <ColumnDefinition Width="Auto"></ColumnDefinition>
-        <ColumnDefinition Width="*"></ColumnDefinition>
-    </Grid.ColumnDefinitions>
-
-    <!-- #region Header Common -->
+      RowDefinitions="0.6*, 6*, 0.4*" 
+      ColumnDefinitions="*, Auto, *"
+>
+    <!-- #region Header -->
     <common:HeaderNavigationBar Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="3" x:Name="Header" IsVisible="true">
     </common:HeaderNavigationBar>
     <!--#endregion-->
     
     <!--#region Body -->
-    <Grid x:Name="ContentContainer" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="true" Margin="15,0,15,0" BackgroundColor="Transparent">
+    <Grid x:Name="ContentContainer" ColumnDefinitions="*, *, *" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="true" Margin="15,0,15,0" BackgroundColor="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition x:Name="rowToAdjust" Height="{markups:OnScreenSize DefaultSize='Auto', Medium='0.4*', ExtraSmall='0.7*'}"></RowDefinition>
             <RowDefinition Height="6*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
+        <Grid RowDefinitions="*" ColumnDefinitions="*, *" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="1">
+            
             <Label Grid.Row="0" Grid.Column="0" x:Name="Content" Font="Bold" HorizontalOptions="Start" VerticalOptions="Center" FontSize="25" Text="Picklist"/>
+            
             <Frame Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start" BackgroundColor="#ffffff" CornerRadius="5" BorderColor="#69717E" HasShadow="False" WidthRequest="60">
                 <StackLayout Margin="-5,-10,-5,-10" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
                     <Image Source="scan.png" HeightRequest="20"></Image>
@@ -69,20 +47,9 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout>
-                                <Frame HasShadow="False" BackgroundColor="{StaticResource colorWhite}" CornerRadius="15" Margin="0,12,0,0">
-                                    <Grid ColumnSpacing="0" RowSpacing="0">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="0.2*"></RowDefinition>
-                                            <RowDefinition Height="0.2*"></RowDefinition>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="0.1*"></ColumnDefinition>
-                                            <ColumnDefinition Width="2*"></ColumnDefinition>
-                                            <ColumnDefinition Width="6*"></ColumnDefinition>
-                                            <ColumnDefinition Width="0.1*"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-
-                                        <controls:TintedImage Margin="-20,0,0,0" TintColor="{Binding picklistColorStatus}" Source="statusBar.png" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Start" VerticalOptions="Center"></controls:TintedImage>
+                                <Frame HasShadow="False" BackgroundColor="{StaticResource colorWhite}" CornerRadius="15" Margin="0, 12, 0, 0">
+                                    <Grid RowDefinitions="0.2*, 0.2*" ColumnDefinitions="0.1*, 2*, 6*, 0.1*" ColumnSpacing="0" RowSpacing="0">
+                                        <controls:TintedImage Margin="-20, 0, 0, 0" TintColor="{Binding picklistColorStatus}" Source="statusBar.png" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Start" VerticalOptions="Center"></controls:TintedImage>
 
                                         <Label BackgroundColor="Transparent" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Text="{Binding Path=pickListId, StringFormat='ID {0}'}" FontSize="17" FontAttributes="None" HorizontalOptions="Start"/>
 
@@ -95,7 +62,7 @@
                                         <controls:TintedImage BackgroundColor="Transparent" Source="rightarrow.png" WidthRequest="20" HeightRequest="20" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" TintColor="{StaticResource colorGrayStatic}"></controls:TintedImage>
                                     </Grid>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1"/>
+                                        <TapGestureRecognizer Tapped="PicklistContentPage" NumberOfTapsRequired="1"/>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </StackLayout>

@@ -20,10 +20,6 @@ namespace NaitonGps.Views
             move();
         }
 
-        private async void PopUpSample(object sender, EventArgs e)
-        {
-            await Navigation.PushPopupAsync(new MorePopUp());
-        }
 
         public async void move()
         {
@@ -33,6 +29,11 @@ namespace NaitonGps.Views
             Content.IsVisible = true;
             await Header.TranslateTo(0, 0, 500);
             await Content.TranslateTo(0, 0, 300);
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+
         }
     }
 }

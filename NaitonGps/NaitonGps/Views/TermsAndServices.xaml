@@ -11,7 +11,7 @@
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
              >
     <ContentPage.Content>
-        <Grid Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='10,40,10,0', ExtraSmall='10, 10, 10, 0'}" RowSpacing="0" ColumnSpacing="0">
+        <Grid Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='10, 40, 10, 0', ExtraSmall='10, 10, 10, 0'}" RowSpacing="0" ColumnSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.5*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -24,7 +24,6 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <!--Back button-->
             <Image Grid.Row="0" Grid.Column="0" Source="leftarrow.png" HorizontalOptions="Start" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='25'}" WidthRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='25'}">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
@@ -33,18 +32,6 @@
 
             <Image Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='80', ExtraSmall='65'}" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='80', ExtraSmall='65'}" Source="acceptance.png"></Image>
             <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="Terms And Service" HorizontalOptions="Center" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='22', ExtraSmall='18'}" FontAttributes="Bold" Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='0,0,0,0', ExtraSmall='0,0,0,0'}" TextColor="Black"></Label>
-
-                <!--
-                                    <ScrollView>
-                    <StackLayout Orientation="Vertical" Margin="8,10,8,10" BackgroundColor="#0000">
-                        <Label Text="Header text ..." TextColor="Black" FontSize="12" FontAttributes="Italic" HorizontalTextAlignment="Start"></Label>
-                        <Label Text="Title text" TextColor="Black" FontSize="16" FontAttributes="Bold" HorizontalTextAlignment="Start"></Label>
-                        <Label Text="body text and text" TextColor="Green" FontSize="11" FontAttributes="None" HorizontalTextAlignment="Start"></Label>
-                    </StackLayout>
-                </ScrollView>
-                -->
-
-
         </Grid>
     </ContentPage.Content>
 </ContentPage>

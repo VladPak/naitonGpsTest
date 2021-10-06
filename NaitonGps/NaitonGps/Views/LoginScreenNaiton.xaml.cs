@@ -1,4 +1,6 @@
-﻿using NaitonGps.Services;
+﻿using NaitonGps.Models;
+using NaitonGps.Services;
+using Newtonsoft.Json;
 using Plugin.Connectivity;
 using SimpleWSA;
 using System;
@@ -100,6 +102,24 @@ namespace NaitonGps.Views
                                         await session.CreateByConnectionProviderAddressAsync("https://connectionprovider.naiton.com/");
 
                                         Preferences.Set("token", SessionContext.Token);
+
+                                        UserLoginDetails userLoginDetails = new UserLoginDetails
+                                        {
+                                            userEmail = SessionContext.Login,
+                                            userPassword = SessionContext.Password,
+                                            userToken = SessionContext.Token,
+                                            appId = SessionContext.AppId,
+                                            appVersion = SessionContext.AppVersion,
+                                            isEncrypted = SessionContext.IsEncrypted,
+                                            restServiceAddress = "https://connectionprovider.naiton.com/",
+                                            domain = Preferences.Get("webservicelink", string.Empty)
+                                        };
+
+
+                                        App.Current.Properties["UserDetail"] = JsonConvert.SerializeObject(userLoginDetails);
+                                        await App.Current.SavePropertiesAsync();
+                                        Application.Current.Properties["IsLoggedIn"] = Boolean.TrueString;
+
                                         Application.Current.MainPage = new MainNavigationPage();
                                         break;
                                     }

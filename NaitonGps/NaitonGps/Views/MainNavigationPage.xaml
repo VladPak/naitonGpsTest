@@ -11,15 +11,7 @@
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
              BackgroundColor="{AppThemeBinding Light={StaticResource colorGrayBackground}, Dark={StaticResource colorGrayBackground}}" 
              >
-    <Grid Margin="0,0,0,0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="9*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+    <Grid RowDefinitions="*" ColumnDefinitions="*, 9*, *" Margin="0,0,0,0">
 
         <!--#region Bottom Navigation Menu -->
         <controls:TintedImage Grid.Row="0" Grid.Column="0" x:Name="btnLeftArrow" Source="leftarrow.png" TintColor="{AppThemeBinding Light={StaticResource colorGrayStatic}, Dark={StaticResource colorGrayStatic}}" WidthRequest="20" HeightRequest="20" Margin="0,0,0,5" HorizontalOptions="Start" VerticalOptions="End">
@@ -33,18 +25,7 @@
             </Image.GestureRecognizers>
         </controls:TintedImage>
 
-        <Grid x:Name="bottomNavMenu" Grid.Row="0" Grid.Column="1" ColumnSpacing="{markups:OnScreenSize DefaultSize='Auto', Medium='40', ExtraSmall='20'}" HorizontalOptions="Center" VerticalOptions="End">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
+        <Grid RowDefinitions="*" ColumnDefinitions="*, *, *, *, *" x:Name="bottomNavMenu" Grid.Row="0" Grid.Column="1" ColumnSpacing="{markups:OnScreenSize DefaultSize='Auto', Medium='40', ExtraSmall='20'}" HorizontalOptions="Center" VerticalOptions="End">
             <controls:TintedImage x:Name="navItem1" Grid.Row="0" Grid.Column="0" Source="" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigatingMenu"></TapGestureRecognizer>

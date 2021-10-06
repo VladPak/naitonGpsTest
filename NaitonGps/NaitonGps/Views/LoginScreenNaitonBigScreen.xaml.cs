@@ -1,4 +1,7 @@
-﻿using NaitonGps.Services;
+﻿using NaitonGps.Helpers;
+using NaitonGps.Models;
+using NaitonGps.Services;
+using Newtonsoft.Json;
 using Plugin.Connectivity;
 using SimpleWSA;
 using System;
@@ -58,6 +61,7 @@ namespace NaitonGps.Views
                 //Preferences.Set("loginEmail", entEmail.Text);
 
                 //Call Web service
+                //bool triggerLoggedIn;
                 taps++;
                 var response = await ApiService.GetWebService(entCompany.Text);
 
@@ -69,6 +73,7 @@ namespace NaitonGps.Views
                         var userPassword = entPassword.Text;
                         Preferences.Set("loginEmail", entEmail.Text);
                         Preferences.Set("loginPassword", entPassword.Text);
+
                         var emailPattern = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
 
                         if (CrossConnectivity.Current.IsConnected)
@@ -109,6 +114,24 @@ namespace NaitonGps.Views
                                         await session.CreateByConnectionProviderAddressAsync("https://connectionprovider.naiton.com/");
 
                                         Preferences.Set("token", SessionContext.Token);
+
+                                        UserLoginDetails userLoginDetails = new UserLoginDetails
+                                        {
+                                            userEmail = SessionContext.Login,
+                                            userPassword = SessionContext.Password,
+                                            userToken = SessionContext.Token,
+                                            appId = SessionContext.AppId,
+                                            appVersion = SessionContext.AppVersion,
+                                            isEncrypted = SessionContext.IsEncrypted,
+                                            restServiceAddress = "https://connectionprovider.naiton.com/",
+                                            domain = Preferences.Get("webservicelink", string.Empty)
+                                        };
+
+                                        
+                                        App.Current.Properties["UserDetail"] = JsonConvert.SerializeObject(userLoginDetails);
+                                        await App.Current.SavePropertiesAsync();
+                                        Application.Current.Properties["IsLoggedIn"] = Boolean.TrueString;
+
                                         Application.Current.MainPage = new MainNavigationPage();
                                         break;
                                     }

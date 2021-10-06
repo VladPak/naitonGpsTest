@@ -4,7 +4,6 @@
              xmlns:local="clr-namespace:NaitonGps.Controls"
              xmlns:customFrame="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:triggers="clr-namespace:NaitonGps.Triggers"
-
              x:Class="NaitonGps.Views.LoginScreenNaiton"
              NavigationPage.HasNavigationBar="False"
              xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
@@ -12,50 +11,18 @@
              iOS:Page.PrefersStatusBarHidden="True"
              iOS:Page.PreferredStatusBarUpdateAnimation="Fade"
              >
-    <Grid>
+    <Grid RowDefinitions="*" ColumnDefinitions="*">
         <Grid.GestureRecognizers>
             <TapGestureRecognizer Tapped="PopUpLoginFrame" NumberOfTapsRequired="1"></TapGestureRecognizer>
         </Grid.GestureRecognizers>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        
+
         <Image x:Name="imgBackground" Source="back2.png" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
-        <Grid Grid.Row="0" Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+        <Grid RowDefinitions="2*, *, *, *, *" ColumnDefinitions="*, *, *, *, *, *" Grid.Row="0" Grid.Column="0">
 
             <Image x:Name="imgLogo" Source="logoMain.png" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="4" ></Image>
             <ScrollView Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="4" x:Name="scrollToActivate">
                 <customFrame:PancakeView x:Name="frameLogin" BackgroundColor="#ffffff" CornerRadius="20,20,0,0">
-                <Grid Margin="10,15,10,20">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.7*"></RowDefinition>
-                        <RowDefinition Height="0.7*"></RowDefinition>
-                        <RowDefinition Height="0.7*"></RowDefinition>
-                        <RowDefinition Height="0.9*"></RowDefinition>
-                        <RowDefinition Height="0.6*"></RowDefinition>
-                        <RowDefinition Height="0.6*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+                    <Grid RowDefinitions="0.7*, 0.7*, 0.7*, 0.9*, 0.6*, 0.6*" ColumnDefinitions="*" Margin="10,15,10,20">
 
                     <local:FloatingLabelInput Title="Company" ReturnType="Next" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entCompany"/>
                     <local:FloatingLabelInput Title="Email" ReturnType="Next" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="entEmail"/>
@@ -69,9 +36,7 @@
                             Source="ic_eye_hide">
                         <ImageButton.Triggers>
                             <EventTrigger Event="Clicked">
-                                <triggers:ShowPasswordTriggerAction ShowIcon="ic_eye"
-                                                                    HideIcon="ic_eye_hide"
-                                                                    x:Name="ShowPasswordActualTrigger"/>
+                                <triggers:ShowPasswordTriggerAction ShowIcon="ic_eye" HideIcon="ic_eye_hide" x:Name="ShowPasswordActualTrigger"/>
                             </EventTrigger>
                         </ImageButton.Triggers>
                     </ImageButton>

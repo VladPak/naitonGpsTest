@@ -20,7 +20,7 @@
     </pages:PopupPage.Animation>
 
     <Frame CornerRadius="15" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#ffffff" HasShadow="False">
-        <Grid RowSpacing="{markups:OnScreenSize DefaultSize='Auto', Medium='10', ExtraSmall='8'}" ColumnSpacing="0" Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='0,0,0,15', ExtraSmall='0,0,0,0'}" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#ffffff">
+        <Grid ColumnDefinitions="*, *, *, *, *, *" RowSpacing="{markups:OnScreenSize DefaultSize='Auto', Medium='10', ExtraSmall='8'}" ColumnSpacing="0" Margin="{markups:OnScreenSize DefaultSize='Auto', Medium='0,0,0,15', ExtraSmall='0,0,0,0'}" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#ffffff">
             <Grid.RowDefinitions>
                 <RowDefinition Height="{markups:OnScreenSize DefaultSize='Auto', Medium='0.2*', ExtraSmall='0.2*'}"></RowDefinition>
                 <RowDefinition Height="{markups:OnScreenSize DefaultSize='Auto', Medium='0.6*', ExtraSmall='0.4*'}"></RowDefinition>
@@ -28,14 +28,6 @@
                 <RowDefinition Height="{markups:OnScreenSize DefaultSize='Auto', Medium='0.4*', ExtraSmall='0.4*'}"></RowDefinition>
                 <RowDefinition Height="{markups:OnScreenSize DefaultSize='Auto', Medium='0.5*', ExtraSmall='0.4*'}"></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
 
             <Image Source="closePopup.png" WidthRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='23'}" HeightRequest="{markups:OnScreenSize DefaultSize='Auto', Medium='30', ExtraSmall='23'}" Grid.Row="0" Grid.Column="5" HorizontalOptions="End" VerticalOptions="Start">
                 <Image.GestureRecognizers>
@@ -49,15 +41,7 @@
             <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="1" Text="Number of Labels" TextColor="#69717E" FontSize="{markups:OnScreenSize DefaultSize='Auto', Medium='16', ExtraSmall='14'}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
 
             <Frame HorizontalOptions="End" VerticalOptions="Center" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3" BackgroundColor="#f2f3f4" CornerRadius="15" HasShadow="False" Margin="0" Padding="0" HeightRequest="50">
-                <Grid ColumnSpacing="0" RowSpacing="0" >
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="2*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+                <Grid RowDefinitions="*" ColumnDefinitions="2*, *, 2*" ColumnSpacing="0" RowSpacing="0" >
 
                     <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#f2f3f4" CornerRadius="10" HasShadow="False" HorizontalOptions="Start">
                         <controls:TintedImage Source="minus.png" TintColor="#000000" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center">
@@ -85,8 +69,6 @@
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" NumberOfTapsRequired="1"></TapGestureRecognizer>
                 </Frame.GestureRecognizers>
             </Frame>
-
         </Grid>
     </Frame>
-
 </pages:PopupPage>
