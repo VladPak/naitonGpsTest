@@ -17,7 +17,6 @@ namespace NaitonGps.ViewsForEachRole
         public FourthRoleTemplateFive()
         {
             InitializeComponent();
-            move();
         }
 
         public async void move()

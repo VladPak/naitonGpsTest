@@ -16,24 +16,17 @@ namespace NaitonGps.Views
         public FifthRoleTemplate()
         {
             InitializeComponent();
-            lblUserEmail.Text = Preferences.Get("loginEmail", string.Empty);
-            move();
         }
 
 
         public async void move()
         {
-            await Content.TranslateTo(0, -300, 30, Easing.Linear);
-            await Header.TranslateTo(0, -300, 30, Easing.Linear);
-            Header.IsVisible = true;
-            Content.IsVisible = true;
-            await Header.TranslateTo(0, 0, 500);
-            await Content.TranslateTo(0, 0, 300);
-        }
-
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-
+            //await Content.TranslateTo(0, -300, 30, Easing.Linear);
+            //await Header.TranslateTo(0, -300, 30, Easing.Linear);
+            //Header.IsVisible = true;
+            //Content.IsVisible = true;
+            //await Header.TranslateTo(0, 0, 500);
+            //await Content.TranslateTo(0, 0, 300);
         }
     }
 }
