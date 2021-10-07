@@ -133,7 +133,7 @@ namespace NaitonGps.Views
 
             if (!isLoggedIn)
             {
-                await DisplayAlert("", "Oops access denied", "Okk");
+                await DisplayAlert("", "Oops access denied. (MainNavigationPage)", "Ok");
                 Application.Current.Quit();
             }
             else
@@ -146,9 +146,9 @@ namespace NaitonGps.Views
                         command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 1;
                         command.WriteSchema = WriteSchema.TRUE;
                         string xmlResult = SimpleWSA.Command.Execute(command,
-                                                           RoutineType.DataSet,
-                                                           httpMethod: SimpleWSA.HttpMethod.GET,
-                                                           responseFormat: ResponseFormat.JSON);
+                                                            RoutineType.DataSet,
+                                                            httpMethod: SimpleWSA.HttpMethod.GET,
+                                                            responseFormat: ResponseFormat.JSON);
 
                         var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
                         var allRoles = dataFinalize.Values.ToList();
@@ -591,8 +591,6 @@ namespace NaitonGps.Views
                     catch (Exception ex)
                     {
                         await DisplayAlert("", ex.Message, "Haha");
-                        //await SessionContext.Refresh();
-
                         break;
                     }
                 }

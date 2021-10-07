@@ -1,6 +1,7 @@
 ﻿using NaitonGps.Models;
 using Newtonsoft.Json;
 using Rg.Plugins.Popup.Extensions;
+using SimpleWSA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,9 @@ namespace NaitonGps.Views
         {
             InitializeComponent();
             UserLoginDetails userLoginDetails = JsonConvert.DeserializeObject<UserLoginDetails>((string)App.Current.Properties["UserDetail"]);
-            //UserLoginDetails userLoginDetails = JsonConvert.DeserializeObject<UserLoginDetails>(Settings.GeneralSettings);
-            //userEmail.Text = userData.;
-            //userPassword.Text = ;
-            //Session userData = JsonConvert.DeserializeObject<Session>((string)App.Current.Properties["UserDetail"]);
 
-            userEmail.Text = userLoginDetails.userToken;
+            //userEmail.Text = userLoginDetails.appVersion;
+            userEmail.Text = SessionContext.Token;
         }
 
         private async void Close(object sender, EventArgs e)

@@ -54,47 +54,5 @@ namespace NaitonGps.Services
             public string Function { get; set; }
             public string Token { get; set; }
         }
-
-        //public static async Task<bool> Login(string email, string password)
-        //{
-        //    var domain = Preferences.Get("loginCompany", string.Empty);
-        //    var webserviceLink = Preferences.Get("webservicelink", string.Empty);
-        //    string getTokenLink = String.Format(webserviceLink + "InitializeSession?domain={0}&login={1}&password={2}", domain, email, password);
-
-        //    var httpClient = new HttpClient();
-        //    var response = await httpClient.GetAsync(getTokenLink);
-        //    var responseContent = await response.Content.ReadAsStringAsync();
-        //    var content = JsonConvert.DeserializeObject<WebServiceSuccessResponse<InitializeSessionResponseContent>>(responseContent);
-        //    var tokenItself = content.Success.Token;
-        //    //var rsToString = responseContent.ToString();
-        //    Preferences.Set("accessToken", tokenItself);
-
-        //    if (!response.IsSuccessStatusCode)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        return true;
-        //    }
-        //}
-
-        //public static async Task<bool> LoginWSA(string email, string password)
-        //{
-        //    //var domain = Preferences.Get("loginCompany", string.Empty);
-        //    //var webserviceLink = Preferences.Get("webservicelink", string.Empty);
-        //    //Session session = new Session(email, password, false, 1, "1", domain, null);
-        //    //await session.CreateByRestServiceAddressAsync(webserviceLink);
-
-        //    //if (!)
-        //    //{
-        //    //    return false;
-        //    //}
-        //    //else
-        //    //{
-        //    //    return true;
-        //    //}
-        //}
-
     }
 }

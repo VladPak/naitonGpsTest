@@ -1,8 +1,10 @@
 ﻿using NaitonGps.Models;
+using NaitonGps.Services;
 using NaitonGps.Views;
 using Newtonsoft.Json;
 using SimpleWSA;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,11 +17,14 @@ namespace NaitonGps
         public static bool isSmallScreen { get; } = screenWidth <= 480;
         public static bool isBigScreen { get; } = screenWidth >= 480;
 
-
-        public  App()
+        public App()
         {
             InitializeComponent();
+        }
 
+        protected override async void OnStart()
+        {
+            base.OnStart();
             bool isLoggedIn = Current.Properties.ContainsKey("IsLoggedIn") ? Convert.ToBoolean(Current.Properties["IsLoggedIn"]) : false;
 
             if (isSmallScreen)
@@ -45,13 +50,12 @@ namespace NaitonGps
                 }
                 else
                 {
-                    while (true)
+                    try
                     {
-                        try
+                        var response = await ApiService.GetWebService("naitongps");
+                        if (response)
                         {
                             UserLoginDetails userData = JsonConvert.DeserializeObject<UserLoginDetails>((string)App.Current.Properties["UserDetail"]);
-
-                            string currentAppVersion = VersionTracking.CurrentVersion;
 
                             Session session = new Session(userData.userEmail,
                                                             userData.userPassword,
@@ -59,29 +63,23 @@ namespace NaitonGps
                                                             userData.appId,
                                                             userData.appVersion,
                                                             userData.domain,
-                                                            
                                                             null);
 
-                             session.CreateByConnectionProviderAddressAsync(userData.restServiceAddress);
+                            await session.CreateByConnectionProviderAddressAsync(userData.restServiceAddress);
                             var nav = new NavigationPage(new MainNavigationPage());
                             MainPage = nav;
-                            break;
                         }
-                        catch (Exception ex)
+                        else
                         {
-                             
-                            break;
+                            await App.Current.MainPage.DisplayAlert("", "Ghtun", "Ok");
                         }
                     }
-
-
+                    catch (Exception ex)
+                    {
+                        await App.Current.MainPage.DisplayAlert("", ex.Message, "Ok");
+                    }
                 }
             }
-        }
-
-        protected override void OnStart()
-        {
-
         }
 
         protected override void OnSleep()

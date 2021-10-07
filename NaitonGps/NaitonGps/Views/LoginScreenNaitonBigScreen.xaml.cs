@@ -58,10 +58,8 @@ namespace NaitonGps.Views
             if (CrossConnectivity.Current.IsConnected)
             {
                 Preferences.Set("loginCompany", entCompany.Text);
-                //Preferences.Set("loginEmail", entEmail.Text);
 
                 //Call Web service
-                //bool triggerLoggedIn;
                 taps++;
                 var response = await ApiService.GetWebService(entCompany.Text);
 
@@ -103,12 +101,12 @@ namespace NaitonGps.Views
                                     try
                                     {
                                         string currentAppVersion = VersionTracking.CurrentVersion;
-
+                                        string currentAppVersion1 = "1";
                                         Session session = new Session(userEmail,
                                                                         entPassword.Text,
                                                                         false,
                                                                         4,
-                                                                        currentAppVersion,
+                                                                        currentAppVersion1,
                                                                         Preferences.Get("loginCompany", string.Empty),
                                                                         null);
                                         await session.CreateByConnectionProviderAddressAsync("https://connectionprovider.naiton.com/");
@@ -126,7 +124,6 @@ namespace NaitonGps.Views
                                             restServiceAddress = "https://connectionprovider.naiton.com/",
                                             domain = Preferences.Get("webservicelink", string.Empty)
                                         };
-
                                         
                                         App.Current.Properties["UserDetail"] = JsonConvert.SerializeObject(userLoginDetails);
                                         await App.Current.SavePropertiesAsync();
@@ -140,7 +137,6 @@ namespace NaitonGps.Views
                                         if (exRes.Code == "MI008")
                                         {
                                             await SessionContext.Refresh();
-                                            
                                             continue;
                                         }
                                         else
@@ -161,9 +157,7 @@ namespace NaitonGps.Views
                                         entEmail.Focus();
                                         break;
                                     }
-                                }
-                                
-
+                                }   
                             }
                         }
                         else
