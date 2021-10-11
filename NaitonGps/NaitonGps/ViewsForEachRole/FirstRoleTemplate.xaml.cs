@@ -1,7 +1,9 @@
 ﻿using NaitonGps.Models;
 using NaitonGps.Services;
 using NaitonGps.ViewModels;
+using Newtonsoft.Json;
 using Rg.Plugins.Popup.Extensions;
+using SimpleWSA;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -20,6 +22,20 @@ namespace NaitonGps.Views
         public FirstRoleTemplate()
         {
             InitializeComponent();
+
+            //SimpleWSA.Command command = new SimpleWSA.Command("picklistmanager_getpicklists");
+            //command.Parameters.Add("_picklistid", PgsqlDbType.Integer);
+            //command.Parameters.Add("_statusid", PgsqlDbType.Integer);
+            //command.WriteSchema = WriteSchema.TRUE;
+            //string xmlResult = SimpleWSA.Command.Execute(command,
+            //                                    RoutineType.DataSet,
+            //                                    httpMethod: SimpleWSA.HttpMethod.GET,
+            //                                    responseFormat: ResponseFormat.JSON);
+
+            //var dataFinalize = JsonConvert.DeserializeObject<Dictionary<string, Roles[]>>(xmlResult);
+            //var allRoles = dataFinalize.Values.ToList();
+
+
             BindingContext = new PickListViewModel();
         }
 

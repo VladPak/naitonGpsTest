@@ -143,7 +143,7 @@ namespace NaitonGps.Views
                     try
                     {
                         SimpleWSA.Command command = new SimpleWSA.Command("rolemanager_getcheckroleobjects");
-                        command.Parameters.Add("_roleid", PgsqlDbType.Integer).Value = 1;
+                        command.Parameters.Add("_roleid", PgsqlDbType.Integer);
                         command.WriteSchema = WriteSchema.TRUE;
                         string xmlResult = SimpleWSA.Command.Execute(command,
                                                             RoutineType.DataSet,
